@@ -1,0 +1,29 @@
+#mean_z  upper_z   lower_z    f_esc      lowErr       upper_Err 
+
+#Fletcher et al. (2019) upper limit
+#3.10      3.10       3.10    0.005      0.0            0.0          # LAE 42 Broad-band 
+
+#Mestric et al.    upper limit
+#4.9       3.80       6.0     0.006      0.0            0.0          #Random 39 Broad-band 
+
+#Kakiichi et al. (2018) upper limit
+5.8       5.8        5.8     0.08       0.0            0.0          #LBG 6 Spectroscopy 
+# Tanvir et al. (2019)  upper limit
+4.15      2.0        6.7     0.015      0.0            0.0          #GRB 140 Spectroscopy
+# Ji et al. (2020)   upper limit
+3.68      3.40       3.95    0.029      0.0            0.0          #LBG 107 Broad-band
+
+
+#39 Vielfaure et al. (2020) upper limit0.
+3.5       3.5        3.5     0.43       0.0            0.0          #GRB 1 Spectroscopy 
+#Bosman et al. (2020)  upper limit
+5.8       5.8        5.8     0.01       0.0            0.0          #LAE 1 Spectroscopy 
+#Bian & Fan (2020)     upper limit
+3.1       3.1        3.1     0.32       0.0            0.0          #LAE 54 Spectroscopy 
+#Pahl et al. (2021)    upper limit
+3.05      2.87       3.23    0.05       0.0            0.0          #LBG 107 Spectroscopy 
+#U. Mestric et al. (2021)  upper limit
+3.28      3.00       3.56    0.06       0.0            0.0          #SFG 9 Spectroscopy 
+
+
+           
