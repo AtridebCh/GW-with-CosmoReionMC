@@ -1,0 +1,28 @@
+#! /usr/bin/env python
+# don't do much for now
+from optparse import OptionParser
+parser = OptionParser()
+
+parser.add_option("--cflags", action="store_true",
+                  help="only the cflags")
+parser.add_option("--libs", action="store_true",
+                  help="only libflags")
+
+(options, args) = parser.parse_args()
+
+
+res={}
+cflags = """-m64 -fopenmp -fPIC  -D HAS_LAPACK -D LAPACK_CLIK -D NOHEALPIX -D CLIK_LENSING -D 'CLIKSVNVERSION="plc_3.1 MAKEFILE"' -D CAMSPEC_V1 -I /home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/include -I/home/atri/anaconda3/envs/camb_gw_cosmo/include"""
+libs = """-m64 -L/home/atri/anaconda3/envs/camb_gw_cosmo/lib -lcfitsio -lgfortran -lgomp -lm -ldl -lm -lpthread -L/home/atri/anaconda3/envs/camb_gw_cosmo/lib -lcfitsio -lgfortran -lgomp -lm  -L/home/atri/anaconda3/envs/camb_gw_cosmo/lib -llapack -lblas -L/home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/lib -lclik"""
+
+if (not options.libs) and (not options.cflags):
+  options.libs=True
+  options.cflags=True
+
+if options.cflags:
+  print cflags,
+if options.libs:
+  print libs,
+print
+
+

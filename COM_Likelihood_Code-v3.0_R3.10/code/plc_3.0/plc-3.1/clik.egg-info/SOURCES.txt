@@ -1,0 +1,15 @@
+setup.py
+clik.egg-info/PKG-INFO
+clik.egg-info/SOURCES.txt
+clik.egg-info/dependency_links.txt
+clik.egg-info/top_level.txt
+src/plik/component_plugin/rel2015/rel2015.c
+src/python/clik/__init__.py
+src/python/clik/cldf.py
+src/python/clik/hpy.py
+src/python/clik/lkl.c
+src/python/clik/lkl_lensing.c
+src/python/clik/miniparse.py
+src/python/clik/parametric.c
+src/python/clik/parobject.py
+src/python/clik/smicahlp.py

@@ -1,0 +1,1344 @@
+Waf: Entering directory `/home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/build'
+add plik/component_plugin/rel2015/fg2015.c
+add plik/component_plugin/rel2015/corrnoise.c
+add plik/component_plugin/rel2015/leakage.c
+[ 59/141] Compiling build/src/python/clik/lkl.pyx.c
+12:50:43 runner ['/usr/bin/gcc', '-std=gnu89', '-fPIC', '-shared', '-Isrc', '-I../src', '-Isrc/minipmc', '-I../src/minipmc', '-I../../../../../../anaconda3/envs/camb_gw_cosmo/include', '-I../include', '-I../../../../../../anaconda3/envs/camb_gw_cosmo/include/python3.10', '-I../../../../../../anaconda3/envs/camb_gw_cosmo/lib/python3.10/site-packages/numpy/_core/include', '-DPYTHONDIR="/home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/lib/python3.10/site-packages"', '-DPYTHONARCHDIR="/home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/lib/python3.10/site-packages"', '-DHAVE_PYEMBED=1', '-DHAVE_PYTHON_H=1', '-DHAVE_LAPACK_CLIK_H=1', '-DHAVE_FITSIO_H=1', '-DHAS_LAPACK', '-DLAPACK_CLIK', '-DHAS_RTLD_DEFAULT', 'src/python/clik/lkl.pyx.c', '-c', '-o/home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/build/src/python/clik/lkl.pyx.c.1.o']
+[ 60/141] Compiling build/src/python/clik/lkl_lensing.pyx.c
+12:50:43 runner ['/usr/bin/gcc', '-std=gnu89', '-fPIC', '-shared', '-Isrc', '-I../src', '-Isrc/minipmc', '-I../src/minipmc', '-I../../../../../../anaconda3/envs/camb_gw_cosmo/include', '-I../include', '-I../../../../../../anaconda3/envs/camb_gw_cosmo/include/python3.10', '-I../../../../../../anaconda3/envs/camb_gw_cosmo/lib/python3.10/site-packages/numpy/_core/include', '-DPYTHONDIR="/home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/lib/python3.10/site-packages"', '-DPYTHONARCHDIR="/home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/lib/python3.10/site-packages"', '-DHAVE_PYEMBED=1', '-DHAVE_PYTHON_H=1', '-DHAVE_LAPACK_CLIK_H=1', '-DHAVE_FITSIO_H=1', '-DCLIK_LENSING', '-DHAS_LAPACK', '-DLAPACK_CLIK', '-DHAS_RTLD_DEFAULT', 'src/python/clik/lkl_lensing.pyx.c', '-c', '-o/home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/build/src/python/clik/lkl_lensing.pyx.c.2.o']
+[ 61/141] Compiling build/src/python/clik/parametric.pyx.c
+12:50:43 runner ['/usr/bin/gcc', '-std=gnu89', '-fPIC', '-shared', '-Isrc', '-I../src', '-Isrc/plik', '-I../src/plik', '-Isrc/minipmc', '-I../src/minipmc', '-I../../../../../../anaconda3/envs/camb_gw_cosmo/include', '-I../include', '-I../../../../../../anaconda3/envs/camb_gw_cosmo/include/python3.10', '-I../../../../../../anaconda3/envs/camb_gw_cosmo/lib/python3.10/site-packages/numpy/_core/include', '-DPYTHONDIR="/home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/lib/python3.10/site-packages"', '-DPYTHONARCHDIR="/home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/lib/python3.10/site-packages"', '-DHAVE_PYEMBED=1', '-DHAVE_PYTHON_H=1', '-DHAVE_LAPACK_CLIK_H=1', '-DHAVE_FITSIO_H=1', '-DHAS_LAPACK', '-DLAPACK_CLIK', '-DHAS_RTLD_DEFAULT', 'src/python/clik/parametric.pyx.c', '-c', '-o/home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/build/src/python/clik/parametric.pyx.c.3.o']
+[ 62/141] Compiling build/src/plik/component_plugin/rel2015/rel2015.pyx.c
+12:50:43 runner ['/usr/bin/gcc', '-std=gnu89', '-fPIC', '-shared', '-Isrc/python/clik', '-I../src/python/clik', '-Isrc/python', '-I../src/python', '-Isrc', '-I../src', '-Isrc/plik', '-I../src/plik', '-Isrc/minipmc', '-I../src/minipmc', '-I../../../../../../anaconda3/envs/camb_gw_cosmo/include', '-I../include', '-I../../../../../../anaconda3/envs/camb_gw_cosmo/include/python3.10', '-I../../../../../../anaconda3/envs/camb_gw_cosmo/lib/python3.10/site-packages/numpy/_core/include', '-DPYTHONDIR="/home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/lib/python3.10/site-packages"', '-DPYTHONARCHDIR="/home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/lib/python3.10/site-packages"', '-DHAVE_PYEMBED=1', '-DHAVE_PYTHON_H=1', '-DHAVE_LAPACK_CLIK_H=1', '-DHAVE_FITSIO_H=1', '-DHAS_LAPACK', '-DLAPACK_CLIK', '-DHAS_RTLD_DEFAULT', 'src/plik/component_plugin/rel2015/rel2015.pyx.c', '-c', '-o/home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/build/src/plik/component_plugin/rel2015/rel2015.pyx.c.4.o']
+- install /home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/include/clik_lensing.h (from src/clik_lensing.h)
+- install /home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/include/clik.h (from src/clik.h)
+- install /home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/include/errorlist.h (from src/minipmc/errorlist.h)
+- install /home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/lib/python/site-packages/clik/__pycache__/cldf.cpython-310.pyo (from build/src/python/clik/__pycache__/cldf.cpython-310.pyo)
+- install /home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/lib/python/site-packages/clik/__pycache__/parobject.cpython-310.pyo (from build/src/python/clik/__pycache__/parobject.cpython-310.pyo)
+- install /home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/lib/python/site-packages/clik/__init__.py (from src/python/clik/__init__.py)
+- install /home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/lib/python/site-packages/clik/__pycache__/__init__.cpython-310.pyo (from build/src/python/clik/__pycache__/__init__.cpython-310.pyo)
+- install /home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/lib/python/site-packages/clik/__pycache__/hpy.cpython-310.pyo (from build/src/python/clik/__pycache__/hpy.cpython-310.pyo)
+- install /home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/lib/python/site-packages/clik/parobject.py (from src/python/clik/parobject.py)
+- install /home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/lib/python/site-packages/clik/miniparse.py (from src/python/clik/miniparse.py)
+- install /home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/lib/python/site-packages/clik/smicahlp.py (from src/python/clik/smicahlp.py)
+- install /home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/lib/python/site-packages/clik/__pycache__/parobject.cpython-310.pyc (from build/src/python/clik/__pycache__/parobject.cpython-310.pyc)
+- install /home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/lib/python/site-packages/clik/__pycache__/cldf.cpython-310.pyc (from build/src/python/clik/__pycache__/cldf.cpython-310.pyc)
+- install /home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/lib/python/site-packages/clik/hpy.py (from src/python/clik/hpy.py)
+- install /home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/lib/python/site-packages/clik/__pycache__/hpy.cpython-310.pyc (from build/src/python/clik/__pycache__/hpy.cpython-310.pyc)
+- install /home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/lib/python/site-packages/clik/__pycache__/smicahlp.cpython-310.pyc (from build/src/python/clik/__pycache__/smicahlp.cpython-310.pyc)
+- install /home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/lib/python/site-packages/clik/cldf.py (from src/python/clik/cldf.py)
+- install /home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/lib/python/site-packages/clik/__pycache__/__init__.cpython-310.pyc (from build/src/python/clik/__pycache__/__init__.cpython-310.pyc)
+- install /home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/lib/python/site-packages/clik/__pycache__/smicahlp.cpython-310.pyo (from build/src/python/clik/__pycache__/smicahlp.cpython-310.pyo)
+- install /home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/lib/python/site-packages/clik/__pycache__/miniparse.cpython-310.pyc (from build/src/python/clik/__pycache__/miniparse.cpython-310.pyc)
+- install /home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/lib/python/site-packages/clik/__pycache__/miniparse.cpython-310.pyo (from build/src/python/clik/__pycache__/miniparse.cpython-310.pyo)
+- install /home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/share/clik/rel2015/tsz_143_eps0.50.dat (from src/plik/component_plugin/rel2015/tsz_143_eps0.50.dat)
+- install /home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/bin/clik_change_lrange (from build/src/python/clik_change_lrange)
+- install /home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/bin/prepare_wmap (from build/src/python/prepare_wmap)
+- install /home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/share/clik/rel2015/sz_x_cib_template.dat (from src/plik/component_plugin/rel2015/sz_x_cib_template.dat)
+- install /home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/share/clik/rel2015/ksz_fromcamspec.dat (from src/plik/component_plugin/rel2015/ksz_fromcamspec.dat)
+- install /home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/bin/clik_explore_1d (from build/src/python/clik_explore_1d)
+- install /home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/share/clik/rel2015/cib_1h_2h_100_353_Jsr-1_PS_2014_09.dat (from src/plik/component_plugin/rel2015/cib_1h_2h_100_353_Jsr-1_PS_2014_09.dat)
+- install /home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/bin/clik_example_py (from build/src/python/clik_example_py)
+- install /home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/share/clik/rel2015/sky_template_v15_F100_143_217_353.dat (from src/plik/component_plugin/rel2015/sky_template_v15_F100_143_217_353.dat)
+- install /home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/share/clik/rel2015/cnoise_F100_143_217_353_v17.dat (from src/plik/component_plugin/rel2015/cnoise_F100_143_217_353_v17.dat)
+- install /home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/share/clik/rel2015/cleak_eh_rd12rc3_v1.dat (from src/plik/component_plugin/rel2015/cleak_eh_rd12rc3_v1.dat)
+- install /home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/share/clik/rel2015/cnoise_e2e_v2.dat (from src/plik/component_plugin/rel2015/cnoise_e2e_v2.dat)
+- install /home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/share/clik/rel2015/sbpx_tmpl_v4_hm.dat (from src/plik/component_plugin/rel2015/sbpx_tmpl_v4_hm.dat)
+- install /home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/bin/clik_change_lrange_bychannel_pol (from build/src/python/clik_change_lrange_bychannel_pol)
+- install /home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/bin/clik_print (from build/src/python/clik_print)
+- install /home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/bin/clik_get_selfcheck (from build/src/python/clik_get_selfcheck)
+- install /home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/lib/libclik.so (from build/src/libclik.so)
+- install /home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/bin/clik_example_C (from build/src/clik_example_C)
+- install /home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/bin/clik_example_f90 (from build/src/clik_example_f90)
+- install /home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/lib/libclik_f90.so (from build/src/libclik_f90.so)
+In file included from ../../../../../../anaconda3/envs/camb_gw_cosmo/lib/python3.10/site-packages/numpy/_core/include/numpy/ndarraytypes.h:1913,
+                 from ../../../../../../anaconda3/envs/camb_gw_cosmo/lib/python3.10/site-packages/numpy/_core/include/numpy/ndarrayobject.h:12,
+                 from ../../../../../../anaconda3/envs/camb_gw_cosmo/lib/python3.10/site-packages/numpy/_core/include/numpy/arrayobject.h:5,
+                 from src/python/clik/lkl_lensing.pyx.c:1125:
+../../../../../../anaconda3/envs/camb_gw_cosmo/lib/python3.10/site-packages/numpy/_core/include/numpy/npy_1_7_deprecated_api.h:17:2: warning: #warning "Using deprecated NumPy API, disable it with " "#define NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION" [-Wcpp]
+   17 | #warning "Using deprecated NumPy API, disable it with " \
+      |  ^~~~~~~
+src/python/clik/lkl_lensing.pyx.c: In function ‘__pyx_pw_4clik_11lkl_lensing_6CError_1__init__’:
+src/python/clik/lkl_lensing.pyx.c:5010:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 5010 |       for (Py_ssize_t i = __pyx_nargs; i < 3; i++) {
+      |       ^~~
+src/python/clik/lkl_lensing.pyx.c:5010:7: note: use option ‘-std=c99’, ‘-std=gnu99’, ‘-std=c11’ or ‘-std=gnu11’ to compile your code
+src/python/clik/lkl_lensing.pyx.c:5033:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 5033 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/lkl_lensing.pyx.c:5043:19: error: redefinition of ‘__pyx_temp’
+ 5043 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/lkl_lensing.pyx.c:5033:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+ 5033 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/lkl_lensing.pyx.c:5043:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 5043 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/lkl_lensing.pyx.c: In function ‘__pyx_pw_4clik_11lkl_lensing_6CError_3__str__’:
+src/python/clik/lkl_lensing.pyx.c:5155:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 5155 |       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
+      |       ^~~
+src/python/clik/lkl_lensing.pyx.c:5172:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 5172 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/lkl_lensing.pyx.c:5182:19: error: redefinition of ‘__pyx_temp’
+ 5182 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/lkl_lensing.pyx.c:5172:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+ 5172 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/lkl_lensing.pyx.c:5182:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 5182 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/lkl_lensing.pyx.c: In function ‘__pyx_pw_4clik_11lkl_lensing_12clik_lensing_1__init__’:
+src/python/clik/lkl_lensing.pyx.c:5452:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 5452 |       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
+      |       ^~~
+src/python/clik/lkl_lensing.pyx.c:5469:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 5469 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/lkl_lensing.pyx.c:5479:19: error: redefinition of ‘__pyx_temp’
+ 5479 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/lkl_lensing.pyx.c:5469:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+ 5469 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/lkl_lensing.pyx.c:5479:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 5479 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/lkl_lensing.pyx.c: In function ‘__pyx_pw_4clik_11lkl_lensing_12clik_lensing_3__call__’:
+src/python/clik/lkl_lensing.pyx.c:5768:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 5768 |       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
+      |       ^~~
+src/python/clik/lkl_lensing.pyx.c:5785:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 5785 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/lkl_lensing.pyx.c:5795:19: error: redefinition of ‘__pyx_temp’
+ 5795 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/lkl_lensing.pyx.c:5785:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+ 5785 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/lkl_lensing.pyx.c:5795:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 5795 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/lkl_lensing.pyx.c: In function ‘__pyx_pw_4clik_11lkl_lensing_12clik_lensing_19__setstate_cython__’:
+src/python/clik/lkl_lensing.pyx.c:7833:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 7833 |       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
+      |       ^~~
+src/python/clik/lkl_lensing.pyx.c:7850:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 7850 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/lkl_lensing.pyx.c:7860:19: error: redefinition of ‘__pyx_temp’
+ 7860 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/lkl_lensing.pyx.c:7850:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+ 7850 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/lkl_lensing.pyx.c:7860:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 7860 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/lkl_lensing.pyx.c: In function ‘__pyx_pw_4clik_11lkl_lensing_1try_lensing’:
+src/python/clik/lkl_lensing.pyx.c:7958:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 7958 |       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
+      |       ^~~
+src/python/clik/lkl_lensing.pyx.c:7975:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 7975 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/lkl_lensing.pyx.c:7985:19: error: redefinition of ‘__pyx_temp’
+ 7985 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/lkl_lensing.pyx.c:7975:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+ 7975 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/lkl_lensing.pyx.c:7985:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 7985 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/lkl_lensing.pyx.c: In function ‘__Pyx_InitConstants’:
+src/python/clik/lkl_lensing.pyx.c:9173:5: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 9173 |     for (int i = 0; i < 97; i++) {
+      |     ^~~
+src/python/clik/lkl_lensing.pyx.c:9184:14: error: redefinition of ‘i’
+ 9184 |     for (int i = 97; i < 107; i++) {
+      |              ^
+src/python/clik/lkl_lensing.pyx.c:9173:14: note: previous definition of ‘i’ with type ‘int’
+ 9173 |     for (int i = 0; i < 97; i++) {
+      |              ^
+src/python/clik/lkl_lensing.pyx.c:9184:5: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 9184 |     for (int i = 97; i < 107; i++) {
+      |     ^~~
+src/python/clik/lkl_lensing.pyx.c:9195:21: error: conflicting types for ‘i’; have ‘Py_ssize_t’ {aka ‘long int’}
+ 9195 |     for (Py_ssize_t i = 0; i < 107; i++) {
+      |                     ^
+src/python/clik/lkl_lensing.pyx.c:9184:14: note: previous definition of ‘i’ with type ‘int’
+ 9184 |     for (int i = 97; i < 107; i++) {
+      |              ^
+src/python/clik/lkl_lensing.pyx.c:9195:5: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 9195 |     for (Py_ssize_t i = 0; i < 107; i++) {
+      |     ^~~
+src/python/clik/lkl_lensing.pyx.c:9224:5: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 9224 |     for (int i = 0; i < 3; i++) {
+      |     ^~~
+src/python/clik/lkl_lensing.pyx.c: In function ‘__Pyx_ParseKeywordsTuple’:
+src/python/clik/lkl_lensing.pyx.c:10740:5: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+10740 |     for (Py_ssize_t pos = 0; pos < num_kwargs; pos++) {
+      |     ^~~
+src/python/clik/lkl_lensing.pyx.c: In function ‘__Pyx_PyCode_New’:
+src/python/clik/lkl_lensing.pyx.c:16088:5: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+16088 |     for (Py_ssize_t i=0; i < var_count; i++) {
+      |     ^~~
+
+src/plik/component_plugin/rel2015/rel2015.pyx.c: In function ‘__pyx_pw_7rel2015_27powerlaw_free_emissivity_XX_5__setstate_cython__’:
+src/plik/component_plugin/rel2015/rel2015.pyx.c:3183:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 3183 |       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
+      |       ^~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:3183:7: note: use option ‘-std=c99’, ‘-std=gnu99’, ‘-std=c11’ or ‘-std=gnu11’ to compile your code
+src/plik/component_plugin/rel2015/rel2015.pyx.c:3200:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 3200 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:3210:19: error: redefinition of ‘__pyx_temp’
+ 3210 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:3200:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+ 3200 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:3210:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 3210 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c: In function ‘__pyx_pw_7rel2015_27powerlaw_free_emissivity_EE_5__setstate_cython__’:
+src/plik/component_plugin/rel2015/rel2015.pyx.c:3445:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 3445 |       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
+      |       ^~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:3462:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 3462 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:3472:19: error: redefinition of ‘__pyx_temp’
+ 3472 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:3462:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+ 3462 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:3472:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 3472 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c: In function ‘__pyx_pw_7rel2015_27powerlaw_free_emissivity_TE_5__setstate_cython__’:
+src/plik/component_plugin/rel2015/rel2015.pyx.c:3707:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 3707 |       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
+      |       ^~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:3724:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 3724 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:3734:19: error: redefinition of ‘__pyx_temp’
+ 3734 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:3724:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+ 3724 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:3734:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 3734 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c: In function ‘__pyx_pw_7rel2015_1galf_P_rename_func’:
+src/plik/component_plugin/rel2015/rel2015.pyx.c:3837:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 3837 |       for (Py_ssize_t i = __pyx_nargs; i < 2; i++) {
+      |       ^~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:3857:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 3857 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:3867:19: error: redefinition of ‘__pyx_temp’
+ 3867 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:3857:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+ 3857 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:3867:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 3867 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c: In function ‘__pyx_pw_7rel2015_3ps_P_rename_func’:
+src/plik/component_plugin/rel2015/rel2015.pyx.c:4028:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 4028 |       for (Py_ssize_t i = __pyx_nargs; i < 2; i++) {
+      |       ^~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:4048:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 4048 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:4058:19: error: redefinition of ‘__pyx_temp’
+ 4058 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:4048:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+ 4048 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:4058:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 4058 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c: In function ‘__pyx_pw_7rel2015_6gal545_5__setstate_cython__’:
+src/plik/component_plugin/rel2015/rel2015.pyx.c:4351:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 4351 |       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
+      |       ^~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:4368:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 4368 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:4378:19: error: redefinition of ‘__pyx_temp’
+ 4378 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:4368:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+ 4368 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:4378:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 4378 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c: In function ‘__pyx_pw_7rel2015_11pointsource_5__setstate_cython__’:
+src/plik/component_plugin/rel2015/rel2015.pyx.c:4613:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 4613 |       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
+      |       ^~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:4630:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 4630 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:4640:19: error: redefinition of ‘__pyx_temp’
+ 4640 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:4630:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+ 4630 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:4640:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 4640 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c: In function ‘__pyx_pw_7rel2015_5sz_spectrum’:
+src/plik/component_plugin/rel2015/rel2015.pyx.c:4744:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 4744 |       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
+      |       ^~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:4770:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 4770 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:4780:19: error: redefinition of ‘__pyx_temp’
+ 4780 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:4770:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+ 4770 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:4780:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 4780 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c: In function ‘__pyx_pw_7rel2015_2sz_5__setstate_cython__’:
+src/plik/component_plugin/rel2015/rel2015.pyx.c:5070:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 5070 |       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
+      |       ^~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:5087:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 5087 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:5097:19: error: redefinition of ‘__pyx_temp’
+ 5097 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:5087:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+ 5087 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:5097:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 5097 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c: In function ‘__pyx_pw_7rel2015_3ksz_5__setstate_cython__’:
+src/plik/component_plugin/rel2015/rel2015.pyx.c:5373:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 5373 |       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
+      |       ^~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:5390:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 5390 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:5400:19: error: redefinition of ‘__pyx_temp’
+ 5400 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:5390:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+ 5390 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:5400:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 5400 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c: In function ‘__pyx_pw_7rel2015_4gcib_5__setstate_cython__’:
+src/plik/component_plugin/rel2015/rel2015.pyx.c:5676:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 5676 |       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
+      |       ^~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:5693:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 5693 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:5703:19: error: redefinition of ‘__pyx_temp’
+ 5703 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:5693:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+ 5693 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:5703:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 5703 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c: In function ‘__pyx_pw_7rel2015_6gibXsz_5__setstate_cython__’:
+src/plik/component_plugin/rel2015/rel2015.pyx.c:5984:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 5984 |       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
+      |       ^~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:6001:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 6001 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:6011:19: error: redefinition of ‘__pyx_temp’
+ 6011 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:6001:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+ 6001 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:6011:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 6011 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c: In function ‘__pyx_pw_7rel2015_5bleak_5__setstate_cython__’:
+src/plik/component_plugin/rel2015/rel2015.pyx.c:6287:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 6287 |       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
+      |       ^~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:6304:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 6304 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:6314:19: error: redefinition of ‘__pyx_temp’
+ 6314 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:6304:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+ 6304 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:6314:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 6314 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c: In function ‘__pyx_pw_7rel2015_6cnoise_5__setstate_cython__’:
+src/plik/component_plugin/rel2015/rel2015.pyx.c:6590:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 6590 |       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
+      |       ^~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:6607:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 6607 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:6617:19: error: redefinition of ‘__pyx_temp’
+ 6617 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:6607:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+ 6607 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:6617:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 6617 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c: In function ‘__Pyx_InitConstants’:
+src/plik/component_plugin/rel2015/rel2015.pyx.c:9919:5: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 9919 |     for (int i = 0; i < 124; i++) {
+      |     ^~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:9930:14: error: redefinition of ‘i’
+ 9930 |     for (int i = 124; i < 129; i++) {
+      |              ^
+src/plik/component_plugin/rel2015/rel2015.pyx.c:9919:14: note: previous definition of ‘i’ with type ‘int’
+ 9919 |     for (int i = 0; i < 124; i++) {
+      |              ^
+src/plik/component_plugin/rel2015/rel2015.pyx.c:9930:5: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 9930 |     for (int i = 124; i < 129; i++) {
+      |     ^~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:9941:21: error: conflicting types for ‘i’; have ‘Py_ssize_t’ {aka ‘long int’}
+ 9941 |     for (Py_ssize_t i = 0; i < 129; i++) {
+      |                     ^
+src/plik/component_plugin/rel2015/rel2015.pyx.c:9930:14: note: previous definition of ‘i’ with type ‘int’
+ 9930 |     for (int i = 124; i < 129; i++) {
+      |              ^
+src/plik/component_plugin/rel2015/rel2015.pyx.c:9941:5: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 9941 |     for (Py_ssize_t i = 0; i < 129; i++) {
+      |     ^~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c:9969:5: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 9969 |     for (int i = 0; i < 1; i++) {
+      |     ^~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c: In function ‘__Pyx_ParseKeywordsTuple’:
+src/plik/component_plugin/rel2015/rel2015.pyx.c:11387:5: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+11387 |     for (Py_ssize_t pos = 0; pos < num_kwargs; pos++) {
+      |     ^~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c: In function ‘__Pyx_PyList_Pack’:
+src/plik/component_plugin/rel2015/rel2015.pyx.c:13923:5: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+13923 |     for (Py_ssize_t i=0; i<n; ++i) {
+      |     ^~~
+src/plik/component_plugin/rel2015/rel2015.pyx.c: In function ‘__Pyx_PyCode_New’:
+src/plik/component_plugin/rel2015/rel2015.pyx.c:15120:5: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+15120 |     for (Py_ssize_t i=0; i < var_count; i++) {
+      |     ^~~
+
+In file included from ../../../../../../anaconda3/envs/camb_gw_cosmo/lib/python3.10/site-packages/numpy/_core/include/numpy/ndarraytypes.h:1913,
+                 from ../../../../../../anaconda3/envs/camb_gw_cosmo/lib/python3.10/site-packages/numpy/_core/include/numpy/ndarrayobject.h:12,
+                 from ../../../../../../anaconda3/envs/camb_gw_cosmo/lib/python3.10/site-packages/numpy/_core/include/numpy/arrayobject.h:5,
+                 from src/python/clik/lkl.pyx.c:1125:
+../../../../../../anaconda3/envs/camb_gw_cosmo/lib/python3.10/site-packages/numpy/_core/include/numpy/npy_1_7_deprecated_api.h:17:2: warning: #warning "Using deprecated NumPy API, disable it with " "#define NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION" [-Wcpp]
+   17 | #warning "Using deprecated NumPy API, disable it with " \
+      |  ^~~~~~~
+src/python/clik/lkl.pyx.c: In function ‘__pyx_pw_4clik_3lkl_6CError_1__init__’:
+src/python/clik/lkl.pyx.c:5009:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 5009 |       for (Py_ssize_t i = __pyx_nargs; i < 3; i++) {
+      |       ^~~
+src/python/clik/lkl.pyx.c:5009:7: note: use option ‘-std=c99’, ‘-std=gnu99’, ‘-std=c11’ or ‘-std=gnu11’ to compile your code
+src/python/clik/lkl.pyx.c:5032:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 5032 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/lkl.pyx.c:5042:19: error: redefinition of ‘__pyx_temp’
+ 5042 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/lkl.pyx.c:5032:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+ 5032 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/lkl.pyx.c:5042:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 5042 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/lkl.pyx.c: In function ‘__pyx_pw_4clik_3lkl_6CError_3__str__’:
+src/python/clik/lkl.pyx.c:5154:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 5154 |       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
+      |       ^~~
+src/python/clik/lkl.pyx.c:5171:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 5171 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/lkl.pyx.c:5181:19: error: redefinition of ‘__pyx_temp’
+ 5181 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/lkl.pyx.c:5171:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+ 5171 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/lkl.pyx.c:5181:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 5181 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/lkl.pyx.c: In function ‘__pyx_pw_4clik_3lkl_4clik_3__init__’:
+src/python/clik/lkl.pyx.c:5630:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 5630 |       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
+      |       ^~~
+src/python/clik/lkl.pyx.c:5647:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 5647 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/lkl.pyx.c:5657:19: error: redefinition of ‘__pyx_temp’
+ 5657 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/lkl.pyx.c:5647:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+ 5647 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/lkl.pyx.c:5657:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 5657 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/lkl.pyx.c: In function ‘__pyx_pw_4clik_3lkl_4clik_5__call__’:
+src/python/clik/lkl.pyx.c:5956:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 5956 |       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
+      |       ^~~
+src/python/clik/lkl.pyx.c:5973:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 5973 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/lkl.pyx.c:5983:19: error: redefinition of ‘__pyx_temp’
+ 5983 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/lkl.pyx.c:5973:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+ 5973 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/lkl.pyx.c:5983:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 5983 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/lkl.pyx.c: In function ‘__pyx_pw_4clik_3lkl_4clik_15get_extra_parameter_names_by_lkl’:
+src/python/clik/lkl.pyx.c:7238:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 7238 |       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
+      |       ^~~
+src/python/clik/lkl.pyx.c:7255:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 7255 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/lkl.pyx.c:7265:19: error: redefinition of ‘__pyx_temp’
+ 7265 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/lkl.pyx.c:7255:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+ 7255 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/lkl.pyx.c:7265:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 7265 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/lkl.pyx.c: In function ‘__pyx_pw_4clik_3lkl_4clik_19__setstate_cython__’:
+src/python/clik/lkl.pyx.c:7588:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 7588 |       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
+      |       ^~~
+src/python/clik/lkl.pyx.c:7605:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 7605 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/lkl.pyx.c:7615:19: error: redefinition of ‘__pyx_temp’
+ 7615 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/lkl.pyx.c:7605:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+ 7605 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/lkl.pyx.c:7615:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 7615 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/lkl.pyx.c: In function ‘__pyx_pw_4clik_3lkl_1camspec_get_fg’:
+src/python/clik/lkl.pyx.c:7719:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 7719 |       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
+      |       ^~~
+src/python/clik/lkl.pyx.c:7745:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 7745 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/lkl.pyx.c:7755:19: error: redefinition of ‘__pyx_temp’
+ 7755 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/lkl.pyx.c:7745:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+ 7745 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/lkl.pyx.c:7755:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 7755 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/lkl.pyx.c: In function ‘__Pyx_InitConstants’:
+src/python/clik/lkl.pyx.c:9088:5: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 9088 |     for (int i = 0; i < 103; i++) {
+      |     ^~~
+src/python/clik/lkl.pyx.c:9099:14: error: redefinition of ‘i’
+ 9099 |     for (int i = 103; i < 112; i++) {
+      |              ^
+src/python/clik/lkl.pyx.c:9088:14: note: previous definition of ‘i’ with type ‘int’
+ 9088 |     for (int i = 0; i < 103; i++) {
+      |              ^
+src/python/clik/lkl.pyx.c:9099:5: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 9099 |     for (int i = 103; i < 112; i++) {
+      |     ^~~
+src/python/clik/lkl.pyx.c:9110:21: error: conflicting types for ‘i’; have ‘Py_ssize_t’ {aka ‘long int’}
+ 9110 |     for (Py_ssize_t i = 0; i < 112; i++) {
+      |                     ^
+src/python/clik/lkl.pyx.c:9099:14: note: previous definition of ‘i’ with type ‘int’
+ 9099 |     for (int i = 103; i < 112; i++) {
+      |              ^
+src/python/clik/lkl.pyx.c:9110:5: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 9110 |     for (Py_ssize_t i = 0; i < 112; i++) {
+      |     ^~~
+src/python/clik/lkl.pyx.c:9139:5: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 9139 |     for (int i = 0; i < 4; i++) {
+      |     ^~~
+src/python/clik/lkl.pyx.c: In function ‘__Pyx_ParseKeywordsTuple’:
+src/python/clik/lkl.pyx.c:10655:5: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+10655 |     for (Py_ssize_t pos = 0; pos < num_kwargs; pos++) {
+      |     ^~~
+src/python/clik/lkl.pyx.c: In function ‘__Pyx_PyCode_New’:
+src/python/clik/lkl.pyx.c:15728:5: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+15728 |     for (Py_ssize_t i=0; i < var_count; i++) {
+      |     ^~~
+
+In file included from ../../../../../../anaconda3/envs/camb_gw_cosmo/lib/python3.10/site-packages/numpy/_core/include/numpy/ndarraytypes.h:1913,
+                 from ../../../../../../anaconda3/envs/camb_gw_cosmo/lib/python3.10/site-packages/numpy/_core/include/numpy/ndarrayobject.h:12,
+                 from ../../../../../../anaconda3/envs/camb_gw_cosmo/lib/python3.10/site-packages/numpy/_core/include/numpy/arrayobject.h:5,
+                 from src/python/clik/parametric.pyx.c:1127:
+../../../../../../anaconda3/envs/camb_gw_cosmo/lib/python3.10/site-packages/numpy/_core/include/numpy/npy_1_7_deprecated_api.h:17:2: warning: #warning "Using deprecated NumPy API, disable it with " "#define NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION" [-Wcpp]
+   17 | #warning "Using deprecated NumPy API, disable it with " \
+      |  ^~~~~~~
+src/python/clik/parametric.pyx.c: In function ‘__pyx_pw_4clik_10parametric_1loadcolumn’:
+src/python/clik/parametric.pyx.c:5725:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 5725 |       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
+      |       ^~~
+src/python/clik/parametric.pyx.c:5725:7: note: use option ‘-std=c99’, ‘-std=gnu99’, ‘-std=c11’ or ‘-std=gnu11’ to compile your code
+src/python/clik/parametric.pyx.c:5742:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 5742 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c:5752:19: error: redefinition of ‘__pyx_temp’
+ 5752 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:5742:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+ 5742 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:5752:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 5752 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c: In function ‘__pyx_pw_4clik_10parametric_6CError_1__init__’:
+src/python/clik/parametric.pyx.c:6058:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 6058 |       for (Py_ssize_t i = __pyx_nargs; i < 3; i++) {
+      |       ^~~
+src/python/clik/parametric.pyx.c:6081:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 6081 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c:6091:19: error: redefinition of ‘__pyx_temp’
+ 6091 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:6081:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+ 6081 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:6091:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 6091 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c: In function ‘__pyx_pw_4clik_10parametric_6CError_3__str__’:
+src/python/clik/parametric.pyx.c:6203:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 6203 |       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
+      |       ^~~
+src/python/clik/parametric.pyx.c:6220:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 6220 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c:6230:19: error: redefinition of ‘__pyx_temp’
+ 6230 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:6220:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+ 6220 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:6230:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 6230 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c: In function ‘__pyx_pw_4clik_10parametric_10parametric_3set_name’:
+src/python/clik/parametric.pyx.c:7014:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 7014 |       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
+      |       ^~~
+src/python/clik/parametric.pyx.c:7031:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 7031 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c:7041:19: error: redefinition of ‘__pyx_temp’
+ 7041 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:7031:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+ 7031 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:7041:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 7041 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c: In function ‘__pyx_pw_4clik_10parametric_10parametric_7test_derivative’:
+src/python/clik/parametric.pyx.c:7286:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 7286 |       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
+      |       ^~~
+src/python/clik/parametric.pyx.c:7318:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 7318 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c:7328:19: error: redefinition of ‘__pyx_temp’
+ 7328 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:7318:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+ 7318 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:7328:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 7328 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c: In function ‘__pyx_pw_4clik_10parametric_10parametric_9__init__’:
+src/python/clik/parametric.pyx.c:7948:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 7948 |       for (Py_ssize_t i = __pyx_nargs; i < 4; i++) {
+      |       ^~~
+src/python/clik/parametric.pyx.c:8007:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 8007 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c:8017:19: error: redefinition of ‘__pyx_temp’
+ 8017 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:8007:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+ 8007 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:8017:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 8017 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c: In function ‘__pyx_pw_4clik_10parametric_10parametric_11_post_init_1’:
+src/python/clik/parametric.pyx.c:8798:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 8798 |       for (Py_ssize_t i = __pyx_nargs; i < 4; i++) {
+      |       ^~~
+src/python/clik/parametric.pyx.c:8824:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 8824 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c:8834:19: error: redefinition of ‘__pyx_temp’
+ 8834 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:8824:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+ 8824 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:8834:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 8834 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c: In function ‘__pyx_pw_4clik_10parametric_10parametric_13_post_init_2’:
+src/python/clik/parametric.pyx.c:9186:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 9186 |       for (Py_ssize_t i = __pyx_nargs; i < 3; i++) {
+      |       ^~~
+src/python/clik/parametric.pyx.c:9209:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 9209 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c:9219:19: error: redefinition of ‘__pyx_temp’
+ 9219 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:9209:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+ 9209 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:9219:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 9219 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c: In function ‘__pyx_pw_4clik_10parametric_10parametric_15_post_init’:
+src/python/clik/parametric.pyx.c:9592:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 9592 |       for (Py_ssize_t i = __pyx_nargs; i < 8; i++) {
+      |       ^~~
+src/python/clik/parametric.pyx.c:9630:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 9630 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c:9641:19: error: redefinition of ‘__pyx_temp’
+ 9641 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:9630:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+ 9630 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:9641:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+ 9641 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c: In function ‘__pyx_pw_4clik_10parametric_10parametric_17get_default_value’:
+src/python/clik/parametric.pyx.c:10022:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+10022 |       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
+      |       ^~~
+src/python/clik/parametric.pyx.c:10039:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+10039 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c:10049:19: error: redefinition of ‘__pyx_temp’
+10049 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:10039:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+10039 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:10049:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+10049 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c: In function ‘__pyx_pw_4clik_10parametric_10parametric_19has_parameter’:
+src/python/clik/parametric.pyx.c:10265:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+10265 |       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
+      |       ^~~
+src/python/clik/parametric.pyx.c:10282:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+10282 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c:10292:19: error: redefinition of ‘__pyx_temp’
+10292 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:10282:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+10282 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:10292:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+10292 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c: In function ‘__pyx_pw_4clik_10parametric_10parametric_21__call__’:
+src/python/clik/parametric.pyx.c:10506:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+10506 |       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
+      |       ^~~
+src/python/clik/parametric.pyx.c:10532:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+10532 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c:10542:19: error: redefinition of ‘__pyx_temp’
+10542 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:10532:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+10532 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:10542:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+10542 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c: In function ‘__pyx_pw_4clik_10parametric_10parametric_25get_template’:
+src/python/clik/parametric.pyx.c:11159:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+11159 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c:11169:19: error: redefinition of ‘__pyx_temp’
+11169 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:11159:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+11159 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:11169:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+11169 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c: In function ‘__pyx_pw_4clik_10parametric_10parametric_29__setstate_cython__’:
+src/python/clik/parametric.pyx.c:11656:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+11656 |       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
+      |       ^~~
+src/python/clik/parametric.pyx.c:11673:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+11673 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c:11683:19: error: redefinition of ‘__pyx_temp’
+11683 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:11673:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+11673 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:11683:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+11683 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c: In function ‘__pyx_pw_4clik_10parametric_8powerlaw_5__setstate_cython__’:
+src/python/clik/parametric.pyx.c:11918:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+11918 |       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
+      |       ^~~
+src/python/clik/parametric.pyx.c:11935:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+11935 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c:11945:19: error: redefinition of ‘__pyx_temp’
+11945 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:11935:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+11935 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:11945:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+11945 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c: In function ‘__pyx_pw_4clik_10parametric_24powerlaw_free_emissivity_5__setstate_cython__’:
+src/python/clik/parametric.pyx.c:12180:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+12180 |       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
+      |       ^~~
+src/python/clik/parametric.pyx.c:12197:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+12197 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c:12207:19: error: redefinition of ‘__pyx_temp’
+12207 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:12197:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+12197 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:12207:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+12207 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c: In function ‘__pyx_pw_4clik_10parametric_3get_data_path’:
+src/python/clik/parametric.pyx.c:12325:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+12325 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c:12335:19: error: redefinition of ‘__pyx_temp’
+12335 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:12325:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+12325 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:12335:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+12335 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c: In function ‘__pyx_pw_4clik_10parametric_14parametric_mul_1_post_init_2’:
+src/python/clik/parametric.pyx.c:12571:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+12571 |       for (Py_ssize_t i = __pyx_nargs; i < 3; i++) {
+      |       ^~~
+src/python/clik/parametric.pyx.c:12594:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+12594 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c:12604:19: error: redefinition of ‘__pyx_temp’
+12604 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:12594:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+12594 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:12604:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+12604 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c: In function ‘__pyx_pw_4clik_10parametric_14parametric_mul_5__setstate_cython__’:
+src/python/clik/parametric.pyx.c:12814:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+12814 |       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
+      |       ^~~
+src/python/clik/parametric.pyx.c:12831:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+12831 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c:12841:19: error: redefinition of ‘__pyx_temp’
+12841 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:12831:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+12831 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:12841:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+12841 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c: In function ‘__pyx_pw_4clik_10parametric_19parametric_template_3__init__’:
+src/python/clik/parametric.pyx.c:13082:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+13082 |       for (Py_ssize_t i = __pyx_nargs; i < 4; i++) {
+      |       ^~~
+src/python/clik/parametric.pyx.c:13165:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+13165 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c:13175:19: error: redefinition of ‘__pyx_temp’
+13175 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:13165:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+13165 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:13175:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+13175 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c: In function ‘__pyx_pw_4clik_10parametric_19parametric_template_5get_template’:
+src/python/clik/parametric.pyx.c:14100:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+14100 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c:14110:19: error: redefinition of ‘__pyx_temp’
+14110 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:14100:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+14100 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:14110:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+14110 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c: In function ‘__pyx_pw_4clik_10parametric_19parametric_template_9__setstate_cython__’:
+src/python/clik/parametric.pyx.c:14872:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+14872 |       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
+      |       ^~~
+src/python/clik/parametric.pyx.c:14889:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+14889 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c:14899:19: error: redefinition of ‘__pyx_temp’
+14899 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:14889:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+14889 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:14899:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+14899 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c: In function ‘__pyx_pw_4clik_10parametric_23parametric_template_mul_1_post_init_2’:
+src/python/clik/parametric.pyx.c:15007:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+15007 |       for (Py_ssize_t i = __pyx_nargs; i < 3; i++) {
+      |       ^~~
+src/python/clik/parametric.pyx.c:15030:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+15030 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c:15040:19: error: redefinition of ‘__pyx_temp’
+15040 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:15030:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+15030 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:15040:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+15040 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c: In function ‘__pyx_pw_4clik_10parametric_23parametric_template_mul_5__setstate_cython__’:
+src/python/clik/parametric.pyx.c:15250:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+15250 |       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
+      |       ^~~
+src/python/clik/parametric.pyx.c:15267:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+15267 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c:15277:19: error: redefinition of ‘__pyx_temp’
+15277 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:15267:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+15267 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:15277:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+15277 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c: In function ‘__pyx_pw_4clik_10parametric_14parametric_pol_1__init__’:
+src/python/clik/parametric.pyx.c:15417:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+15417 |       for (Py_ssize_t i = __pyx_nargs; i < 6; i++) {
+      |       ^~~
+src/python/clik/parametric.pyx.c:15482:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+15482 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c:15492:19: error: redefinition of ‘__pyx_temp’
+15492 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:15482:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+15482 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:15492:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+15492 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c: In function ‘__pyx_pw_4clik_10parametric_14parametric_pol_3_post_init’:
+src/python/clik/parametric.pyx.c:16440:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+16440 |       for (Py_ssize_t i = __pyx_nargs; i < 10; i++) {
+      |       ^~~
+src/python/clik/parametric.pyx.c:16484:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+16484 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c:16495:19: error: redefinition of ‘__pyx_temp’
+16495 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:16484:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+16484 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:16495:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+16495 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c: In function ‘__pyx_pw_4clik_10parametric_14parametric_pol_7__setstate_cython__’:
+src/python/clik/parametric.pyx.c:16962:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+16962 |       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
+      |       ^~~
+src/python/clik/parametric.pyx.c:16979:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+16979 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c:16989:19: error: redefinition of ‘__pyx_temp’
+16989 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:16979:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+16979 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:16989:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+16989 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c: In function ‘__pyx_pw_4clik_10parametric_23parametric_pol_template_3__init__’:
+src/python/clik/parametric.pyx.c:17240:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+17240 |       for (Py_ssize_t i = __pyx_nargs; i < 6; i++) {
+      |       ^~~
+src/python/clik/parametric.pyx.c:17329:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+17329 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c:17339:19: error: redefinition of ‘__pyx_temp’
+17339 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:17329:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+17329 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:17339:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+17339 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c: In function ‘__pyx_pw_4clik_10parametric_23parametric_pol_template_5get_template’:
+src/python/clik/parametric.pyx.c:18393:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+18393 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c:18403:19: error: redefinition of ‘__pyx_temp’
+18403 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:18393:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+18393 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:18403:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+18403 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c: In function ‘__pyx_pw_4clik_10parametric_23parametric_pol_template_9__setstate_cython__’:
+src/python/clik/parametric.pyx.c:19165:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+19165 |       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
+      |       ^~~
+src/python/clik/parametric.pyx.c:19182:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+19182 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c:19192:19: error: redefinition of ‘__pyx_temp’
+19192 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:19182:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+19182 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:19192:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+19192 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c: In function ‘__pyx_pw_4clik_10parametric_5register_plugin’:
+src/python/clik/parametric.pyx.c:19300:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+19300 |       for (Py_ssize_t i = __pyx_nargs; i < 3; i++) {
+      |       ^~~
+src/python/clik/parametric.pyx.c:19323:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+19323 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c:19333:19: error: redefinition of ‘__pyx_temp’
+19333 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:19323:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+19323 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:19333:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+19333 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c: In function ‘__pyx_pw_4clik_10parametric_7register_all’:
+src/python/clik/parametric.pyx.c:19748:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+19748 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c:19758:19: error: redefinition of ‘__pyx_temp’
+19758 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:19748:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+19748 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:19758:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+19758 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c: In function ‘__pyx_pw_4clik_10parametric_9rename_machine’:
+src/python/clik/parametric.pyx.c:20292:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+20292 |       for (Py_ssize_t i = __pyx_nargs; i < 2; i++) {
+      |       ^~~
+src/python/clik/parametric.pyx.c:20345:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+20345 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c:20355:19: error: redefinition of ‘__pyx_temp’
+20355 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:20345:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+20345 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:20355:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+20355 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c: In function ‘__pyx_pw_4clik_10parametric_14rename_machine_1rename_update’:
+src/python/clik/parametric.pyx.c:20431:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+20431 |       for (Py_ssize_t i = __pyx_nargs; i < 3; i++) {
+      |       ^~~
+src/python/clik/parametric.pyx.c:20454:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+20454 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c:20464:19: error: redefinition of ‘__pyx_temp’
+20464 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:20454:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+20454 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:20464:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+20464 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c: In function ‘__pyx_pw_4clik_10parametric_14rename_machine_3__init__’:
+src/python/clik/parametric.pyx.c:21083:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+21083 |       for (Py_ssize_t i = __pyx_nargs; i < 7; i++) {
+      |       ^~~
+src/python/clik/parametric.pyx.c:21175:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+21175 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c:21185:19: error: redefinition of ‘__pyx_temp’
+21185 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:21175:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+21175 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:21185:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+21185 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c: In function ‘__pyx_pw_4clik_10parametric_14rename_machine_5__init__’:
+src/python/clik/parametric.pyx.c:21498:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+21498 |       for (Py_ssize_t i = __pyx_nargs; i < 7; i++) {
+      |       ^~~
+src/python/clik/parametric.pyx.c:21566:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+21566 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c:21576:19: error: redefinition of ‘__pyx_temp’
+21576 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:21566:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+21566 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:21576:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+21576 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c: In function ‘__pyx_pw_4clik_10parametric_14rename_machine_7__init__’:
+src/python/clik/parametric.pyx.c:21911:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+21911 |       for (Py_ssize_t i = __pyx_nargs; i < 5; i++) {
+      |       ^~~
+src/python/clik/parametric.pyx.c:21997:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+21997 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c:22007:19: error: redefinition of ‘__pyx_temp’
+22007 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:21997:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+21997 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:22007:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+22007 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c: In function ‘__pyx_pw_4clik_10parametric_14rename_machine_9__init__’:
+src/python/clik/parametric.pyx.c:22310:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+22310 |       for (Py_ssize_t i = __pyx_nargs; i < 5; i++) {
+      |       ^~~
+src/python/clik/parametric.pyx.c:22372:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+22372 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c:22382:19: error: redefinition of ‘__pyx_temp’
+22382 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:22372:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+22372 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:22382:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+22382 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c: In function ‘__pyx_pw_4clik_10parametric_11norename’:
+src/python/clik/parametric.pyx.c:23099:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+23099 |       for (Py_ssize_t i = __pyx_nargs; i < 2; i++) {
+      |       ^~~
+src/python/clik/parametric.pyx.c:23119:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+23119 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c:23129:19: error: redefinition of ‘__pyx_temp’
+23129 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:23119:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+23119 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:23129:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+23129 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c: In function ‘__pyx_pw_4clik_10parametric_13rename_replace’:
+src/python/clik/parametric.pyx.c:23231:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+23231 |       for (Py_ssize_t i = __pyx_nargs; i < 2; i++) {
+      |       ^~~
+src/python/clik/parametric.pyx.c:23251:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+23251 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c:23261:19: error: redefinition of ‘__pyx_temp’
+23261 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:23251:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+23251 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:23261:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+23261 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c: In function ‘__pyx_pw_4clik_10parametric_14rename_replace_1rename’:
+src/python/clik/parametric.pyx.c:23332:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+23332 |       for (Py_ssize_t i = __pyx_nargs; i < 2; i++) {
+      |       ^~~
+src/python/clik/parametric.pyx.c:23352:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+23352 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c:23362:19: error: redefinition of ‘__pyx_temp’
+23362 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:23352:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+23352 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:23362:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+23362 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c: In function ‘__pyx_pw_4clik_10parametric_15rename_dict’:
+src/python/clik/parametric.pyx.c:23597:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+23597 |       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
+      |       ^~~
+src/python/clik/parametric.pyx.c:23614:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+23614 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c:23624:19: error: redefinition of ‘__pyx_temp’
+23624 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:23614:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+23614 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:23624:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+23624 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c: In function ‘__pyx_pw_4clik_10parametric_11rename_dict_1rename’:
+src/python/clik/parametric.pyx.c:23695:7: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+23695 |       for (Py_ssize_t i = __pyx_nargs; i < 2; i++) {
+      |       ^~~
+src/python/clik/parametric.pyx.c:23715:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+23715 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c:23725:19: error: redefinition of ‘__pyx_temp’
+23725 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:23715:19: note: previous definition of ‘__pyx_temp’ with type ‘Py_ssize_t’ {aka ‘long int’}
+23715 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |                   ^~~~~~~~~~
+src/python/clik/parametric.pyx.c:23725:3: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+23725 |   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+      |   ^~~
+src/python/clik/parametric.pyx.c: In function ‘__Pyx_InitConstants’:
+src/python/clik/parametric.pyx.c:27794:5: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+27794 |     for (int i = 0; i < 246; i++) {
+      |     ^~~
+src/python/clik/parametric.pyx.c:27805:14: error: redefinition of ‘i’
+27805 |     for (int i = 246; i < 277; i++) {
+      |              ^
+src/python/clik/parametric.pyx.c:27794:14: note: previous definition of ‘i’ with type ‘int’
+27794 |     for (int i = 0; i < 246; i++) {
+      |              ^
+src/python/clik/parametric.pyx.c:27805:5: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+27805 |     for (int i = 246; i < 277; i++) {
+      |     ^~~
+src/python/clik/parametric.pyx.c:27816:21: error: conflicting types for ‘i’; have ‘Py_ssize_t’ {aka ‘long int’}
+27816 |     for (Py_ssize_t i = 0; i < 277; i++) {
+      |                     ^
+src/python/clik/parametric.pyx.c:27805:14: note: previous definition of ‘i’ with type ‘int’
+27805 |     for (int i = 246; i < 277; i++) {
+      |              ^
+src/python/clik/parametric.pyx.c:27816:5: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+27816 |     for (Py_ssize_t i = 0; i < 277; i++) {
+      |     ^~~
+src/python/clik/parametric.pyx.c:27844:5: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+27844 |     for (int i = 0; i < 2; i++) {
+      |     ^~~
+src/python/clik/parametric.pyx.c:27852:5: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+27852 |     for (int i = 0; i < 3; i++) {
+      |     ^~~
+src/python/clik/parametric.pyx.c: In function ‘__Pyx_ParseKeywordsTuple’:
+src/python/clik/parametric.pyx.c:29597:5: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+29597 |     for (Py_ssize_t pos = 0; pos < num_kwargs; pos++) {
+      |     ^~~
+src/python/clik/parametric.pyx.c: In function ‘__Pyx_PyList_Pack’:
+src/python/clik/parametric.pyx.c:33841:5: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+33841 |     for (Py_ssize_t i=0; i<n; ++i) {
+      |     ^~~
+src/python/clik/parametric.pyx.c: In function ‘__Pyx_PyCode_New’:
+src/python/clik/parametric.pyx.c:35537:5: error: ‘for’ loop initial declarations are only allowed in C99 or C11 mode
+35537 |     for (Py_ssize_t i=0; i < var_count; i++) {
+      |     ^~~
+
+Waf: Leaving directory `/home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/build'
+Build failed
+ -> task in 'lkl_lensing' failed with exit status 1: 
+	{task 126814453175840: c lkl_lensing.pyx.c -> lkl_lensing.pyx.c.2.o}
+['/usr/bin/gcc', '-std=gnu89', '-fPIC', '-shared', '-Isrc', '-I../src', '-Isrc/minipmc', '-I../src/minipmc', '-I../../../../../../anaconda3/envs/camb_gw_cosmo/include', '-I../include', '-I../../../../../../anaconda3/envs/camb_gw_cosmo/include/python3.10', '-I../../../../../../anaconda3/envs/camb_gw_cosmo/lib/python3.10/site-packages/numpy/_core/include', '-DPYTHONDIR="/home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/lib/python3.10/site-packages"', '-DPYTHONARCHDIR="/home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/lib/python3.10/site-packages"', '-DHAVE_PYEMBED=1', '-DHAVE_PYTHON_H=1', '-DHAVE_LAPACK_CLIK_H=1', '-DHAVE_FITSIO_H=1', '-DCLIK_LENSING', '-DHAS_LAPACK', '-DLAPACK_CLIK', '-DHAS_RTLD_DEFAULT', 'src/python/clik/lkl_lensing.pyx.c', '-c', '-o/home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/build/src/python/clik/lkl_lensing.pyx.c.2.o']
+ -> task in 'rel2015' failed with exit status 1: 
+	{task 126814453176960: c rel2015.pyx.c -> rel2015.pyx.c.4.o}
+['/usr/bin/gcc', '-std=gnu89', '-fPIC', '-shared', '-Isrc/python/clik', '-I../src/python/clik', '-Isrc/python', '-I../src/python', '-Isrc', '-I../src', '-Isrc/plik', '-I../src/plik', '-Isrc/minipmc', '-I../src/minipmc', '-I../../../../../../anaconda3/envs/camb_gw_cosmo/include', '-I../include', '-I../../../../../../anaconda3/envs/camb_gw_cosmo/include/python3.10', '-I../../../../../../anaconda3/envs/camb_gw_cosmo/lib/python3.10/site-packages/numpy/_core/include', '-DPYTHONDIR="/home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/lib/python3.10/site-packages"', '-DPYTHONARCHDIR="/home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/lib/python3.10/site-packages"', '-DHAVE_PYEMBED=1', '-DHAVE_PYTHON_H=1', '-DHAVE_LAPACK_CLIK_H=1', '-DHAVE_FITSIO_H=1', '-DHAS_LAPACK', '-DLAPACK_CLIK', '-DHAS_RTLD_DEFAULT', 'src/plik/component_plugin/rel2015/rel2015.pyx.c', '-c', '-o/home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/build/src/plik/component_plugin/rel2015/rel2015.pyx.c.4.o']
+ -> task in 'lkl' failed with exit status 1: 
+	{task 126814453174384: c lkl.pyx.c -> lkl.pyx.c.1.o}
+['/usr/bin/gcc', '-std=gnu89', '-fPIC', '-shared', '-Isrc', '-I../src', '-Isrc/minipmc', '-I../src/minipmc', '-I../../../../../../anaconda3/envs/camb_gw_cosmo/include', '-I../include', '-I../../../../../../anaconda3/envs/camb_gw_cosmo/include/python3.10', '-I../../../../../../anaconda3/envs/camb_gw_cosmo/lib/python3.10/site-packages/numpy/_core/include', '-DPYTHONDIR="/home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/lib/python3.10/site-packages"', '-DPYTHONARCHDIR="/home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/lib/python3.10/site-packages"', '-DHAVE_PYEMBED=1', '-DHAVE_PYTHON_H=1', '-DHAVE_LAPACK_CLIK_H=1', '-DHAVE_FITSIO_H=1', '-DHAS_LAPACK', '-DLAPACK_CLIK', '-DHAS_RTLD_DEFAULT', 'src/python/clik/lkl.pyx.c', '-c', '-o/home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/build/src/python/clik/lkl.pyx.c.1.o']
+ -> task in 'parametric' failed with exit status 1: 
+	{task 126814453176400: c parametric.pyx.c -> parametric.pyx.c.3.o}
+['/usr/bin/gcc', '-std=gnu89', '-fPIC', '-shared', '-Isrc', '-I../src', '-Isrc/plik', '-I../src/plik', '-Isrc/minipmc', '-I../src/minipmc', '-I../../../../../../anaconda3/envs/camb_gw_cosmo/include', '-I../include', '-I../../../../../../anaconda3/envs/camb_gw_cosmo/include/python3.10', '-I../../../../../../anaconda3/envs/camb_gw_cosmo/lib/python3.10/site-packages/numpy/_core/include', '-DPYTHONDIR="/home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/lib/python3.10/site-packages"', '-DPYTHONARCHDIR="/home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/lib/python3.10/site-packages"', '-DHAVE_PYEMBED=1', '-DHAVE_PYTHON_H=1', '-DHAVE_LAPACK_CLIK_H=1', '-DHAVE_FITSIO_H=1', '-DHAS_LAPACK', '-DLAPACK_CLIK', '-DHAS_RTLD_DEFAULT', 'src/python/clik/parametric.pyx.c', '-c', '-o/home/atri/Downloads/COM_Likelihood_Code-v3.0_R3.10/code/plc_3.0/plc-3.1/build/src/python/clik/parametric.pyx.c.3.o']
