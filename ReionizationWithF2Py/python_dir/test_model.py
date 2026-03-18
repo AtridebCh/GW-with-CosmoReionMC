@@ -14,13 +14,14 @@ Z_arraySize = int(round(abs((zend - zstart) / dz)))
          dvc_dz, D_L, age_Gyr,
          tau_factor, ierr
             ) = run_model(
-                h0=6.811000e+01,
-                ombh2=2.260000e-02,
-                omch2=1.179535e-01,
-                ns=9.600000e-01,
-                sigma_8=0.8159,
-                esc_popii=0.0036,
-                esc_popiii= 0.0,
+                h0     = 6.811000e+01,
+                ombh2  = 2.260000e-02,
+                omch2  = 1.179535e-01,
+                ns     = 9.600000e-01,
+                sigma_8= 0.8159,
+                e_sf_ii= 0.01,
+                alpha_z= 1e-05,
+                esc_popii = 0.36,
                 lambda0= 2.44,
                 zstart_in=zstart,
                 zend_in=zend,
@@ -31,8 +32,8 @@ Z_arraySize = int(round(abs((zend - zstart) / dz)))
 if ierr != 0:
     raise RuntimeError("filling() failed")
 
-#change the path
-rho_sfrd_data = np.loadtxt('/home/atri/CosmoReion_Experiment/ObsData/rho_SFRD_data.dat')
+
+rho_sfrd_data = np.loadtxt('./ObsData/rho_SFRD_data.dat')
 
 plt.plot(Z, QH_Q)
 plt.xlim(2, 15)

@@ -1,9 +1,8 @@
 program driver
   use kinds_mod,        only: dp
   use parameters_mod,   only: parameters_t, cosmo_params_t, reion_params_t, &
-                               init_cosmo, init_reion_defaults, init_params
-  use variables_mod,    only: zstart, zend, dz, ifprint, outroot, &
-                               esc_II, esc_III, n
+                              init_cosmo, init_reion_defaults, init_params
+  use variables_mod,    only: zstart, zend, dz, ifprint, outroot, n
   use reionization_mod, only: initialize, filling, finalize, validate_params
 
   implicit none
@@ -22,13 +21,14 @@ program driver
   params%cosmo%m_wdm   = -1.0_dp !not using any WDM
 
   call init_reion_defaults(params%reion)
-  params%reion%esc_PopII       = 0.0036_dp
-  params%reion%esc_PopIII      = 0.0_dp
-  params%reion%lambda_0        = 2.44_dp
-  params%reion%Delta_H_overlap = 59.21_dp
   params%reion%e_sf_II         = 0.01_dp
+  params%reion%alpha_z         = 0.0_dp
+  params%reion%esc_PopII       = 0.36_dp
+  params%reion%lambda_0        = 2.44_dp
+  params%reion%esc_PopIII      = 0.0_dp
   params%reion%e_sf_III        = 0.0_dp
   params%reion%e_QSO           = 0.36_dp
+  params%reion%Delta_H_overlap = 59.21_dp
   params%reion%betaindex       = -2.2_dp
   params%reion%vc_min          = 13.3_dp
 
@@ -39,10 +39,7 @@ program driver
   outroot  = 'output/run1_'
 
   ! run
-  call initialize(params)
-
-  esc_II(0:n)  = params%reion%esc_PopII
-  esc_III(0:n) = params%reion%esc_PopIII
+  call initialize(params) !sets the e_sf, esc inside this
 
   call filling(params, ierr)
   if (ierr /= 0) stop 'Error in filling()'

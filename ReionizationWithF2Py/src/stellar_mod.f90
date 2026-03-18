@@ -21,7 +21,7 @@ module stellar_mod
                                QH, QHe, HII, HeIII, HII_0, HeIII_0, &
                                dnphotdm, sigma_PI, sigma_PH, escfrac, &
                                lumfun_integral_qso, &
-                               t_H_array, dz_t_ff_array
+                               t_H_array, dz_t_ff_array, f_starII, f_starIII
   use backgroundCosmology_mod, only: omega_z, hubbledist, delvir, &
                                xbsq, probdist, d, sigma, nu_parameter, &
                                Mdndm_ST, dfdnu_ST, probdist_ST
@@ -405,25 +405,25 @@ contains
     integer,            intent(in) :: ik
     real(dp),           intent(in) :: fQ, f1mQ, sfrfactor
 
-    dnphotdz_ion(ik)%pop2%HII   = -fQ   * dnphotdm%pop2%HII   * mass_integral_pop2_ion(ik)  * sfrfactor * escfrac%pop2%HII
-    dnphotdz_ion(ik)%pop2%HeII  = -fQ   * dnphotdm%pop2%HeII  * mass_integral_pop2_ion(ik)  * sfrfactor * escfrac%pop2%HeII
-    dnphotdz_ion(ik)%pop2%HeIII = -fQ   * dnphotdm%pop2%HeIII * mass_integral_pop2_ion(ik)  * sfrfactor * escfrac%pop2%HeIII
-    sfr_pop2_ion(ik)             = - e_SF_II * fQ   * mass_integral_pop2_ion(ik)  * sfrfactor
+    dnphotdz_ion(ik)%pop2%HII   = -fQ   * dnphotdm%pop2%HII   * mass_integral_pop2_ion(ik)  * sfrfactor * escfrac%pop2%HII   * f_starII(ik)
+    dnphotdz_ion(ik)%pop2%HeII  = -fQ   * dnphotdm%pop2%HeII  * mass_integral_pop2_ion(ik)  * sfrfactor * escfrac%pop2%HeII  * f_starII(ik)
+    dnphotdz_ion(ik)%pop2%HeIII = -fQ   * dnphotdm%pop2%HeIII * mass_integral_pop2_ion(ik)  * sfrfactor * escfrac%pop2%HeIII * f_starII(ik)
+    sfr_pop2_ion(ik)            = -fQ   * mass_integral_pop2_ion(ik) * sfrfactor * f_starII(ik)
 
-    dnphotdz_neut(ik)%pop2%HII   = -f1mQ * dnphotdm%pop2%HII   * mass_integral_pop2_neut(ik) * sfrfactor * escfrac%pop2%HII
-    dnphotdz_neut(ik)%pop2%HeII  = -f1mQ * dnphotdm%pop2%HeII  * mass_integral_pop2_neut(ik) * sfrfactor * escfrac%pop2%HeII
-    dnphotdz_neut(ik)%pop2%HeIII = -f1mQ * dnphotdm%pop2%HeIII * mass_integral_pop2_neut(ik) * sfrfactor * escfrac%pop2%HeIII
-    sfr_pop2_neut(ik)             = - e_SF_II * f1mQ * mass_integral_pop2_neut(ik) * sfrfactor
+    dnphotdz_neut(ik)%pop2%HII   = -f1mQ * dnphotdm%pop2%HII   * mass_integral_pop2_neut(ik) * sfrfactor * escfrac%pop2%HII   * f_starII(ik)
+    dnphotdz_neut(ik)%pop2%HeII  = -f1mQ * dnphotdm%pop2%HeII  * mass_integral_pop2_neut(ik) * sfrfactor * escfrac%pop2%HeII  * f_starII(ik)
+    dnphotdz_neut(ik)%pop2%HeIII = -f1mQ * dnphotdm%pop2%HeIII * mass_integral_pop2_neut(ik) * sfrfactor * escfrac%pop2%HeIII * f_starII(ik)
+    sfr_pop2_neut(ik)            = -f1mQ * mass_integral_pop2_neut(ik) * sfrfactor * f_starII(ik)
 
-    dnphotdz_ion(ik)%pop3%HII   = -fQ   * dnphotdm%pop3%HII   * mass_integral_pop3_ion(ik)  * sfrfactor * escfrac%pop3%HII
-    dnphotdz_ion(ik)%pop3%HeII  = -fQ   * dnphotdm%pop3%HeII  * mass_integral_pop3_ion(ik)  * sfrfactor * escfrac%pop3%HeII
-    dnphotdz_ion(ik)%pop3%HeIII = -fQ   * dnphotdm%pop3%HeIII * mass_integral_pop3_ion(ik)  * sfrfactor * escfrac%pop3%HeIII
-    sfr_pop3_ion(ik)             = -e_SF_III * fQ   * mass_integral_pop3_ion(ik)  * sfrfactor
+    dnphotdz_ion(ik)%pop3%HII   = -fQ   * dnphotdm%pop3%HII   * mass_integral_pop3_ion(ik)  * sfrfactor * escfrac%pop3%HII   * f_starIII(ik)
+    dnphotdz_ion(ik)%pop3%HeII  = -fQ   * dnphotdm%pop3%HeII  * mass_integral_pop3_ion(ik)  * sfrfactor * escfrac%pop3%HeII  * f_starIII(ik)
+    dnphotdz_ion(ik)%pop3%HeIII = -fQ   * dnphotdm%pop3%HeIII * mass_integral_pop3_ion(ik)  * sfrfactor * escfrac%pop3%HeIII * f_starIII(ik)
+    sfr_pop3_ion(ik)            = -fQ   * mass_integral_pop3_ion(ik)  * sfrfactor * f_starIII(ik)
 
-    dnphotdz_neut(ik)%pop3%HII   = -f1mQ * dnphotdm%pop3%HII   * mass_integral_pop3_neut(ik) * sfrfactor * escfrac%pop3%HII
-    dnphotdz_neut(ik)%pop3%HeII  = -f1mQ * dnphotdm%pop3%HeII  * mass_integral_pop3_neut(ik) * sfrfactor * escfrac%pop3%HeII
-    dnphotdz_neut(ik)%pop3%HeIII = -f1mQ * dnphotdm%pop3%HeIII * mass_integral_pop3_neut(ik) * sfrfactor * escfrac%pop3%HeIII
-    sfr_pop3_neut(ik)             = -e_SF_III * f1mQ * mass_integral_pop3_neut(ik) * sfrfactor
+    dnphotdz_neut(ik)%pop3%HII   = -f1mQ * dnphotdm%pop3%HII   * mass_integral_pop3_neut(ik) * sfrfactor * escfrac%pop3%HII   * f_starIII(ik)
+    dnphotdz_neut(ik)%pop3%HeII  = -f1mQ * dnphotdm%pop3%HeII  * mass_integral_pop3_neut(ik) * sfrfactor * escfrac%pop3%HeII  * f_starIII(ik)
+    dnphotdz_neut(ik)%pop3%HeIII = -f1mQ * dnphotdm%pop3%HeIII * mass_integral_pop3_neut(ik) * sfrfactor * escfrac%pop3%HeIII * f_starIII(ik)
+    sfr_pop3_neut(ik)            = -f1mQ * mass_integral_pop3_neut(ik) * sfrfactor * f_starIII(ik)
   end subroutine set_stellar_dnphotdz
 
   subroutine set_qso_dnphotdz(ik, fQ, f1mQ, qso_factor)

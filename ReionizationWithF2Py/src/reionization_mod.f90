@@ -2,21 +2,22 @@ module reionization_mod
   use kinds_mod,        only: dp
   use constants_mod,    only: mprot, yrbysec, pi, Mpcbycm, Y_He, mp_by_mHe, Msun, c_light
   use state_mod,        only: ionstate_t, ionsource_t, lumsource_t, species_t
-  use parameters_mod,only: parameters_t, init_cosmo, h, omega_m, omega_l, omega_r, &
-                               omega_k,omega_b, ombh2, ns, sigma_8, &
-                               delta_c_z0, rho_c, gamma, init_params, &
-                               esc_PopII, esc_PopIII, lambda_0, Delta_H_overlap,   &
-                               e_sf_II, e_sf_III, e_QSO, betaindex, vc_min
+  use parameters_mod,   only: parameters_t, init_cosmo, h, omega_m, omega_l, omega_r, &
+                              omega_k, omega_b, ombh2, ns, sigma_8, &
+                              delta_c_z0, rho_c, gamma, init_params, &
+                              e_sf_II, alpha_z, lambda_0,   &
+                              esc_PopII, esc_PopIII, e_sf_III, e_QSO, &
+                              Delta_H_overlap, betaindex, vc_min
   use variables_mod
   use thermal_mod,      only: compute_species, update_ionstate, get_recrates, get_ionrates
   use stellar_mod,      only: get_sfr, get_ionflux, lumfun_integral, setspline_sigma
   use recrates_mod,     only: R_HII_e_A, R_HII_e_B, R_HeIII_e_A, R_HeIII_e_B
   use backgroundCosmology_mod, only: hubbledist, xbsq, sigmasq_b, f_integrand, &
-                                    set_sigma8_norm, sigma8_norm, tdyn,   &
-                                    differential_comoving_volume, lumdist, age
+                                     set_sigma8_norm, sigma8_norm, tdyn,   &
+                                     differential_comoving_volume, lumdist, age
   use inhomoReion_mod
   use utils_mod,        only: summarize, write_summary
-  use SEDreader_mod,   only: get_sed
+  use SEDreader_mod,    only: get_sed
   implicit none
   private
   public :: initialize, finalize, filling, validate_params, set_escfrac
@@ -85,9 +86,12 @@ contains
       D_L(ik)        = lumdist(z(ik))*c_light / (100 * h * 1e05_dp) !mpc
       age_Gyr(ik)    = age(z(ik))/(100.0_dp*h*1e05_dp/Mpcbycm)/(1e09_dp * yrbysec)
       
+      f_starII(ik)   = e_sf_II*(1+z(ik))**alpha_z
+           
       dz_t_ff_array(ik)  = tdyn(z(ik))*yrbysec/dtimedz(ik) !tdyn=t_ff is in year so first multiplying wiht yrbysec to convert to sec
       lumfun_integral_qso(ik) = e_QSO * lumfun_integral(z(ik))
     end do
+    esc_II(0:n) = esc_popII; esc_III(0:n) = esc_popIII
 
     ! initial ionization states
     call set_initial_ionstate()
@@ -278,7 +282,7 @@ contains
     tau_elsc_today    = tau_elsc(n)
     tau_elsc(0:n)     = tau_elsc_today - tau_elsc(0:n)
     !if (ifprint) write(*, *) "tau_elsc_today =", tau_elsc_today
-    tau_factor = tau_factor * conv_factor  * c_light *6.652e-25_dp !sigma_T = 6.652e-25_dp
+    tau_factor = (1-Y_He)*tau_factor * conv_factor  * c_light *6.652e-25_dp !sigma_T = 6.652e-25_dp
 
     call summarize(params)
   end subroutine filling
@@ -451,12 +455,14 @@ contains
              dfcolldt_pop3_ion(0:nn), dfcolldt_pop3_neut(0:nn), &
              sfr_pop2_ion(0:nn), sfr_pop2_neut(0:nn), &
              sfr_pop3_ion(0:nn), sfr_pop3_neut(0:nn), &
+             f_starII(0:nn), f_starIII(0:nn), &
              esc_II(0:nn), esc_III(0:nn), tau_factor(0:nn))
   end subroutine allocate_arrays
 
   subroutine zero_arrays()
     sfr_pop2_ion(:)     = 0.0_dp;  sfr_pop2_neut(:)     = 0.0_dp
     sfr_pop3_ion(:)     = 0.0_dp;  sfr_pop3_neut(:)     = 0.0_dp
+    f_starII(:)         = 0.0_dp;  f_starIII(:)         = 0.0_dp
     tau_elsc(:)         = 0.0_dp
     dfcolldt_pop2_ion(0) = 0.0_dp;  dfcolldt_pop3_ion(0) = 0.0_dp
     gammaHI(:)  = 0.0_dp
@@ -476,7 +482,7 @@ contains
                dfcolldt_pop2_ion, dfcolldt_pop2_neut, &
                dfcolldt_pop3_ion, dfcolldt_pop3_neut, &
                sfr_pop2_ion, sfr_pop2_neut, sfr_pop3_ion, sfr_pop3_neut, &
-               esc_II, esc_III, tau_factor)
+               esc_II, esc_III, f_starII, f_starIII, tau_factor)
 
   end subroutine deallocate_arrays
   

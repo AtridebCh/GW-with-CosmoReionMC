@@ -1,5 +1,5 @@
 subroutine run_model(H0, ombh2, omch2, ns, sigma_8, &
-                     esc_popII, esc_popIII, lambda0, &
+                     e_sf_II, alpha_z, esc_PopII, lambda0, &
                      zstart_in, zend_in, dz_in, Z_arraySize, &
                      Z_out, QH_Q_out, dNLLdz_out, gammaHI_out, &
                      sfr_pop2_out, sfr_pop3_out, dvc_out, &
@@ -7,8 +7,8 @@ subroutine run_model(H0, ombh2, omch2, ns, sigma_8, &
   use kinds_mod,        only: dp
   use constants_mod,    only: yrbysec
   use parameters_mod,   only: parameters_t, init_reion_defaults
-  use variables_mod,    only: esc_II, esc_III, n, zstart, &
-                              zend, dz, dNLLdz, QH, gammaHI, &
+  use variables_mod,    only: n, zstart, zend, dz, &
+                              dNLLdz, QH, gammaHI, &
                               sfr_pop2_ion, sfr_pop2_neut, &
                               sfr_pop3_ion, sfr_pop3_neut, &
                               dvc_dz, D_L, age_Gyr, z, tau_factor
@@ -20,7 +20,7 @@ subroutine run_model(H0, ombh2, omch2, ns, sigma_8, &
 
   ! inputs
   real(kind=8), intent(in)  :: H0, ombh2, omch2, ns, sigma_8
-  real(kind=8), intent(in)  :: esc_popII, esc_popIII, lambda0
+  real(kind=8), intent(in)  :: e_sf_II, alpha_z, esc_PopII, lambda0
   real(kind=8), intent(in)  :: zstart_in, zend_in, dz_in
   integer, intent(in)       :: Z_arraySize
   
@@ -56,22 +56,20 @@ subroutine run_model(H0, ombh2, omch2, ns, sigma_8, &
   params%cosmo%m_wdm   = -1.0_dp
 
   call init_reion_defaults(params%reion)
-  params%reion%esc_PopII       = esc_popII
-  params%reion%esc_PopIII      = esc_popIII
+  params%reion%e_sf_II         = e_sf_II
+  params%reion%alpha_z         = alpha_z
+  params%reion%esc_PopII       = esc_PopII
   params%reion%lambda_0        = lambda0
-  params%reion%Delta_H_overlap = 59.21_dp
-  params%reion%e_sf_II         = 0.01_dp
+  params%reion%esc_PopIII      = 0.0_dp
   params%reion%e_sf_III        = 0.0_dp
   params%reion%e_QSO           = 0.36_dp
+  params%reion%Delta_H_overlap = 59.21_dp
   params%reion%betaindex       = -2.2_dp
   params%reion%vc_min          = 13.3_dp
 
   ! ... fill params as before ...
 
-  call initialize(params)
-  !add dvc_dz in initialize
-  esc_II(0:n)  = esc_popII
-  esc_III(0:n) = esc_popIII
+  call initialize(params) !e_sf and e_esc are done inside initialize
   call filling(params, ierr)
   
   do ik = 0, Z_arraySize

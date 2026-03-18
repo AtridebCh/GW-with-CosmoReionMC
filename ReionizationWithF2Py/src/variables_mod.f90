@@ -31,7 +31,7 @@ module variables_mod
   real(dp), allocatable, public :: z(:), tau_elsc(:), dtimedz(:), sigma(:), cpbycv(:), gammaHI(:)
   real(dp), allocatable, public :: t_array(:), t_H_array(:), dz_t_ff_array(:), &
                                    dvc_dz(:), D_L(:), age_Gyr(:)
-  real(dp), allocatable, public :: esc_II(:), esc_III(:), tau_factor(:)
+  real(dp), allocatable, public :: esc_II(:), esc_III(:), f_starII(:), f_starIII(:), tau_factor(:)
 
   ! Derived type arrays
   type(fillingfactor_t), allocatable, public :: QH(:), QHe(:)
