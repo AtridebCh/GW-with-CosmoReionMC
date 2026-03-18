@@ -31,11 +31,12 @@ FREE_PARAM_MAPPING_DEFAULT = {
     'omch2':   2,
     'As':      3,
     'ns':      4,
-    'esc_popII':  5,
-    'esc_popIII': 6, 
-    'lambda0': 7,
-    'f_X'    : 8,
-    'f_alpha': 9
+    'e_sf_II': 5,
+    'alpha_z': 6, 
+    'esc_II' : 7,
+    'lambda0': 8,
+    'f_X'    : 9,
+    'f_alpha': 10
 }
 
 # Redshift grid for reionization
@@ -130,7 +131,7 @@ class CoreModule:
             # Import inside call — cached in sys.modules after first import
             #import sys
             #if self.reion_path not in sys.path:
-                #sys.path.append(self.reion_path)
+            #    sys.path.append(self.reion_path)
             #from reion_f import run_model
             (
                 Z_reion,
@@ -150,8 +151,9 @@ class CoreModule:
                 omch2=free_params['omch2'],
                 ns=free_params['ns'],
                 sigma_8=sigma8,
-                esc_popii=free_params['esc_popII'],
-                esc_popiii=free_params['esc_popII'],
+                e_sf_ii=free_params['e_sf_II'],
+                alpha_z=free_params['alpha_z'],
+                esc_popii = free_params['esc_II'],
                 lambda0=free_params['lambda0'],
                 zstart_in=zstart,
                 zend_in=zend,
