@@ -4,12 +4,12 @@ module parameters_mod
   implicit none
   private
   
-  public :: cosmo_params_t, reion_params_t, parameters_t,    &
-            init_cosmo, init_reion_defaults, init_params,    &
-            h, omega_m, omega_l, omega_r, omega_k, gamma,    &
+  public :: cosmo_params_t, reion_params_t, parameters_t,     &
+            init_cosmo, init_params,     &
+            h, omega_m, omega_l, omega_r, omega_k, gamma,     &
             omega_b, ombh2, ns, dn_dlnk, sigma_8, delta_c_z0, &
-            rho_c, e_sf_II, alpha_z, lambda_0,          &
-            esc_PopII, esc_PopIII, e_sf_III, e_QSO,       &
+            rho_c, fzero, alpha_lo, alpha_hi, alpha_z,        &
+            lambda_0, esc_PopII, esc_PopIII, e_sf_III, e_QSO, &
             Delta_H_overlap, betaindex, vc_min
 
   type :: cosmo_params_t
@@ -39,7 +39,9 @@ module parameters_mod
 
 
   type :: reion_params_t
-    real(dp)          :: e_sf_II
+    real(dp)          :: fzero
+    real(dp)          :: alpha_lo
+    real(dp)          :: alpha_hi
     real(dp)          :: alpha_z
     real(dp)          :: lambda_0
     real(dp)          :: esc_PopII
@@ -59,8 +61,8 @@ module parameters_mod
   
   real(dp), save, protected :: h, omega_m, omega_l, omega_r, omega_k
   real(dp), save, protected :: omega_b, ombh2, ns, sigma_8, dn_dlnk, delta_c_z0, rho_c, gamma
-  real(dp), save, protected :: e_sf_II, lambda_0, alpha_z
-  real(dp), save, protected :: esc_PopII, esc_PopIII
+  real(dp), save, protected :: fzero, alpha_lo, alpha_hi, alpha_z
+  real(dp), save, protected :: lambda_0, esc_PopII, esc_PopIII
   real(dp), save, protected :: e_sf_III, e_QSO
   real(dp), save, protected :: Delta_H_overlap, betaindex, vc_min
 
@@ -81,22 +83,6 @@ contains
     cosmo%rho_c   = cosmo%rho_c_0*(cosmo%h)**2
   end subroutine init_cosmo
 
-
-  ! Default values for reionization parameters
-  subroutine init_reion_defaults(reion)
-    type(reion_params_t), intent(out) :: reion
-
-    reion%e_sf_II          = 0.01_dp
-    reion%alpha_z          = 0.0_dp
-    reion%esc_PopII        = 0.36_dp
-    reion%lambda_0         = 2.44_dp
-    reion%esc_PopIII       = 0.0_dp
-    reion%e_sf_III         = 0.0_dp
-    reion%e_QSO            = 0.36_dp
-    reion%Delta_H_overlap  = 59.21_dp
-    reion%betaindex        = -2.2_dp
-    reion%vc_min           = 13.3_dp
-  end subroutine init_reion_defaults
   
   subroutine init_params(params)
     type(parameters_t), intent(in) :: params
@@ -114,7 +100,9 @@ contains
     gamma    = params%cosmo%gamma
     rho_c    = params%cosmo%rho_c_0*h**2
 
-    e_sf_II         = params%reion%e_sf_II
+    fzero           = params%reion%fzero
+    alpha_lo        = params%reion%alpha_lo
+    alpha_hi        = params%reion%alpha_hi
     alpha_z         = params%reion%alpha_z
     lambda_0        = params%reion%lambda_0
     esc_PopII       = params%reion%esc_PopII

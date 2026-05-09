@@ -54,6 +54,7 @@ class Params(object):
          #file_paramnames = open(file_path +'/'+file_root +'.paramnames', "w")
          #file_ranges = open(file_path +'/'+file_root + '.ranges', "w")
          ndim = len(param_min_arr)
+
          with open(file_ranges, 'w') as f:
              for i in range(ndim): f.write(param_name_arr[i] + ' ' + str(param_min_arr[i]) + ' ' + str(param_max_arr[i]) + '\n')
              f.write('tau'+ ' ' + str(0.05) + ' ' + str(0.1) + '\n')

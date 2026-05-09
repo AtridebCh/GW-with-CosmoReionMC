@@ -30,23 +30,31 @@ Z_arraySize = int(round(abs((zend - zstart) / dz)))
 # Run reionization model once at fiducial parameters
 # ---------------------------------------------------------------------------
 
+fzero    = 0.27, 
+alpha_lo = 0.61, 
+alpha_hi = 1.1,
+
 (Z_reion, QH_Q, dNLLdz, gamma_PI, 
          sfr_popII, sfr_popIII,
-         dvc_dz, D_L, age_Gyr, 
-         tau_factor, ierr) = run_model(
-                h0=6.711000e+01,
-                ombh2=2.260000e-02,
-                omch2=1.179535e-01,
-                ns=9.600000e-01,
-                sigma_8=0.8022147706311814,
-                e_sf_ii = 0.01,
-                alpha_z = 1e-05,
-                esc_popii = 0.36,
-                lambda0= 2.44,
+         dvc_dz, D_L, age_Gyr,
+         tau_factor, ierr
+            ) = run_model(
+                h0     = 6.811000e+01,
+                ombh2  = 2.260000e-02,
+                omch2  = 1.179535e-01,
+                ns     = 9.600000e-01,
+                sigma_8= 0.8159,
+                fzero    = fzero, 
+                alpha_lo = alpha_lo, 
+                alpha_hi = alpha_hi,
+                alpha_z  = 1e-05,
+                esc_popii = 0.56,
+                lambda0= 10.36,
                 zstart_in=zstart,
                 zend_in=zend,
                 dz_in=dz,
-                z_arraysize = Z_arraySize)
+                z_arraysize = Z_arraySize
+            )
 
 n_alpha_per_solar_mass = 9690*(1.12*1e57) #Furlanetto 06 provides N_alpha=9690 per unit baryon, multiplied by (M_Sun/M_p)
 const_epsilon_x = 3.4*1e40 #chatterjee+ 19 in CGS

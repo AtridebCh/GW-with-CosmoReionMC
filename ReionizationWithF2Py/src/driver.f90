@@ -1,7 +1,7 @@
 program driver
   use kinds_mod,        only: dp
   use parameters_mod,   only: parameters_t, cosmo_params_t, reion_params_t, &
-                              init_cosmo, init_reion_defaults, init_params
+                              init_cosmo, init_params
   use variables_mod,    only: zstart, zend, dz, ifprint, outroot, n
   use reionization_mod, only: initialize, filling, finalize, validate_params
 
@@ -20,8 +20,10 @@ program driver
   params%cosmo%sigma_8 = 0.8159_dp
   params%cosmo%m_wdm   = -1.0_dp !not using any WDM
 
-  call init_reion_defaults(params%reion)
-  params%reion%e_sf_II         = 0.01_dp
+
+  params%reion%fzero           = 0.17_dp
+  params%reion%alpha_lo        = 0.65
+  params%reion%alpha_hi        = 1.1
   params%reion%alpha_z         = 0.0_dp
   params%reion%esc_PopII       = 0.36_dp
   params%reion%lambda_0        = 2.44_dp

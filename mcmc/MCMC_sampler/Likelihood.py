@@ -5,7 +5,7 @@ import logging
 import matplotlib.pyplot as plt
 from scipy import interpolate
 from copy import deepcopy
-import clik
+#import clik
 
 from CoredataGenerator import CoreModule
 from ChainContext import ChainContext
@@ -47,10 +47,12 @@ class Likelihood:
 
     def __init__(self, CoreModule,
                  min_param=None, max_param=None,
-                 include_gw=True,
+                 include_planck = False,
+                 include_gw = True,
                  include_21cm = True):
         self.min        = min_param
         self.max        = max_param
+        self.include_planck =  include_planck
         self.include_gw = include_gw
         self.include_21cm = include_21cm
 
@@ -118,25 +120,25 @@ class Likelihood:
 
         if 0.135>tau>0.04 and Q_HII_at_z5p8>0.94:  #dark pixel fraction gives an upper limit of x_HI=0.06 hence QHII>(1-0.06)
             loglike = 0.
-
-            for i, clik_file in enumerate(self.clik_files):
-                l = _get_clik(clik_file)    # loaded once per worker, cached after that
-                inds = np.array([bool(int(f)) for f in l.has_cl])
-                lmax = np.array(l.lmax)
-                input = np.array([])
+            if self.include_planck:
+                for i, clik_file in enumerate(self.clik_files):
+                    l = _get_clik(clik_file)    # loaded once per worker, cached after that
+                    inds = np.array([bool(int(f)) for f in l.has_cl])
+                    lmax = np.array(l.lmax)
+                    input = np.array([])
                 
-                for j, flag in enumerate(inds):
-                    if flag:
-                        tcl = np.append(cl01, cls[j][:lmax[j]-1])
-                        input = np.append(input, tcl)
-                if self.clik_files[i]=='../../COM_Likelihood_Data-baseline_R3.00/baseline/plc_3.0/low_l/commander/commander_dx12_v3_2_29.clik':
-                    nuisense=[1.0]
-                if self.clik_files[i]=='../../COM_Likelihood_Data-baseline_R3.00/baseline/plc_3.0/hi_l/plik_lite/plik_lite_v22_TTTEEE.clik':
-                    nuisense=[1.0]
-                if self.clik_files[i]=='../../COM_Likelihood_Data-baseline_R3.00/baseline/plc_3.0/low_l/simall/simall_100x143_offlike5_EE_Aplanck_B.clik':                   
-                    nuisense=[1.0] 
-                input = np.hstack([input, nuisense])
-                loglike += l(input)[0]
+                    for j, flag in enumerate(inds):
+                        if flag:
+                            tcl = np.append(cl01, cls[j][:lmax[j]-1])
+                            input = np.append(input, tcl)
+                    if self.clik_files[i]=='../../COM_Likelihood_Data-baseline_R3.00/baseline/plc_3.0/low_l/commander/commander_dx12_v3_2_29.clik':
+                        nuisense=[1.0]
+                    if self.clik_files[i]=='../../COM_Likelihood_Data-baseline_R3.00/baseline/plc_3.0/hi_l/plik_lite/plik_lite_v22_TTTEEE.clik':
+                        nuisense=[1.0]
+                    if self.clik_files[i]=='../../COM_Likelihood_Data-baseline_R3.00/baseline/plc_3.0/low_l/simall/simall_100x143_offlike5_EE_Aplanck_B.clik':                   
+                        nuisense=[1.0] 
+                    input = np.hstack([input, nuisense])
+                    loglike += l(input)[0]
             
             # redshift is descending (30→0) — must reverse for np.interp
             lyman_limit_interpolated = np.interp(
@@ -179,6 +181,7 @@ class Likelihood:
                       loglike_tau, loglike_gw, loglike_21cm, loglike_tot', loglike, loglike_lyman, 
                                         loglike_gamma, loglike_tau, loglike_gw, loglike_21cm, loglike_tot)
                 print('tau=', tau)
+                
                 plt.scatter(self.redshift_gamma, self.gamma_log)
                 plt.plot(self.redshift_gamma, gamma_interpolated)
                 plt.xlabel('redshift (z)')
@@ -214,6 +217,7 @@ class Likelihood:
 
         if np.all(p > 0.0):
             #calling Core to compute all observables for current mcmc step
+            print('inside call of likelihood.py')
             model = self.Core(ctx, single_run=single_run)
             if model:
                 loglike, tau, Q_HII_at_z5p8 = self.ComputeLikelihood(

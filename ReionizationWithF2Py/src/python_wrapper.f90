@@ -1,12 +1,13 @@
 subroutine run_model(H0, ombh2, omch2, ns, sigma_8, &
-                     e_sf_II, alpha_z, esc_PopII, lambda0, &
+                     fzero, alpha_lo, alpha_hi, alpha_z, esc_PopII, lambda0, &
                      zstart_in, zend_in, dz_in, Z_arraySize, &
                      Z_out, QH_Q_out, dNLLdz_out, gammaHI_out, &
                      sfr_pop2_out, sfr_pop3_out, dvc_out, &
                      D_L_out, age_out, tau_factor_out, ierr)
+  
   use kinds_mod,        only: dp
   use constants_mod,    only: yrbysec
-  use parameters_mod,   only: parameters_t, init_reion_defaults
+  use parameters_mod,   only: parameters_t
   use variables_mod,    only: n, zstart, zend, dz, &
                               dNLLdz, QH, gammaHI, &
                               sfr_pop2_ion, sfr_pop2_neut, &
@@ -20,7 +21,8 @@ subroutine run_model(H0, ombh2, omch2, ns, sigma_8, &
 
   ! inputs
   real(kind=8), intent(in)  :: H0, ombh2, omch2, ns, sigma_8
-  real(kind=8), intent(in)  :: e_sf_II, alpha_z, esc_PopII, lambda0
+  real(kind=8), intent(in)  :: fzero, alpha_lo, alpha_hi, alpha_z
+  real(kind=8), intent(in)  :: esc_PopII, lambda0
   real(kind=8), intent(in)  :: zstart_in, zend_in, dz_in
   integer, intent(in)       :: Z_arraySize
   
@@ -55,8 +57,9 @@ subroutine run_model(H0, ombh2, omch2, ns, sigma_8, &
   params%cosmo%sigma_8 = sigma_8
   params%cosmo%m_wdm   = -1.0_dp
 
-  call init_reion_defaults(params%reion)
-  params%reion%e_sf_II         = e_sf_II
+  params%reion%fzero           = fzero
+  params%reion%alpha_lo        = alpha_lo
+  params%reion%alpha_hi        = alpha_hi
   params%reion%alpha_z         = alpha_z
   params%reion%esc_PopII       = esc_PopII
   params%reion%lambda_0        = lambda0
@@ -90,3 +93,53 @@ subroutine run_model(H0, ombh2, omch2, ns, sigma_8, &
 end subroutine run_model
 
 !add the mass function
+
+subroutine run_dndm(m_arr, z_arr, nm, nz, dndm_out, ierr)
+  use kinds_mod,            only: dp
+  use backgroundCosmology_mod,  only:  generic_dndM  !numdenm
+  implicit none
+
+  ! inputs
+  integer,      intent(in)  :: nm, nz
+  !f2py intent(hide) :: nm, nz
+  real(kind=8), intent(in)  :: m_arr(nm)
+  real(kind=8), intent(in)  :: z_arr(nz)
+
+  ! outputs
+  real(kind=8), intent(out) :: dndm_out(nm, nz)
+  integer,      intent(out) :: ierr
+
+  integer :: i, j
+
+  ierr = 0
+  do j = 1, nz
+    do i = 1, nm
+      dndm_out(i, j) =  generic_dndM(m_arr(i), z_arr(j)) !numdenm(m_arr(i), z_arr(j))
+    end do
+  end do
+
+end subroutine run_dndm
+
+subroutine get_sfe(m_arr, nm, fzero, alpha_lo, alpha_hi, sfe_out, ierr)
+  use kinds_mod,            only: dp
+  use stellar_mod,          only: f_star
+  implicit none
+  
+  ! inputs
+  real(kind=8), intent(in)  :: fzero, alpha_lo, alpha_hi
+  integer,      intent(in)  :: nm
+  !f2py intent(hide) :: nm
+  real(kind=8), intent(in)  :: m_arr(nm)
+  
+  ! outputs
+  real(kind=8), intent(out) :: sfe_out(nm)
+  integer,      intent(out) :: ierr
+  
+  integer :: i
+  
+  ierr = 0
+  do i = 1, nm
+    sfe_out(i) =  f_star(m_arr(i), fzero, alpha_lo, alpha_hi)
+  end do
+end subroutine get_sfe
+

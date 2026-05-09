@@ -11,9 +11,9 @@ filterwarnings('ignore')
 import camb
 
 # we have checked that importing outside is not creating any problem
-sys.path.append('../../ReionizationWithF2Py/python_dir')
+sys.path.append('../../ReionizationWithF2Py/python_dir') #/home/atri/GW_with_CosmoReionMC/ReionizationWithF2Py/python_dir
 import reion_f as f
-from reion_f import run_model
+from reion_f import run_model, run_dndm, get_sfe
 
 sys.path.append('../../GravWave')
 from gw_model import GWModel
@@ -31,12 +31,14 @@ FREE_PARAM_MAPPING_DEFAULT = {
     'omch2':   2,
     'As':      3,
     'ns':      4,
-    'e_sf_II': 5,
-    'alpha_z': 6, 
-    'esc_II' : 7,
-    'lambda0': 8,
-    'f_X'    : 9,
-    'f_alpha': 10
+    'fzero':   5,
+    'alpha_lo': 6,
+    'alpha_hi': 7,
+    'alpha_z': 8, 
+    'esc_II' : 9,
+    'lambda0': 10,
+    'f_X'    : 11,
+    'f_alpha': 12
 }
 
 # Redshift grid for reionization
@@ -44,7 +46,7 @@ zstart, zend, dz = 30.0, 0.0, 0.2
 Z_arraySize = int(round(abs((zend - zstart) / dz)))
 
 # exact match to Fortran as reionization code uses f2py
-Z = np.array([ik * (-abs(dz)) + zstart for ik in range(Z_arraySize + 1)])
+#Z = np.array([ik * (-abs(dz)) + zstart for ik in range(Z_arraySize + 1)])
 
 #if you change this and t_delay, you have to change in the GWcatalogue and 21cm signal too 
 #and create the catalogues agian
@@ -124,15 +126,11 @@ class CoreModule:
 
             camb_results_base = camb.get_results(camb_params_base)
             sigma8 = camb_results_base.get_sigma8()[-1]  # sigma8 at z=0
+            
 
             # ----------------------------------------------------------
             # Run reionization model using sigma8 from first CAMB call
-            # ----------------------------------------------------------
-            # Import inside call — cached in sys.modules after first import
-            #import sys
-            #if self.reion_path not in sys.path:
-            #    sys.path.append(self.reion_path)
-            #from reion_f import run_model
+            
             (
                 Z_reion,
                 QH_Q, 
@@ -151,8 +149,10 @@ class CoreModule:
                 omch2=free_params['omch2'],
                 ns=free_params['ns'],
                 sigma_8=sigma8,
-                e_sf_ii=free_params['e_sf_II'],
-                alpha_z=free_params['alpha_z'],
+                fzero =free_params['fzero'],
+                alpha_lo = free_params['alpha_lo'], 
+                alpha_hi = free_params['alpha_hi'],
+                alpha_z= 0.0,
                 esc_popii = free_params['esc_II'],
                 lambda0=free_params['lambda0'],
                 zstart_in=zstart,
@@ -160,9 +160,13 @@ class CoreModule:
                 dz_in=dz,
                 z_arraysize = Z_arraySize
             )
+            
             idx_z5p8      = np.argmin(np.abs(Z_reion - 5.8))
             Q_HII_at_z5p8 = QH_Q[idx_z5p8]
             
+            plt.plot(Z_reion, QH_Q)
+            plt.show()
+
 
             # ----------------------------------------------------------
             # Second CAMB call — inject external reionization history
@@ -185,8 +189,8 @@ class CoreModule:
             camb_params_reion.ReionExternal      = True
             camb_params_reion.Reion.UsePCReion   = True
             camb_params_reion.length_array       = 151
-            camb_params_reion.redshift_array_external = Z_reion
-            camb_params_reion.reionization_history    = QH_Q
+            camb_params_reion.redshift_array_external = Z_reion[:-1]
+            camb_params_reion.reionization_history    = QH_Q[:-1]
             camb_params_reion.set_for_lmax(self.lmax, lens_potential_accuracy=2)
 
 

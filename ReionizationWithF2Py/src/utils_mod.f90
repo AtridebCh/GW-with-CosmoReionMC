@@ -25,7 +25,10 @@ contains
     write(unit, '(a,f8.4)') ' Omega_b h^2   = ', params%cosmo%ombh2
     write(unit, '(a,f8.4)') ' h             = ', params%cosmo%h
     write(unit, '(a,f8.4)') ' n_s           = ', params%cosmo%ns
-    write(unit, '(a,f8.4)') ' e_sf_II       = ', params%reion%e_sf_II
+    write(unit, '(a,f8.4)') ' fzero         = ', params%reion%fzero
+    write(unit, '(a,f8.4)') ' alpha_lo      = ', params%reion%alpha_lo
+    write(unit, '(a,f8.4)') ' alpha_hi      = ', params%reion%alpha_hi
+    write(unit, '(a,f8.4)') ' alpha_z       = ', params%reion%alpha_z
     write(unit, '(a,f8.4)') ' escfrac_II    = ', escfrac%pop2%HII
     write(unit, '(a,f8.4)') ' e_sf_III      = ', params%reion%e_sf_III
     write(unit, '(a,f8.4)') ' escfrac_III   = ', escfrac%pop3%HII

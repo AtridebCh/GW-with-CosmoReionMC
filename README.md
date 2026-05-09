@@ -257,12 +257,12 @@ Pre-generated mock data for fiducial cosmological and astrophysical parameters i
 - **GW catalogue** — `<parent>/GravWave/`
 - **21cm global signal** — `<parent>/global_21cm_signal/`
 
-To regenerate or modify:
+To regenerate or modify run the following code from ReionizationF2py directory:
 
 | Dataset | Directory | Script |
 |---|---|---|
-| GW catalogue | `GravWave/` | `createMockSignal.py` |
-| 21cm signal | `global_21cm_signal/` | `createMockCatalogue.py` |
+| GW catalogue | `GravWave/` | `createMockCatalogue.py`|
+| 21cm signal | `global_21cm_signal/` | `createMockSignal.py`  |
 
 Update the file paths inside each script before running.
 

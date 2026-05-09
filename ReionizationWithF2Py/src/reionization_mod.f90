@@ -5,16 +5,18 @@ module reionization_mod
   use parameters_mod,   only: parameters_t, init_cosmo, h, omega_m, omega_l, omega_r, &
                               omega_k, omega_b, ombh2, ns, sigma_8, &
                               delta_c_z0, rho_c, gamma, init_params, &
-                              e_sf_II, alpha_z, lambda_0,   &
+                              fzero, alpha_lo, alpha_hi, alpha_z, lambda_0,   &
                               esc_PopII, esc_PopIII, e_sf_III, e_QSO, &
                               Delta_H_overlap, betaindex, vc_min
+
   use variables_mod
   use thermal_mod,      only: compute_species, update_ionstate, get_recrates, get_ionrates
-  use stellar_mod,      only: get_sfr, get_ionflux, lumfun_integral, setspline_sigma
+  use stellar_mod,      only: get_sfr, get_ionflux, lumfun_integral
   use recrates_mod,     only: R_HII_e_A, R_HII_e_B, R_HeIII_e_A, R_HeIII_e_B
   use backgroundCosmology_mod, only: hubbledist, xbsq, sigmasq_b, f_integrand, &
                                      set_sigma8_norm, sigma8_norm, tdyn,   &
-                                     differential_comoving_volume, lumdist, age
+                                     differential_comoving_volume, lumdist, &
+                                     age, setspline_sigma
   use inhomoReion_mod
   use utils_mod,        only: summarize, write_summary
   use SEDreader_mod,    only: get_sed
@@ -53,9 +55,9 @@ contains
   ! Initialization
   ! ---------------------------------------------------------------------------
   subroutine initialize(params)
-    type(parameters_t), intent(inout) :: params
-
     integer :: ik
+    type(parameters_t), intent(inout) :: params
+    
     call init_cosmo(params%cosmo)
     call init_params(params)            ! copy to protected module vars
     
@@ -86,7 +88,7 @@ contains
       D_L(ik)        = lumdist(z(ik))*c_light / (100 * h * 1e05_dp) !mpc
       age_Gyr(ik)    = age(z(ik))/(100.0_dp*h*1e05_dp/Mpcbycm)/(1e09_dp * yrbysec)
       
-      f_starII(ik)   = e_sf_II*(1+z(ik))**alpha_z
+      f_starII(ik)   = (1+z(ik))**alpha_z
            
       dz_t_ff_array(ik)  = tdyn(z(ik))*yrbysec/dtimedz(ik) !tdyn=t_ff is in year so first multiplying wiht yrbysec to convert to sec
       lumfun_integral_qso(ik) = e_QSO * lumfun_integral(z(ik))
@@ -201,41 +203,6 @@ contains
       call update_ionstate(z(ik), dz, dtimedz(ik), HeIII_0(ik))
       
 
-      ! --- Delta = 0.1 regions (underdense) ---
-      call copy_ionstate_frac_T(neutral_m1(ik),neutral_m1(ik-1))
-      call copy_ionstate_frac_T(HII_m1(ik),    HII_m1(ik-1))
-      call copy_ionstate_frac_T(HeIII_m1(ik),  HeIII_m1(ik-1))
-      
-      call get_recrates(z(ik), neutral_m1(ik), dtimedz(ik), 1.0_dp, 0.1_dp)
-      call get_recrates(z(ik), HII_m1(ik), dtimedz(ik), 1.0_dp, 0.1_dp)
-      call get_recrates(z(ik), HeIII_m1(ik), dtimedz(ik), 1.0_dp, 0.1_dp)
-
-      call copy_ionheat_rates(neutral_m1(ik), neutral_0(ik))
-      call copy_ionheat_rates(HII_m1(ik),     HII_0(ik))
-      call copy_ionheat_rates(HeIII_m1(ik),   HeIII_0(ik))
-
-      call update_ionstate(z(ik), dz, dtimedz(ik), neutral_m1(ik))
-      call update_ionstate(z(ik), dz, dtimedz(ik), HII_m1(ik))
-      call update_ionstate(z(ik), dz, dtimedz(ik), HeIII_m1(ik))
-
-
-      ! --- Delta = 10 regions (overdense) ---
-      call copy_ionstate_frac_T(neutral_p1(ik),neutral_p1(ik-1))
-      call copy_ionstate_frac_T(HII_p1(ik),    HII_p1(ik-1))
-      call copy_ionstate_frac_T(HeIII_p1(ik),  HeIII_p1(ik-1))  
-      
-      call get_recrates(z(ik), neutral_p1(ik), dtimedz(ik), 1.0_dp, 10.0_dp)
-      call get_recrates(z(ik), HII_p1(ik), dtimedz(ik), 1.0_dp, 10.0_dp)
-      call get_recrates(z(ik), HeIII_p1(ik), dtimedz(ik), 1.0_dp, 10.0_dp)
-
-      call copy_ionheat_rates(neutral_p1(ik), neutral_0(ik))
-      call copy_ionheat_rates(HII_p1(ik),     HII_0(ik))
-      call copy_ionheat_rates(HeIII_p1(ik),   HeIII_0(ik))
-
-      call update_ionstate(z(ik), dz, dtimedz(ik), neutral_p1(ik))
-      call update_ionstate(z(ik), dz, dtimedz(ik), HII_p1(ik))
-      call update_ionstate(z(ik), dz, dtimedz(ik), HeIII_p1(ik))
-
       ! --- ionization evolution ---
       n_e_H = (HII(ik)%X_e + (QHe(ik-1)%Q / QH(ik-1)%Q) * HeIII(ik)%X_e) * conv_factor
       n_H   = (HII(ik)%X_HII + HII(ik)%frac%HI) * conv_factor
@@ -257,14 +224,6 @@ contains
       call mix_global(ik, global_0(ik),  neutral_0(ik),  HII_0(ik),  HeIII_0(ik),  use_F_M=.false.)
       call compute_species(global_0(ik))
       
-      call mix_global(ik, global_m1(ik), neutral_m1(ik), HII_m1(ik), HeIII_m1(ik), use_F_M=.false.)
-      call compute_species(global_m1(ik))
-      
-      call mix_global(ik, global_p1(ik), neutral_p1(ik), HII_p1(ik), HeIII_p1(ik), use_F_M=.false.)
-      call compute_species(global_p1(ik))
-
-
-      cpbycv(ik) = 0.5_dp * log10(global_p1(ik)%T / global_m1(ik)%T) + 1.0_dp
 
       ! --- mean free path and optical depth ---
       !dNLLdz(ik) = 1.0_dp / ((1.0_dp + z(ik)) * &
@@ -279,7 +238,7 @@ contains
       !write(*,*) 'QH', z(k), QH(ik)%Q
     end do
 
-    tau_elsc_today    = tau_elsc(n)
+    tau_elsc_today    = tau_elsc(n-1)
     tau_elsc(0:n)     = tau_elsc_today - tau_elsc(0:n)
     !if (ifprint) write(*, *) "tau_elsc_today =", tau_elsc_today
     tau_factor = (1-Y_He)*tau_factor * conv_factor  * c_light *6.652e-25_dp !sigma_T = 6.652e-25_dp
@@ -409,8 +368,6 @@ contains
     
     HII(0)    = ini;  HeIII(0)   = ini;  global(0)   = ini
     neutral_0(0) = ini;  HII_0(0)  = ini;  HeIII_0(0) = ini;  global_0(0) = ini
-    neutral_m1(0)= ini;  HII_m1(0) = ini;  HeIII_m1(0)= ini;  global_m1(0)= ini
-    neutral_p1(0)= ini;  HII_p1(0) = ini;  HeIII_p1(0)= ini;  global_p1(0)= ini
   end subroutine set_initial_ionstate
 
   subroutine compute_all_species(ik)
@@ -424,14 +381,6 @@ contains
     call compute_species(HII_0(ik))
     call compute_species(HeIII_0(ik))
     call compute_species(global_0(ik))
-    call compute_species(neutral_m1(ik))
-    call compute_species(HII_m1(ik))
-    call compute_species(HeIII_m1(ik))
-    call compute_species(global_m1(ik))
-    call compute_species(neutral_p1(ik))
-    call compute_species(HII_p1(ik))
-    call compute_species(HeIII_p1(ik))
-    call compute_species(global_p1(ik))
   end subroutine compute_all_species
 
   subroutine allocate_arrays(nn)
@@ -444,8 +393,6 @@ contains
              dvc_dz(0:nn), D_L(0:nn), neutral(0:nn), HII(0:nn), &
              HeIII(0:nn), global(0:nn), age_Gyr(0:nn), &
              neutral_0(0:nn), HII_0(0:nn), HeIII_0(0:nn), global_0(0:nn), &
-             neutral_m1(0:nn), HII_m1(0:nn), HeIII_m1(0:nn), global_m1(0:nn), &
-             neutral_p1(0:nn), HII_p1(0:nn), HeIII_p1(0:nn), global_p1(0:nn), &
              Gamma_PH(0:nn), Gamma_PI(0:nn), &
              dnphotdz_H(0:nn), dnphotdz_He(0:nn), sigma(0:nn), &
              dNLLdz(0:nn), lumfun_integral_qso(0:nn), &
@@ -473,8 +420,6 @@ contains
                tau_elsc, cpbycv, gammaHI, dtimedz, t_H_array, &
                age_Gyr, dvc_dz, D_L, dz_t_ff_array, neutral, HII, HeIII, global, &
                neutral_0, HII_0, HeIII_0, global_0, &
-               neutral_m1, HII_m1, HeIII_m1, global_m1, &
-               neutral_p1, HII_p1, HeIII_p1, global_p1, &
                Gamma_PH, Gamma_PI, dnphotdz_H, dnphotdz_He, &
                sigma, dNLLdz, lumfun_integral_qso, &
                mass_integral_pop2_ion, mass_integral_pop2_neut, &

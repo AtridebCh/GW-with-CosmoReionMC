@@ -6,30 +6,33 @@ module stellar_mod
   use parameters_mod,   only: parameters_t, h, omega_m, omega_l, omega_r, &
                                omega_k, omega_b, ombh2, ns, sigma_8, &
                                rho_c,  gamma, &
+                               fzero, alpha_lo, alpha_hi, e_sf_III, e_QSO,        &
                                esc_PopII, esc_PopIII, lambda_0, Delta_H_overlap,   &
-                               e_sf_II, e_sf_III, e_QSO, betaindex, vc_min
+                               betaindex, vc_min
                            
   use variables_mod,    only: z, dz, dtimedz, k, delta_c, &
                                dfcolldt_pop2_ion, dfcolldt_pop2_neut, &
                                dfcolldt_pop3_ion, dfcolldt_pop3_neut, &
                                mass_integral_pop2_ion, mass_integral_pop2_neut, &
                                mass_integral_pop3_ion, mass_integral_pop3_neut, &
-                               sfr_pop2_ion, sfr_pop2_neut, &
+                               sfr_pop2_ion, sfr_pop2_neut, massfunc_name, &
                                sfr_pop3_ion, sfr_pop3_neut, &
                                Gamma_PI, Gamma_PH, rho_b, rho_b_cgs, &
                                dnphotdz_ion, dnphotdz_neut, dnphotdz_H, dnphotdz_He, &
                                QH, QHe, HII, HeIII, HII_0, HeIII_0, &
                                dnphotdm, sigma_PI, sigma_PH, escfrac, &
                                lumfun_integral_qso, &
-                               t_H_array, dz_t_ff_array, f_starII, f_starIII
+                               t_H_array, dz_t_ff_array, f_starII, f_starIII, &
+                               logm, logsig, dlogsig_dlogx, coeffspl, &
+                               coeffspl2, coeffspl_deriv
   use backgroundCosmology_mod, only: omega_z, hubbledist, delvir, &
-                               xbsq, probdist, d, sigma, nu_parameter, &
-                               Mdndm_ST, dfdnu_ST, probdist_ST
+                               xbsq, dfdnu_PS, d, sigma, nu_parameter, &
+                               dfdnu_ST, generic_dndM, numdenm
   use adaptint_mod,            only: d01amf, d01arf
   use onedspline_mod,          only: spline, splevl
   implicit none
   private
-  public :: get_sfr, get_ionflux, lumfun_integral, setspline_sigma, sum_dnphotdz, QH
+  public :: get_sfr, f_star, get_ionflux, lumfun_integral, sum_dnphotdz, QH
 
   ! QSO spectral index and normalisation
   real(dp), parameter :: alpha_qso   = 1.57_dp
@@ -47,9 +50,6 @@ module stellar_mod
   !redshift for fpop3 chatterjee
   real(dp) :: z_pop3=16.0_dp
 
-  ! spline arrays (assumed set elsewhere before calling)
-  real(dp):: logm(100), logsig(100), coeffspl(3,100,100),coeffspl2(3,100,100)
-
 contains
 
   ! ---------------------------------------------------------------------------
@@ -66,22 +66,39 @@ contains
     rho_m = omega_m *rho_b !remember, in MdndM_ST already has rho_m multiplied
     dtz = dtimedz(k)
 
-    dfcolldt_pop2_ion(k)  = mass_integral_pop2(z(k), vcmin_ion(z(k), HII(k-1)%T,   HII(k-1)%X), vcmax())
-    dfcolldt_pop2_neut(k) = mass_integral_pop2(z(k), vcmin_neut(z(k)), vcmax())
-    dfcolldt_pop3_ion(k)  = mass_integral_pop3(z(k), vcmin_ion(z(k), HeIII(k-1)%T, HeIII(k-1)%X), vcmax())
-    dfcolldt_pop3_neut(k) = mass_integral_pop3(z(k), vcmin_neut(z(k)), vcmax())
-    
-    !if you want ST
-    !dfcolldt_pop2_ion(k)  = mass_integral_pop2_ST(z(k), vcmin_ion(z(k), HII(k-1)%T,   HII(k-1)%X), vcmax())
-    !dfcolldt_pop2_neut(k) = mass_integral_pop2_ST(z(k), vcmin_neut(z(k)), vcmax())
-    !dfcolldt_pop3_ion(k)  = mass_integral_pop3_ST(z(k), vcmin_ion(z(k), HeIII(k-1)%T, HeIII(k-1)%X), vcmax())
-    !dfcolldt_pop3_neut(k) = mass_integral_pop3_ST(z(k), vcmin_neut(z(k)), vcmax())
+
+    !new method suggested by Barun
+    dfcolldt_pop2_ion(k)  = -1.0_dp/ (t_H_array(k)*dz)*(1.0_dp + z(k)) * &
+                                   (mass_integral_pop2_new(z(k), vcmin_ion(z(k), HII(k-1)%T,   HII(k-1)%X), vcmax()) - &
+                                    mass_integral_pop2_new(z(k-1), vcmin_ion(z(k-1), HII(k-1)%T,   HII(k-1)%X), vcmax()))
     
     
-    dfcolldt_pop2_neut(k) = (prefactor / t_H_array(k)) * dfcolldt_pop2_neut(k)
-    dfcolldt_pop2_ion(k)  = (prefactor / t_H_array(k)) * dfcolldt_pop2_ion(k)
-    dfcolldt_pop3_neut(k) = (prefactor / t_H_array(k)) * dfcolldt_pop3_neut(k)
-    dfcolldt_pop3_ion(k)  = (prefactor / t_H_array(k)) * dfcolldt_pop3_ion(k)
+    dfcolldt_pop2_neut(k) = -1.0_dp/ (t_H_array(k)*dz)*(1.0_dp + z(k)) * &
+                                   (mass_integral_pop2_new(z(k), vcmin_neut(z(k)), vcmax()) - &
+                                   mass_integral_pop2_new(z(k-1), vcmin_ion(z(k-1), HII(k-1)%T,   HII(k-1)%X), vcmax()))
+    
+    
+    dfcolldt_pop3_ion(k)  = -1.0_dp/ (t_H_array(k)*dz)*(1.0_dp + z(k)) * &
+                                   (mass_integral_pop3_new(z(k), vcmin_ion(z(k), HeIII(k-1)%T, HeIII(k-1)%X), vcmax()) - &
+                                     mass_integral_pop3_new(z(k-1), vcmin_ion(z(k-1), HeIII(k-1)%T, HeIII(k-1)%X), vcmax()))
+    
+    
+    dfcolldt_pop3_neut(k) = -1.0_dp/ (t_H_array(k)*dz)*(1.0_dp + z(k)) * &
+                                    (mass_integral_pop3_new(z(k), vcmin_neut(z(k)), vcmax()) - &
+                                    mass_integral_pop3_new(z(k-1), vcmin_neut(z(k-1)), vcmax()))
+    
+    !old method
+    
+    !dfcolldt_pop2_ion(k)  = mass_integral_pop2(z(k), vcmin_ion(z(k), HII(k-1)%T,   HII(k-1)%X), vcmax())
+    !dfcolldt_pop2_neut(k) = mass_integral_pop2(z(k), vcmin_neut(z(k)), vcmax())
+    !dfcolldt_pop3_ion(k)  = mass_integral_pop3(z(k), vcmin_ion(z(k), HeIII(k-1)%T, HeIII(k-1)%X), vcmax())
+    !dfcolldt_pop3_neut(k) = mass_integral_pop3(z(k), vcmin_neut(z(k)), vcmax())
+    
+    !dfcolldt_pop2_neut(k) = (prefactor / t_H_array(k)) * dfcolldt_pop2_neut(k)
+    !dfcolldt_pop2_ion(k)  = (prefactor / t_H_array(k)) * dfcolldt_pop2_ion(k)
+    !dfcolldt_pop3_neut(k) = (prefactor / t_H_array(k)) * dfcolldt_pop3_neut(k)
+    !dfcolldt_pop3_ion(k)  = (prefactor / t_H_array(k)) * dfcolldt_pop3_ion(k)
+    !old method ends
 
     mass_integral_pop2_neut(k) = dfcolldt_pop2_neut(k)
     mass_integral_pop2_ion(k)  = dfcolldt_pop2_ion(k)
@@ -319,7 +336,13 @@ contains
 
     sig = delta_c / (d(zmass) * nu)
     m   = splevl(log10(sig), logsig, logm, coeffspl, dum, dum, ier)
-    res = probdist(nu) * (nu * nu - 1.0_dp) * (1.0_dp - fpop3(zmass, m)) !*f_star(m)
+    
+    select case (trim(massfunc_name))
+      case ('PS')
+        res = dfdnu_PS(nu) * (1.0_dp - fpop3(zmass, m)) *f_star(10**m, fzero, alpha_lo, alpha_hi)
+      case ('ST')
+        res = dfdnu_ST(nu) * (1.0_dp - fpop3(zmass, m)) *f_star(10**m, fzero, alpha_lo, alpha_hi)
+    end select
   end function mass_integrand_pop2
 
   function mass_integrand_pop3(nu) result(res)
@@ -329,7 +352,13 @@ contains
 
     sig = delta_c / (d(zmass) * nu)
     m   = splevl(log10(sig), logsig, logm, coeffspl, dum, dum, ier)
-    res = probdist(nu) * (nu * nu - 1.0_dp) * fpop3(zmass, m) !*f_star(m)
+    
+    select case (trim(massfunc_name))
+      case ('PS')
+        res = dfdnu_PS(nu) * fpop3(zmass, m)*f_star(10**m, fzero, alpha_lo, alpha_hi)
+      case ('ST')
+        res = dfdnu_ST(nu) * fpop3(zmass, m) *f_star(10**m, fzero, alpha_lo, alpha_hi)
+    end select
   end function mass_integrand_pop3
 
 
@@ -337,23 +366,18 @@ contains
   ! Mass function integrals shared implementation for ST (added by Atri) and f_star(M)
   ! ---------------------------------------------------------------------------
   
-  function f_star(log10_Mh) result(res)
-    real(dp), intent(in) :: log10_Mh   ! log10 of halo mass
+  
+  function f_star(Mh, fzero, alpha_lo, alpha_hi ) result(res)
+    real(dp), intent(in) :: Mh, fzero, alpha_lo, alpha_hi   ! log10 of halo mass
     real(dp) :: res
+    real(dp), parameter :: Mp = 10.0**11.7_dp          ! log10(Mp) = 11.7
+    real(dp) :: ratio
 
-    real(dp), parameter :: f0    = 0.04_dp
-    real(dp), parameter :: log10_Mp = 11.7_dp          ! log10(Mp) = 11.7
-    real(dp), parameter :: beta  = 0.9_dp
-    real(dp), parameter :: gamma = 0.65_dp !0.65_dp
+    ratio = Mh/Mp
 
-    real(dp) :: log10_ratio, ratio
+    res = 2*fzero / (ratio**(alpha_lo) + ratio**(-alpha_hi))
 
-    log10_ratio = log10_Mh - log10_Mp
-    ratio       = 10.0_dp**log10_ratio                 ! Mh/Mp
-
-    res = 2*f0 / (ratio**(-beta) + ratio**gamma)
-
-  end function f_star 
+  end function f_star
   
   function fpop3_chatterjee(zcoll, dz_t_ff) result(res)
     real(dp), intent(in) :: zcoll, dz_t_ff
@@ -362,41 +386,39 @@ contains
     res = 0.5*(1+tanh(abs((zcoll-z_pop3)/dz_t_ff)))
   end function fpop3_chatterjee
   
-  function mass_integral_pop2_ST(zcoll, vc_min, vc_max) result(res)
+  function mass_integral_pop2_new(zcoll, vc_min, vc_max) result(res)
     real(dp), intent(in) :: zcoll, vc_min, vc_max
     real(dp) :: res
 
-    res = mass_integral_generic(zcoll, vc_min, vc_max, mass_integrand_pop2_ST)
-  end function mass_integral_pop2_ST
+    res = mass_integral_generic(zcoll, vc_min, vc_max, mass_integrand_pop2_new)
+  end function mass_integral_pop2_new
 
-  function mass_integral_pop3_ST(zcoll, vc_min, vc_max) result(res)
+  function mass_integral_pop3_new(zcoll, vc_min, vc_max) result(res)
     real(dp), intent(in) :: zcoll, vc_min, vc_max
     real(dp) :: res
 
-    res = mass_integral_generic(zcoll, vc_min, vc_max, mass_integrand_pop3_ST)
-  end function mass_integral_pop3_ST 
+    res = mass_integral_generic(zcoll, vc_min, vc_max, mass_integrand_pop3_new)
+  end function mass_integral_pop3_new 
 
-  function mass_integrand_pop2_ST(nu) result(res)
+  function mass_integrand_pop2_new(nu) result(res)
     real(dp), intent(in) :: nu
     real(dp) :: res, sig, m, dum
     integer  :: ier
 
     sig = delta_c / (d(zmass) * nu)
     m   = splevl(log10(sig), logsig, logm, coeffspl, dum, dum, ier)   
-    !res = Mdndm_ST(nu) * (1.0_dp-fpop3_chatterjee(zmass, dz_t_ff_array(k)))*f_star(m)
-    res = (1.0_dp- fpop3(zmass, m)) *f_star(m)*nu*dfdnu_ST(nu) !Mdndm_ST(nu)
-  end function mass_integrand_pop2_ST
+    res = (1.0_dp- fpop3(zmass, m)) *10**m * generic_dndM(10**m, zmass) *f_star(10**m, fzero, alpha_lo, alpha_hi)
+  end function mass_integrand_pop2_new
 
-  function mass_integrand_pop3_ST(nu) result(res)
+  function mass_integrand_pop3_new(nu) result(res)
     real(dp), intent(in) :: nu
     real(dp) :: res, sig, m, dum
     integer  :: ier
 
     sig = delta_c / (d(zmass) * nu)
     m   = splevl(log10(sig), logsig, logm, coeffspl, dum, dum, ier) 
-    !res = Mdndm_ST(nu)* fpop3_chatterjee(zmass, dz_t_ff_array(k))*f_star(m)
-    res = fpop3(zmass, m) *f_star(m)*nu*dfdnu_ST(nu) !Mdndm_ST(nu)
-  end function mass_integrand_pop3_ST
+    res = fpop3(zmass, m) *10**m * generic_dndM(10**m, zmass)*f_star(10**m, fzero, alpha_lo, alpha_hi)
+  end function mass_integrand_pop3_new
 
   ! ---------------------------------------------------------------------------
   ! Private helpers to reduce repetition in get_sfr and get_ionflux
@@ -570,19 +592,5 @@ contains
     res           = quasar_lumfun * lb / lband
   end function lumfun_integrand
   
-  subroutine setspline_sigma()
-    integer  :: i, ier
-    real(dp) :: x, rho_0
-
-    rho_0 = rho_c * omega_m
-    do i = 1, 100
-      logm(i)   = 0.2_dp * i
-      x         = (3.0_dp * 10.0_dp**logm(i) / (4.0_dp * pi * rho_0))**(1.0_dp / 3.0_dp)
-      logsig(i) = log10(sigma(x))
-    end do
-
-    call spline(logsig, logm,   coeffspl,  ier)
-    call spline(logm,   logsig, coeffspl2, ier)
-  end subroutine setspline_sigma
 
 end module stellar_mod

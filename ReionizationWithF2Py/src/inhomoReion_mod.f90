@@ -6,7 +6,7 @@ module inhomoReion_mod
                            omega_k,omega_b, ombh2, ns, sigma_8, &
                            rho_c, gamma, esc_PopII, esc_PopIII, &
                            lambda_0, Delta_H_overlap,   &
-                           e_sf_II, e_sf_III, e_QSO, betaindex, vc_min
+                           betaindex, vc_min
   use variables_mod,  only: Delta_V, mumean, P_V_norm
   use backgroundCosmology_mod, only: f_integrand, hubbledist
   implicit none

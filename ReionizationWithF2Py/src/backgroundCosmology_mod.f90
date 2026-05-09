@@ -1,22 +1,23 @@
 module backgroundCosmology_mod
-  use kinds_mod,     only: dp
-  use constants_mod, only: pi, two_pi, kboltz, mprot, yrbysec, c_light
+  use kinds_mod,      only: dp
+  use constants_mod,  only: pi, two_pi, kboltz, mprot, yrbysec, c_light
   use parameters_mod, only: h, omega_m, omega_l, omega_r, &
                            omega_k,omega_b, ombh2, ns, sigma_8, &
                            rho_c, gamma, dn_dlnk
-  use variables_mod, only: delta_c, massfunc_name
+  use variables_mod,  only: delta_c, massfunc_name, logm, logsig, &
+                            logx_arr, dlogsig_dlogx, coeffspl, coeffspl2, coeffspl_deriv
   use adaptint_mod ! got d01amf, d01arf
+  use onedspline_mod, only: spline, splevl
   implicit none
   private
   
 
-  public :: transfun, sigma, logsigma, probdist, cumprobdist,      &
-            numdenx, numdenm, massfrac, massfraccum, Mdndm_ST,     &
+  public :: sigma, logsigma, dfdnu_PS, numdenm, massfrac,          &
             nu_parameter, tdyn, delvir, pspec, age, angdist, s_k,  &
             comoving, hubbledist, norm, lumdist, omega_z, d,       &
             sigmasq, sigmasq_b, xbsq, f_integrand, set_sigma8_norm,&
-            sigma8_norm, generic_dndM, dfdnu_ST, probdist_ST,      &
-            differential_comoving_volume
+            sigma8_norm, generic_dndM, dfdnu_ST,                   &
+            differential_comoving_volume, setspline_sigma
 
   ! module-level working variables (replacing implicit globals)
   real(dp), save, protected :: sigma8_norm   ! add here
@@ -98,28 +99,12 @@ contains
     res = log(sigma(exp(logx)))
   end function logsigma
 
-  function probdist(nu) result(res)
+  function probdist_PS(nu) result(res)
     real(dp), intent(in) :: nu
     real(dp) :: res
 
-    res = sqrt(2.0_dp / pi) * exp(-nu * nu / 2.0_dp)
-  end function probdist
-
-  function cumprobdist(nu) result(res)
-    real(dp), intent(in) :: nu
-    real(dp) :: res
-    integer,  parameter :: lw = 2000, liw = lw / 4
-    integer  :: ifail, inf
-    real(dp) :: epsabs, epsrel, abserr
-    real(dp), dimension(lw)  :: w
-    integer,  dimension(liw) :: iw
-
-    inf    = 1
-    epsabs = 0.0_dp
-    epsrel = 1.0e-5_dp
-    ifail  = -1
-    call d01amf(probdist, nu, inf, epsabs, epsrel, res, abserr, w, lw, iw, liw, ifail)
-  end function cumprobdist
+    res = sqrt(2.0_dp / pi) * nu * exp(-nu * nu / 2.0_dp)
+  end function probdist_PS
   
   function dfridr(func, x, step, err) result(res)
     real(dp), intent(in)  :: x, step
@@ -179,7 +164,7 @@ contains
       step = step / 2.0_dp
     end do
     nu  = delta_c / (d(z) * sig)
-    res = -probdist(nu) * (3.0_dp / (4.0_dp * pi * x**3)) * dlogsigmadlogx * nu / x
+    res = -probdist_PS(nu) * (3.0_dp / (4.0_dp * pi * x**3)) * dlogsigmadlogx / x
   end function numdenx
 
   function d(z) result(res)
@@ -211,25 +196,23 @@ contains
     real(dp)        :: res 
     
     real(dp)        :: x, rho_0, sig, step, err, nu
-    real(dp)        :: dlogsigmadlogx
+    real(dp)        :: dlogsigmadlogx, dum
+    integer  :: ier
     
     rho_0 = rho_c * omega_m
     
     ! Lagrangian radius
     x     = (3.0_dp * m / (4.0_dp * pi * rho_0))**(1.0_dp / 3.0_dp)
-    sig  = sigma(x)
-    step = 0.1_dp
-    do
-      dlogsigmadlogx = dfridr(logsigma, log(x), step, err)
-      if (abs(err) < 1.0e-5_dp) exit
-      step = step / 2.0_dp
-    end do
+    sig   = 10.0_dp**splevl(log10(m), logm, logsig, coeffspl2, dum, dum, ier)
+
+    dlogsigmadlogx = splevl(log10(x), logx_arr, dlogsig_dlogx, coeffspl_deriv, dum, dum, ier)
     nu  = delta_c / (d(z) * sig)
+    
     
     ! dn/dM = - rho_0/(3M^2) * f(nu) * d ln sigma / d ln x
     select case (trim(massfunc_name))
       case ('PS')
-        res = -rho_0 / (3.0_dp * m**2) * probdist(nu) * dlogsigmadlogx
+        res = -rho_0 / (3.0_dp * m**2) * probdist_PS(nu) * dlogsigmadlogx
       case ('ST')
         res = -rho_0 / (3.0_dp * m**2) * probdist_ST(nu) * dlogsigmadlogx
       case default
@@ -245,26 +228,6 @@ contains
     rho_0 = rho_c * omega_m
     res   = m * numdenm(m, z) / rho_0
   end function massfrac
-
-  function massfraccum(m, z) result(res)
-    real(dp), intent(in) :: m, z
-    real(dp) :: res, x, rho_0, sig, nu
-
-    rho_0 = rho_c * omega_m
-    x     = (3.0_dp * m / (4.0_dp * pi * rho_0))**(1.0_dp / 3.0_dp)
-    sig   = sigma(x)
-    nu    = delta_c / (d(z) * sig)
-    res   = cumprobdist(nu)
-  end function massfraccum
-  
-  function Mdndm_ST(nu) result(res)
-    double precision, intent(in)  :: nu
-    real(dp) :: rho_0, res
-    
-    rho_0 = rho_c * omega_m
-    res = rho_0 * probdist_ST(nu)
-  
-  end function
   
   function probdist_ST(nu) result(res)
     real(dp), intent(in) :: nu
@@ -275,7 +238,7 @@ contains
     
     
     nu2 = nu * nu
-    res = cap_A_st* nu*sqrt(small_a_st / (2.0_dp * pi))*(1+(small_a_st *nu2)**(-p_st)) * exp(-nu2 / 2.0_dp)
+    res = cap_A_st * sqrt(2.0_dp * small_a_st / pi)* (1+(small_a_st *nu2)**(-p_st)) * nu *  exp(-small_a_st *nu2 / 2.0_dp)
   end function probdist_ST
 
 
@@ -294,12 +257,20 @@ contains
     power_term = anu2**(-p)
     exp_term   = exp(-anu2 / 2.0_dp)
 
-    res = -C * exp_term * ( &
-          (1.0_dp + power_term) * (1.0_dp - anu2) &
-        - 2.0_dp * p * power_term &
-        )
+    res = C * exp_term * ( &
+          (1.0_dp + power_term) * (anu2-1) &
+           + 2.0_dp * p * power_term ) !we absorbed the negative sign while calculating the mass integral
 
   end function dfdnu_ST
+  
+  function dfdnu_PS(nu) result(res)
+    real(dp), intent(in) :: nu
+    real(dp) :: res
+
+    res = sqrt(2.0_dp / pi) * (nu**2 -1.0_dp) * exp(-nu * nu / 2.0_dp)
+
+  end function dfdnu_PS
+  
   ! ---------------------------------------------------------------------------
   ! Power spectrum and variance
   ! ---------------------------------------------------------------------------
@@ -539,6 +510,33 @@ contains
     !H0= 100*h*1e05 cm/sec/mpc, so square of it will give 1e14 
     !(mpc_cm)^2 factor from H0 conversion will cancel with the (mpc_cm)^2 from the v_c as finally x_b is in mpc unit
   end function xbsq
+  
+  subroutine setspline_sigma()
+    integer  :: i, ier
+    real(dp) :: x, rho_0, err
+
+    rho_0 = rho_c * omega_m
+    do i = 1, 100
+      logm(i)   = 0.2_dp * i
+      x         = (3.0_dp * 10.0_dp**logm(i) / (4.0_dp * pi * rho_0))**(1.0_dp / 3.0_dp)
+      logx_arr(i) = log10(x)
+      logsig(i) = log10(sigma(x))
+      
+      ! d log10(sigma) / d log10(x) via Ridders method
+      dlogsig_dlogx(i) = dfridr(logsig_of_logx, log10(x), 0.01_dp, err)
+    end do
+
+    call spline(logsig, logm,   coeffspl,  ier)
+    call spline(logm,   logsig, coeffspl2, ier)
+    call spline(logx_arr, dlogsig_dlogx, coeffspl_deriv, ier)
+  end subroutine setspline_sigma
+  
+  ! Helper — sigma as function of log10(x), needed by dfridr interface
+  function logsig_of_logx(logx) result(res)
+    real(dp), intent(in) :: logx
+    real(dp) :: res
+    res = log10(sigma(10.0_dp**logx))
+  end function logsig_of_logx
   
 
 end module backgroundCosmology_mod

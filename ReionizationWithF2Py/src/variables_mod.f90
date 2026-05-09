@@ -32,6 +32,10 @@ module variables_mod
   real(dp), allocatable, public :: t_array(:), t_H_array(:), dz_t_ff_array(:), &
                                    dvc_dz(:), D_L(:), age_Gyr(:)
   real(dp), allocatable, public :: esc_II(:), esc_III(:), f_starII(:), f_starIII(:), tau_factor(:)
+  
+  ! spline arrays for sigma
+  real(dp), public ::  logm(100), logsig(100), logx_arr(100), dlogsig_dlogx(100)
+  real(dp), public ::  coeffspl(3,100,100), coeffspl2(3,100,100), coeffspl_deriv(3, 100, 100)
 
   ! Derived type arrays
   type(fillingfactor_t), allocatable, public :: QH(:), QHe(:)
@@ -42,8 +46,6 @@ module variables_mod
 
   type(ionstate_t), allocatable, public :: neutral(:), HII(:), HeIII(:), global(:)
   type(ionstate_t), allocatable, public :: neutral_0(:), HII_0(:), HeIII_0(:), global_0(:)
-  type(ionstate_t), allocatable, public :: neutral_m1(:), HII_m1(:), HeIII_m1(:), global_m1(:)
-  type(ionstate_t), allocatable, public :: neutral_p1(:), HII_p1(:), HeIII_p1(:), global_p1(:)
 
   ! Star formation and photon rate arrays
   real(dp), allocatable, public :: dfcolldt_pop2_ion(:), dfcolldt_pop2_neut(:), &
