@@ -29,7 +29,7 @@ Z_reion = np.array([ik * (-abs(dz)) + zstart for ik in range(Z_arraySize + 1)])
 # ---------------------------------------------------------------------------
 # Run reionization model once at fiducial parameters
 # ---------------------------------------------------------------------------
-fzero    = 0.27 
+fzero    = 0.54 
 alpha_lo = 0.61 
 alpha_hi = 1.1
 
@@ -299,7 +299,7 @@ while len(catalogue) < N_events:
         "sigma_ln_DL":       sigma_ln_DL,
     })
 
-with open("CE_mock_catalog.pkl", "wb") as f:
+with open("../GravWave/CE_mock_catalog.pkl", "wb") as f:
     pickle.dump(catalogue, f)
 
 print(f"\nCatalogue saved: {len(catalogue)} events")

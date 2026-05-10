@@ -30,7 +30,7 @@ Z_arraySize = int(round(abs((zend - zstart) / dz)))
 # Run reionization model once at fiducial parameters
 # ---------------------------------------------------------------------------
 
-fzero    = 0.27, 
+fzero    = 0.54, 
 alpha_lo = 0.61, 
 alpha_hi = 1.1,
 
@@ -80,5 +80,5 @@ plt.plot(Z_21cm, T_b)
 plt.show()
 
 
-np.savetxt('brightness_temp.txt', np.column_stack([Z_21cm, T_b]), 
+np.savetxt('../global_21cm_signal/brightness_temp.txt', np.column_stack([Z_21cm, T_b]), 
            header='redshift T_b[mK]')

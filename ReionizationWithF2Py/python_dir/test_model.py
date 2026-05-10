@@ -11,7 +11,7 @@ Z_arraySize = int(round(abs((zend - zstart) / dz)))
 
 cosmo = cosmology.setCosmology('planck18')
 
-fzero    = 0.27, 
+fzero    = 0.54, 
 alpha_lo = 0.61, 
 alpha_hi = 1.1,
 
