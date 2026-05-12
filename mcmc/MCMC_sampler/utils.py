@@ -57,10 +57,11 @@ class Params(object):
          with open(file_ranges, 'w') as f:
              for i in range(ndim): f.write(param_name_arr[i] + ' ' + str(param_min_arr[i]) + ' ' + str(param_max_arr[i]) + '\n')
              f.write('tau'+ ' ' + str(0.05) + ' ' + str(0.1) + '\n')
+             f.write('QHII_z5pt8'+ ' ' + str(0.0) + ' ' + str(1.) + '\n')
          with open(file_paramnames, 'w') as f:
              for i in range(ndim): f.write(param_name_arr[i] + ' ' + param_latex_name_arr[i] + '\n')  
              f.write('tau' + ' '+ '\\tau' +  '\n' )
-
+             f.write('QHII_z5pt8' + ' '+ '\\Q_\mathrm{HII}^{z=5.8}' +  '\n' )
       
     def __getitem__(self, slice):
         return self.values[slice]

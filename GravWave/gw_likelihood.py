@@ -44,7 +44,7 @@ class GWLikelihood:
     def __init__(
         self,
         #change path
-        catalogue_path = "/home/atri/GW_with_CosmoReionMC/GravWave/CE_mock_catalog.pkl",
+        catalogue_path = "../../GravWave/CE_mock_catalog.pkl",
         T_obs          = 70.0 / 365.25,
     ):
         self.catalogue_path = catalogue_path

@@ -1,0 +1,26 @@
+2026-03-12 22:38:45,508 INFO:start sampling — no burn-in. Remove burn-in steps when producing corner plots.
+2026-03-12 22:38:45,508 INFO:Using 15 core(s).
+2026-03-12 22:39:21,632 INFO:Iteration finished with total sample Number 30
+
+2026-03-12 22:39:38,624 INFO:Iteration finished with total sample Number 60
+
+2026-03-12 22:39:56,007 INFO:Iteration finished with total sample Number 90
+
+2026-03-12 22:40:13,478 INFO:Iteration finished with total sample Number 120
+
+2026-03-12 22:40:30,638 INFO:Iteration finished with total sample Number 150
+
+2026-03-12 22:40:47,971 INFO:Iteration finished with total sample Number 180
+
+2026-03-12 22:41:04,991 INFO:Iteration finished with total sample Number 210
+
+2026-03-12 22:41:21,948 INFO:Iteration finished with total sample Number 240
+
+2026-03-12 22:41:39,225 INFO:Iteration finished with total sample Number 270
+
+2026-03-12 22:41:56,319 INFO:Iteration finished with total sample Number 300
+
+2026-03-12 22:42:13,705 INFO:Iteration finished with total sample Number 330
+
+2026-03-12 22:42:31,619 INFO:Iteration finished with total sample Number 360
+

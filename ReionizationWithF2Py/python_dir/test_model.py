@@ -4,9 +4,12 @@ import matplotlib.pyplot as plt
 
 import reion_f as f
 from reion_f import run_model
+import time 
 
+t1 = time.time()
 zstart, zend, dz = 30.0, 0.0, 0.2
 Z_arraySize = int(round(abs((zend - zstart) / dz)))
+
 
 
 (Z, QH_Q, dNLLdz, gamma_PI, 
@@ -31,8 +34,10 @@ Z_arraySize = int(round(abs((zend - zstart) / dz)))
 if ierr != 0:
     raise RuntimeError("filling() failed")
 
+t2 = time.time()
+print('time', t2 - t1)
 #change the path
-rho_sfrd_data = np.loadtxt('/home/atri/CosmoReion_Experiment/ObsData/rho_SFRD_data.dat')
+rho_sfrd_data = np.loadtxt('../ObsData/rho_SFRD_data.dat')
 
 plt.plot(Z, QH_Q)
 plt.xlim(2, 15)

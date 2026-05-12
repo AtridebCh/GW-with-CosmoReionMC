@@ -36,7 +36,7 @@ param_latex_name_arr=['H_{0}','\omega_{b} h^{2}', '\omega_{c} h^{2}', 'A_s', 'n_
 
 #change the path if needed
 parent_dir="./chain_storage/" 
-MCMC_dir="test_run"+d1
+MCMC_dir="test_run_walker_ratio_4"+d1
 
 chain_storage_path = os.path.join(parent_dir, MCMC_dir)
 
@@ -54,12 +54,12 @@ like.setup(gammadatafile, Lymanlimitdatafile, T_b_Datafile)
 sampler = MCMCsampler(
                 params= params, 
                 likelihoodComputation=like, 
-                filePrefix=str(d1), 
+                filePrefix=str(d1)+'_walker_ratio_4', 
                 chain_storage_path=chain_storage_path, 
                 fileroot=file_root,
                 walkersRatio=4,  
                 sampleIterations=1000000,
-                n_cores = 4
+                n_cores = 20
                 )
 
 

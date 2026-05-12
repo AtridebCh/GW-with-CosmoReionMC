@@ -122,7 +122,7 @@ class MCMCsampler():
             lnprob_arr[:, step_index]   = prob
             blobs_arr[:, step_index]    = np.asarray(blobs)
             step_index += 1
-
+            print(step_index)
             if np.remainder(step_index, save_steps) == 0:
                 for k in range(self.nwalkers):
                     print('step, save_step', step_index, save_steps)

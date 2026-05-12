@@ -8,6 +8,7 @@ module SEDreader_mod
   private
   public :: get_SED
 
+  !my_path = "/data/beegfs/astro-storage/groups/davies/_ongoing_to_mpcdf/maity/cosmology/cosmo_reion_mc/GW-with-CosmoReionMC"
 contains
   
   subroutine get_SED()
@@ -24,8 +25,8 @@ contains
                          lumsource_t(0.0_dp, 0.0_dp, 0.0_dp), &
                          lumsource_t(0.0_dp, 0.0_dp, 0.0_dp))
 
-    call get_stellar_SED("/home/atri/GW_with_CosmoReionMC/ReionizationWithF2Py/SpecData/dndm_PopII_salpeter_Z0.004", dndm2, sPI2, sPH2)
-    call get_stellar_SED("/home/atri/GW_with_CosmoReionMC/ReionizationWithF2Py/SpecData/dndm_PopIII_" // trim(Pop3IMF) // "_star", dndm3, sPI3, sPH3)
+    call get_stellar_SED("/data/beegfs/astro-storage/groups/davies/_ongoing_to_mpcdf/maity/cosmology/cosmo_reion_mc/GW-with-CosmoReionMC/ReionizationWithF2Py/SpecData/dndm_PopII_salpeter_Z0.004", dndm2, sPI2, sPH2)
+    call get_stellar_SED("/data/beegfs/astro-storage/groups/davies/_ongoing_to_mpcdf/maity/cosmology/cosmo_reion_mc/GW-with-CosmoReionMC/ReionizationWithF2Py/SpecData/dndm_PopIII_" // trim(Pop3IMF) // "_star", dndm3, sPI3, sPH3)
 
     dnphotdm%pop2 = dndm2;  sigma_PI%pop2 = sPI2;  sigma_PH%pop2 = sPH2
     dnphotdm%pop3 = dndm3;  sigma_PI%pop3 = sPI3;  sigma_PH%pop3 = sPH3

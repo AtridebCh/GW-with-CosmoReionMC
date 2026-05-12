@@ -116,7 +116,7 @@ class Likelihood:
         p = deepcopy(ctx.getParams())
         cl01 = np.array([0.0, 0.0])
 
-        if 0.135>tau>0.04 and Q_HII_at_z5p8>0.94:  #dark pixel fraction gives an upper limit of x_HI=0.06 hence QHII>(1-0.06)
+        if 0.135>tau>0.02:# and Q_HII_at_z5p8>0.94:  #dark pixel fraction gives an upper limit of x_HI=0.06 hence QHII>(1-0.06)
             loglike = 0.
 
             for i, clik_file in enumerate(self.clik_files):
@@ -179,6 +179,15 @@ class Likelihood:
                       loglike_tau, loglike_gw, loglike_21cm, loglike_tot', loglike, loglike_lyman, 
                                         loglike_gamma, loglike_tau, loglike_gw, loglike_21cm, loglike_tot)
                 print('tau=', tau)
+                
+                plt.plot(redshift[::-1], Q_HII[::-1])
+                #plt.plot(self.redshift_gamma, gamma_interpolated)
+                plt.xlabel('redshift (z)')
+                plt.ylabel(r'$Q_{mathrm{HII}}$')
+                plt.savefig('Q_HII.pdf')
+                plt.show()
+
+                 
                 plt.scatter(self.redshift_gamma, self.gamma_log)
                 plt.plot(self.redshift_gamma, gamma_interpolated)
                 plt.xlabel('redshift (z)')
