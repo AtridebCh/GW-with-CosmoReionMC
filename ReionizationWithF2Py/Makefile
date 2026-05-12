@@ -2,7 +2,7 @@
 # Compiler and flags
 # ===========================================================================
 FC      = gfortran
-FFLAGS = -O2 -Wall -Wextra -fcheck=all -g -fbacktrace -ffpe-trap=invalid,zero,overflow -fPIC
+FFLAGS = -O2 -Wall -Wextra -fcheck=all -g -fbacktrace -ffpe-trap=invalid,zero,overflow -fPIC -ffree-line-length-none
 FFLAGS_PY = -O2 -fPIC -ffree-line-length-none -J$(MODDIR) -I$(MODDIR)
 # ===========================================================================
 # Directories
