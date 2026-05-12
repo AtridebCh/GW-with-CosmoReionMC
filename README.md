@@ -236,7 +236,7 @@ Before compiling, open `src/SEDreader_mod.f90` and update the SED file paths at 
 cd ReionizationWithF2py/   # Must be here, NOT inside src/
 make distclean
 make
-make python
+make python                # May need setuptools version < 70
 ```
 
 > If you modify any Fortran source files, repeat the three `make` steps above.
