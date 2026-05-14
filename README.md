@@ -291,4 +291,10 @@ This runs the pipeline for the fiducial cosmology and generates diagnostic plots
 python mcmc_run.py
 ```
 
-> **Tip:** To parallelise, set the `n_cores` variable inside `mcmc_run.py`.
+## 6. Removing or adding new parameters in MCMC
+**Location:** `<parent>/mcmc/MCMC_sampler/`
+1. open CoredataGenerator.py; add/remove the name of the parameters in FREE_PARAM_MAPPING_DEFAULT 
+2. If the parameter is required in CAMB/Reionizatiom mode then make the change in the argument while calling CAMB/run_model inside _call__ method 
+3. In single_run.py add/remove the name of the parameters along with its initial values, range, step size in params = Params(( ...))
+4. Remember to run the code for generating the mock catalogues
+

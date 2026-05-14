@@ -18,6 +18,8 @@ program driver
   params%cosmo%dn_dlnk = 0.0_dp
   !derived cosmological quantities
   params%cosmo%sigma_8 = 0.8159_dp
+  params%cosmo%omega_zero = -1.0_dp
+  params%cosmo%omega_a    = 0.0_dp
   params%cosmo%m_wdm   = -1.0_dp !not using any WDM
 
 

@@ -29,26 +29,29 @@ Z_reion = np.array([ik * (-abs(dz)) + zstart for ik in range(Z_arraySize + 1)])
 # ---------------------------------------------------------------------------
 # Run reionization model once at fiducial parameters
 # ---------------------------------------------------------------------------
-fzero    = 0.54 
-alpha_lo = 0.61 
-alpha_hi = 1.1
+fzero    = 0.16, #0.07
+alpha_lo = 0.65, 
+alpha_hi = 0.9,
 
+# Chatterjee. 2026; fzero    = 0.16, alpha_lo = 0.65, alpha_hi = 0.9, esc_popii = 0.2; works in new method
 (Z_reion, QH_Q, dNLLdz, gamma_PI, 
          sfr_popII, sfr_popIII,
          dvc_dz, D_L, age_Gyr,
-         tau_factor, ierr
+         tau_factor, omega_dyn, omega_de, ierr
             ) = run_model(
                 h0     = 6.811000e+01,
                 ombh2  = 2.260000e-02,
                 omch2  = 1.179535e-01,
                 ns     = 9.600000e-01,
                 sigma_8= 0.8159,
+                omega_zero = -1.0,
+                omega_a   = 0.0,
                 fzero    = fzero, 
                 alpha_lo = alpha_lo, 
                 alpha_hi = alpha_hi,
                 alpha_z  = 1e-05,
-                esc_popii = 0.56,
-                lambda0= 10.36,
+                esc_popii = 0.2,
+                lambda0= 5.36,
                 zstart_in=zstart,
                 zend_in=zend,
                 dz_in=dz,

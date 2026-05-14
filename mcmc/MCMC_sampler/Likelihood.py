@@ -215,20 +215,17 @@ class Likelihood:
         getLogger().debug("pid: %s, processing: %s" % (os.getpid(), p))
         ctx = self.createChainContext(p)
 
-        if np.all(p > 0.0):
-            #calling Core to compute all observables for current mcmc step
-            print('inside call of likelihood.py')
-            model = self.Core(ctx, single_run=single_run)
-            if model:
-                loglike, tau, Q_HII_at_z5p8 = self.ComputeLikelihood(
+        
+        model = self.Core(ctx, single_run=single_run)
+        if model:
+            loglike, tau, Q_HII_at_z5p8 = self.ComputeLikelihood(
                     ctx, single_run=single_run
-                )
-                blobs = np.array([tau, Q_HII_at_z5p8])
-                return loglike, blobs
-            else:
-                return -np.inf, [1.0, np.nan]
+            )
+            blobs = np.array([tau, Q_HII_at_z5p8])
+            return loglike, blobs
         else:
             return -np.inf, [1.0, np.nan]
+        
 
     # ------------------------------------------------------------------
     # Chain context factory

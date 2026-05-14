@@ -31,14 +31,16 @@ FREE_PARAM_MAPPING_DEFAULT = {
     'omch2':   2,
     'As':      3,
     'ns':      4,
-    'fzero':   5,
-    'alpha_lo': 6,
-    'alpha_hi': 7,
-    'alpha_z': 8, 
-    'esc_II' : 9,
-    'lambda0': 10,
-    'f_X'    : 11,
-    'f_alpha': 12
+    'omega_zero': 5,
+    'omega_a': 6,
+    'fzero':   7,
+    'alpha_lo': 8,
+    'alpha_hi': 9,
+    'alpha_z': 10, 
+    'esc_II' : 11,
+    'lambda0': 12,
+    'f_X'    : 13,
+    'f_alpha': 14
 }
 
 # Redshift grid for reionization
@@ -123,6 +125,11 @@ class CoreModule:
                 redshifts=[0.0],
                 kmax=CAMB_KMAX,
             )
+            camb_params_base.set_dark_energy(
+                w=free_params['omega_zero'], 
+                wa=free_params['omega_a'], 
+                dark_energy_model='fluid',
+            )
 
             camb_results_base = camb.get_results(camb_params_base)
             sigma8 = camb_results_base.get_sigma8()[-1]  # sigma8 at z=0
@@ -142,6 +149,8 @@ class CoreModule:
                 D_L, 
                 age_Gyr, 
                 tau_factor,
+                omega_dyn, 
+                omega_de,
                 ierr
             ) = run_model(
                 h0=free_params['H0'],
@@ -149,6 +158,8 @@ class CoreModule:
                 omch2=free_params['omch2'],
                 ns=free_params['ns'],
                 sigma_8=sigma8,
+                omega_zero = free_params['omega_zero'],
+                omega_a = free_params['omega_a'],
                 fzero =free_params['fzero'],
                 alpha_lo = free_params['alpha_lo'], 
                 alpha_hi = free_params['alpha_hi'],
@@ -184,6 +195,11 @@ class CoreModule:
             camb_params_reion.set_matter_power(
                 redshifts=[0.0],
                 kmax=self._k_camb[-1],
+            )
+            camb_params_reion.set_dark_energy(
+                 w=free_params['omega_zero'], 
+                 wa=free_params['omega_a'], 
+                 dark_energy_model='fluid',
             )
             camb_params_reion.NonLinear          = camb.model.NonLinear_none
             camb_params_reion.ReionExternal      = True

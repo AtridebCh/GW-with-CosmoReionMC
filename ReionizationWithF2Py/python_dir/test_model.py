@@ -6,31 +6,34 @@ from colossus.lss import mass_function
 import reion_f as f
 from reion_f import run_model, run_dndm, get_sfe
 
-zstart, zend, dz = 30.0, 0.0, 0.1
+zstart, zend, dz = 30.0, 0.0, 0.2
 Z_arraySize = int(round(abs((zend - zstart) / dz)))
 
 cosmo = cosmology.setCosmology('planck18')
 
-fzero    = 0.54, 
-alpha_lo = 0.61, 
-alpha_hi = 1.1,
+fzero    = 0.16, #0.07
+alpha_lo = 0.65, 
+alpha_hi = 0.9,
 
+# Chatterjee. 2026; fzero    = 0.16, alpha_lo = 0.65, alpha_hi = 0.9, esc_popii = 0.2; works in new method
 (Z, QH_Q, dNLLdz, gamma_PI, 
          sfr_popII, sfr_popIII,
          dvc_dz, D_L, age_Gyr,
-         tau_factor, ierr
+         tau_factor, omega_dyn, omega_de, ierr
             ) = run_model(
                 h0     = 6.811000e+01,
                 ombh2  = 2.260000e-02,
                 omch2  = 1.179535e-01,
                 ns     = 9.600000e-01,
                 sigma_8= 0.8159,
+                omega_zero = -1.0,
+                omega_a   = 0.0,
                 fzero    = fzero, 
                 alpha_lo = alpha_lo, 
                 alpha_hi = alpha_hi,
                 alpha_z  = 1e-05,
-                esc_popii = 0.56,
-                lambda0= 10.36,
+                esc_popii = 0.2,
+                lambda0= 5.36,
                 zstart_in=zstart,
                 zend_in=zend,
                 dz_in=dz,
@@ -40,16 +43,16 @@ alpha_hi = 1.1,
 if ierr != 0:
     raise RuntimeError("filling() failed")
     
-
+'''
 # Mass array and single redshift
 m_arr = np.logspace(11, 15, 200)   # solar masses
-z_val = np.array([0.0])            # single redshift as 1-element array
+z_val = np.array([7.0])            # single redshift as 1-element array
 
 dndm_out, ierr = run_dndm(m_arr, z_val)
 
 
 
-mfunc = mass_function.massFunction(m_arr*(cosmo.H0/100), 0.0, model = 'press74', q_out = 'dndlnM') #NOTE: colossus uses M-sun/h unit, so multiply by h for the conversion
+mfunc = mass_function.massFunction(m_arr*(cosmo.H0/100), 7.0, model = 'press74', q_out = 'dndlnM') #NOTE: colossus uses M-sun/h unit, so multiply by h for the conversion
 
 plt.figure()
 plt.loglog(m_arr, m_arr*np.abs(dndm_out[:, 0]), label ='cosmoreion')
@@ -80,6 +83,15 @@ plt.tight_layout()
 plt.savefig('f_star.pdf')
 plt.show()
 
+
+fig, ax = plt.subplots(figsize=(8, 6))
+ax.plot(Z, omega_de)
+ax.set_xlim(2, 20)
+ax.set_ylabel(r'$\Omega_{\rm DE}$')
+ax.set_xlabel('redshift (z)')
+plt.show()
+
+'''
 
 Lymanlimitdatafile = './ObsData/Lyman_limit.dat'
 gammadatafile      = './ObsData/gamma_data_all_combined.dat'
@@ -113,6 +125,7 @@ ax.plot(Z, QH_Q, label='model', color='b')
 ax.set_xlim(2, 20)
 ax.set_ylabel(r'$Q_{H}$')
 ax.set_xlabel('redshift (z)')
+#ax.text(12, 0.5, 'New Method')
 
 # --- Top right: Lyman Limit ---
 ax = axes[0, 1]

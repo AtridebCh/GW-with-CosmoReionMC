@@ -16,7 +16,7 @@ module reionization_mod
   use backgroundCosmology_mod, only: hubbledist, xbsq, sigmasq_b, f_integrand, &
                                      set_sigma8_norm, sigma8_norm, tdyn,   &
                                      differential_comoving_volume, lumdist, &
-                                     age, setspline_sigma
+                                     age, setspline_sigma, dynamical_omega, omega_dark_energy
   use inhomoReion_mod
   use utils_mod,        only: summarize, write_summary
   use SEDreader_mod,    only: get_sed
@@ -83,6 +83,10 @@ contains
       z(ik)          = ik * dz + zstart
       dtimedz(ik)    = - f_integrand(z(ik)) / (100.0_dp*h*1e05_dp/Mpcbycm)     !sec
       tau_factor(ik) = dtimedz(ik)*(1+z(ik))**3
+      !dynamical dark energy starts
+      omega_dyn(ik)  = dynamical_omega(z(ik))
+      omega_de(ik)   = omega_dark_energy(z(ik))
+      !dynamical dark energy ends
       t_H_array(ik)  = hubbledist(z(ik)) / (100.0_dp*h*1e05_dp/Mpcbycm)        !sec
       dvc_dz(ik)     = differential_comoving_volume(z(ik))
       D_L(ik)        = lumdist(z(ik))*c_light / (100 * h * 1e05_dp) !mpc
@@ -93,6 +97,7 @@ contains
       dz_t_ff_array(ik)  = tdyn(z(ik))*yrbysec/dtimedz(ik) !tdyn=t_ff is in year so first multiplying wiht yrbysec to convert to sec
       lumfun_integral_qso(ik) = e_QSO * lumfun_integral(z(ik))
     end do
+    
     esc_II(0:n) = esc_popII; esc_III(0:n) = esc_popIII
 
     ! initial ionization states
@@ -238,7 +243,7 @@ contains
       !write(*,*) 'QH', z(k), QH(ik)%Q
     end do
 
-    tau_elsc_today    = tau_elsc(n-1)
+    tau_elsc_today    = tau_elsc(n)
     tau_elsc(0:n)     = tau_elsc_today - tau_elsc(0:n)
     !if (ifprint) write(*, *) "tau_elsc_today =", tau_elsc_today
     tau_factor = (1-Y_He)*tau_factor * conv_factor  * c_light *6.652e-25_dp !sigma_T = 6.652e-25_dp
@@ -387,8 +392,8 @@ contains
     integer, intent(in) :: nn
 
     allocate(z(0:nn), QH(0:nn), QHe(0:nn), &
-             dnphotdz_neut(0:nn), dnphotdz_ion(0:nn), &
-             tau_elsc(0:nn), cpbycv(0:nn), gammaHI(0:nn), &
+             dnphotdz_neut(0:nn), dnphotdz_ion(0:nn), omega_de(0:nn), &
+             tau_elsc(0:nn), cpbycv(0:nn), gammaHI(0:nn), omega_dyn(0:nn),  &
              dtimedz(0:nn), t_H_array(0:nn), dz_t_ff_array(0:nn), &
              dvc_dz(0:nn), D_L(0:nn), neutral(0:nn), HII(0:nn), &
              HeIII(0:nn), global(0:nn), age_Gyr(0:nn), &
@@ -416,7 +421,7 @@ contains
   end subroutine zero_arrays
 
   subroutine deallocate_arrays()
-    deallocate(z, QH, QHe, dnphotdz_neut, dnphotdz_ion, &
+    deallocate(z, QH, QHe, dnphotdz_neut, dnphotdz_ion, omega_de, omega_dyn, &
                tau_elsc, cpbycv, gammaHI, dtimedz, t_H_array, &
                age_Gyr, dvc_dz, D_L, dz_t_ff_array, neutral, HII, HeIII, global, &
                neutral_0, HII_0, HeIII_0, global_0, &

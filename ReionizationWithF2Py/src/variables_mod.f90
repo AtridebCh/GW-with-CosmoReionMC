@@ -25,14 +25,13 @@ module variables_mod
   ! Input parameter
   character(len=100), public :: Pop3IMF='salpeter'
   character(len=100), public :: massfunc_name = 'PS'
-  logical, public :: f_star_mass = .true.
-  character(len=100), public :: f_coll_method = 'new'
+  character(len=100), public :: f_coll_method = 'old' !'new'
   
 
   ! 1D allocatable arrays
   real(dp), allocatable, public :: z(:), tau_elsc(:), dtimedz(:), sigma(:), cpbycv(:), gammaHI(:)
   real(dp), allocatable, public :: t_array(:), t_H_array(:), dz_t_ff_array(:), &
-                                   dvc_dz(:), D_L(:), age_Gyr(:)
+                                   dvc_dz(:), D_L(:), age_Gyr(:), omega_dyn(:), omega_de(:)
   real(dp), allocatable, public :: esc_II(:), esc_III(:), f_starII(:), f_starIII(:), tau_factor(:)
   
   ! spline arrays for sigma
