@@ -1,169 +1,325 @@
 import sys
+import csv
 import numpy as np
 import emcee
 import matplotlib.pyplot as plt
 
-plt.rcParams['font.size']=8
+plt.rcParams['font.size'] = 10
 
 
+# ============================================================
+# SETTINGS
+# ============================================================
 
-file_root = 'GPR_MCMC'
-burnin = 0.8
-data_dir = '/home/atridebchatterjee/reion_GPR/chain_storage/chains_Aug18/'
+file_root = 'test_MCMC'
+
+data_dir = '/home/atri/GW_with_CosmoReionMC/mcmc/MCMC_sampler/chain_storage/test_run25_05_2026/'
+
+burnin = 0.3        # fraction or integer
+nwalkers = 60
 
 
-import csv
-filename = data_dir + file_root+ '.paramnames'
+# ============================================================
+# LOAD PARAMETER NAMES
+# ============================================================
+
+filename = data_dir + file_root + '.paramnames'
+
 with open(filename) as f:
-   reader = csv.reader(f, delimiter=" ")
-   param_name_arr=np.asarray(list(zip(*reader))[0])
 
-param_latex_name_arr=['a_{0}', 'a_{1}', 'a_{2}', 'a_{3}', 'a_{4}', 'a_{5}', '\\lambda_{0}', '\\tau', 'Q_{HII}']
-#print(param_latex_name_arr)
-ndim=int(len(param_name_arr))
-nwalkers=28
+    reader = csv.reader(f, delimiter=" ")
 
-nblobs=0
+    param_name_arr = np.asarray(list(zip(*reader))[0])
 
-derived_name_arr=None
-    
+
+ndim = len(param_name_arr)
+
+print("Parameters:")
+print(param_name_arr)
+print()
+
+
+# ============================================================
+# LOAD CHAINS
+# ============================================================
 
 for k in range(nwalkers):
-    filename = data_dir + '/' + file_root + "_"+str(k+1)+".txt"
-    all =  np.loadtxt(filename, skiprows=0, unpack=True)
 
-    if k==0:
-        mcmc_steps = np.shape(all)[1]
+    filename = data_dir + '/' + file_root + "_" + str(k+1) + ".txt"
+
+    all_data = np.loadtxt(filename, unpack=True)
+
+    if k == 0:
+
+        mcmc_steps = np.shape(all_data)[1]
+
         lnprob = np.zeros([nwalkers, mcmc_steps])
+
         chains = np.zeros([nwalkers, mcmc_steps, ndim])
-        #if derived_name_arr is not None: blob_chains = np.zeros([nwalkers, mcmc_steps, nblobs])
-    
-    #print(np.shape(all))
-    lnprob[k,:] = -all.T[:mcmc_steps,1]
-    chains[k,:,:] = all.T[:mcmc_steps,2:ndim+2]
-    #blob_chains[k,:,:] = all.T[:mcmc_steps,ndim+2:ndim+nblobs+2]
-    
 
-print ('steps = ', mcmc_steps)
-#print(np.shape(blobs), np.shape(chains))
+    lnprob[k, :] = -all_data.T[:mcmc_steps, 1]
 
-samples = chains[:,:,:]
-s = samples.shape
+    chains[k, :, :] = all_data.T[:mcmc_steps, 2:ndim+2]
 
 
+print("Number of walkers =", nwalkers)
+print("Number of dimensions =", ndim)
+print("Total MCMC steps =", mcmc_steps)
 
-if burnin > 1.0:
+
+# ============================================================
+# BURN-IN
+# ============================================================
+
+if burnin > 1:
+
     burnin = int(burnin)
-    if burnin >= mcmc_steps: burnin = 0
+
+    if burnin >= mcmc_steps:
+        burnin = 0
+
 else:
+
     burnin = int(mcmc_steps * burnin)
-print ('burnin steps = ', burnin)
+
+print("Burn-in steps =", burnin)
+
+effective_steps = mcmc_steps - burnin
+
+print("Post burn-in steps =", effective_steps)
+print()
 
 
-auto_corr = np.zeros([nwalkers, ndim])
-'''
+# ============================================================
+# AUTOCORRELATION ANALYSIS
+# ============================================================
+
+print("====================================================")
+print("AUTOCORRELATION ANALYSIS")
+print("====================================================")
+
+taus = []
+
 for j in range(ndim):
-    for i in range(nwalkers):
-        auto_corr[i,j] = emcee.autocorr.integrated_time(chains[i, burnin:, j])
-        #chains=chains.reshape(-1,j)
-    print('autocorrelation time for ', param_name_arr[j], ': ', "{0:.2f}".format(np.mean(auto_corr[:,j])))
-'''
 
+    try:
+
+        tau = emcee.autocorr.integrated_time(
+            chains[:, burnin:, j],
+            quiet=True
+        )
+
+        tau_mean = np.mean(tau)
+
+        taus.append(tau_mean)
+
+        print(
+            f"{param_name_arr[j]:15s} "
+            f"tau = {tau_mean:.2f}"
+        )
+
+    except Exception as e:
+
+        taus.append(np.nan)
+
+        print(
+            f"{param_name_arr[j]:15s} "
+            f"FAILED ({e})"
+        )
+
+print()
+
+
+# ============================================================
+# CONVERGENCE CHECK
+# ============================================================
+
+print("====================================================")
+print("CONVERGENCE CHECK")
+print("====================================================")
+
+for j in range(ndim):
+
+    tau = taus[j]
+
+    if np.isnan(tau):
+        continue
+
+    ratio = effective_steps / tau
+
+    if ratio < 10:
+        status = "NOT converged"
+
+    elif ratio < 30:
+        status = "Poor"
+
+    elif ratio < 50:
+        status = "Probably OK"
+
+    else:
+        status = "GOOD"
+
+    print(
+        f"{param_name_arr[j]:15s} "
+        f"N/tau = {ratio:.1f}   --> {status}"
+    )
+
+print()
+
+
+# ============================================================
+# EFFECTIVE SAMPLE SIZE
+# ============================================================
+
+print("====================================================")
+print("EFFECTIVE SAMPLE SIZE")
+print("====================================================")
+
+for j in range(ndim):
+
+    tau = taus[j]
+
+    if np.isnan(tau):
+        continue
+
+    n_eff = nwalkers * effective_steps / tau
+
+    print(
+        f"{param_name_arr[j]:15s} "
+        f"N_eff = {n_eff:.0f}"
+    )
+
+print()
+
+
+# ============================================================
+# FLATTEN SAMPLES
+# ============================================================
 
 samples = chains[:, burnin:, :]
+
 s = samples.shape
 
-samples = samples.reshape(s[0] * s[1], s[2])  # Flatten the sample list.
-s = samples.shape
-print ('number of samples used = ', s[0])
+samples = samples.reshape(s[0] * s[1], s[2])
+
+print("Flattened samples shape =", samples.shape)
+print()
 
 
-for j in range(ndim-2):
-    auto_corr[j] = emcee.autocorr.integrated_time(samples[:, j])
-    #print(auto_corr[j])
-    print('autocorrelation time for ', param_name_arr[j], ': ', "{0:.2f}".format(np.mean(auto_corr[:, j])))
+# ============================================================
+# TRACE PLOTS
+# ============================================================
 
-if derived_name_arr is not None:
-    blobs = blob_chains[:,burnin:,:]
-    b = blobs.shape
-    blobs = blobs.reshape(b[0] * b[1], b[2])
-    b = blobs.shape
-    #print(np.shape(blobs), np.shape(samples))
+print("Making trace plots...")
 
-lnprob = lnprob[:,burnin:]
-l = lnprob.shape
-lnprob = lnprob.reshape(l[0] * l[1])
+fig, axes = plt.subplots(
+    ndim,
+    figsize=(10, 2*ndim),
+    sharex=True
+)
+
+if ndim == 1:
+    axes = [axes]
+
+for j in range(ndim):
+
+    ax = axes[j]
+
+    for i in range(nwalkers):
+
+        ax.plot(
+            chains[i, :, j],
+            alpha=0.3,
+            lw=0.5
+        )
+
+    ax.axvline(
+        burnin,
+        color='red',
+        ls='--',
+        lw=1
+    )
+
+    ax.set_ylabel(param_name_arr[j])
+
+axes[-1].set_xlabel("Step")
+
+plt.tight_layout()
+
+plt.savefig(
+    data_dir + 'trace_plots.png',
+    dpi=300
+)
+
+plt.show()
 
 
+# ============================================================
+# LOG PROBABILITY PLOT
+# ============================================================
+
+print("Making log-probability plot...")
+
+plt.figure(figsize=(8, 4))
+
+for i in range(nwalkers):
+
+    plt.plot(
+        lnprob[i],
+        alpha=0.3,
+        lw=0.5
+    )
+
+plt.axvline(
+    burnin,
+    color='red',
+    ls='--'
+)
+
+plt.xlabel("Step")
+plt.ylabel("-log posterior")
+
+plt.tight_layout()
+
+plt.savefig(
+    data_dir + 'logprob_plot.png',
+    dpi=300
+)
+
+plt.show()
 
 
-print ('best-fit likelihood = ', np.max(lnprob))
-param_best = samples[np.argmax(lnprob),:]
-if derived_name_arr is not None: blobs_best = blobs[np.argmax(lnprob),:]
-for i in range(ndim): print ("best-fit ", param_name_arr[i], ": ", param_best[i])
-if derived_name_arr is not None:
-    for i in range(nblobs): print ("best-fit ", derived_name_arr[i], ": ", blobs_best[i])
+# ============================================================
+# FINAL SUMMARY
+# ============================================================
 
-if derived_name_arr is not None:
-    samples_all = np.zeros([s[0], s[1]+b[1]])
-    samples_all[:,0:s[1]] = samples[:,:]
-    samples_all[:,s[1]:s[1]+b[1]+1] = blobs[:,:]
+print()
+print("====================================================")
+print("FINAL SUMMARY")
+print("====================================================")
+
+max_tau = np.nanmax(taus)
+
+print(f"Maximum autocorrelation time = {max_tau:.2f}")
+
+criterion = effective_steps / max_tau
+
+print(f"N/tau_max = {criterion:.1f}")
+
+if criterion > 50:
+
+    print()
+    print("Chain appears WELL CONVERGED")
+
+elif criterion > 30:
+
+    print()
+    print("Chain is PROBABLY converged")
+
 else:
-    samples_all = np.zeros([s[0], s[1]])
-    samples_all[:,0:s[1]] = samples[:,:]
 
+    print()
+    print("Chain is likely NOT converged")
 
-
-median=np.zeros(ndim)
-
-for i in range(ndim):
-    param_mcmc = np.percentile(samples_all[:, i], [16, 50, 84])
-    median[i]=param_mcmc[1]
-    q = np.diff(param_mcmc)
-    print ("median +- 1-sigma ", param_name_arr[i], ": ", "{0:.6f}".format(param_mcmc[1]), "{0:.6f}".format(q[0]), "{0:.6f}".format(q[1]))
-    
-if derived_name_arr is not None:
-    for i in range(nblobs):
-        param_mcmc = np.percentile(samples_all[:, i+ndim], [16, 50, 84])
-        q = np.diff(param_mcmc)
-        print ("median +- 1-sigma ", derived_name_arr[i], ": ", "{0:.6f}".format(param_mcmc[1]), "{0:.6f}".format(q[0]), "{0:.6f}".format(q[1]))
-
-
-
-
-for i in range(ndim): 
-    param_latex_name_arr[i] = "$"+ param_latex_name_arr[i] +"$"
-
-if derived_name_arr is not None:
-    for i in range(nblobs): derived_latex_name_arr[i] = r"$" + derived_latex_name_arr[i] + "$"
-
-#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!#
-#         CHAIN PLOTTING             #
-#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!#
-
-plt.clf()
-scale = 1.0
-fig, axes = plt.subplots(ndim-2, 1, sharex=True, figsize=(scale * 8, scale * (ndim+nblobs)))
-
-for i in range(ndim-2):
-    axes[i].plot(np.log10(chains[:, :, i]).T, color="r", alpha=0.2)
-    #axes[i].yaxis.set_major_locator(MaxNLocator(5))
-    #axes[i].axhline(param_mcmc_arr[i,0], color="#888888", lw=2)
-    axes[i].set_ylabel(param_latex_name_arr[i])
-
-
-for i in range(nblobs):
-    axes[ndim+i].plot(blob_chains[:, :, i].T, color="k", alpha=0.2)
-    #axes[ndim+i].yaxis.set_major_locator(MaxNLocator(5))
-    #axes[ndim+i].axhline(blob_mcmc_arr[i,0], color="#888888", lw=2)
-    axes[ndim+i].set_ylabel(derived_latex_name_arr[i])
-    
-
-axes[ndim-2+nblobs-1].set_xlabel("step number")
-    
-
-
-fig.tight_layout(h_pad=0.0)
-fig.savefig(file_root + "_chain_18thAug.pdf")
-print ('done plotting chains')
-
+print()
+print("Done.")

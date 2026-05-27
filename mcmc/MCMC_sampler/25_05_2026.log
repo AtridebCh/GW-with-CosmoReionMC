@@ -1,0 +1,210 @@
+2026-05-25 13:02:50,501 INFO:start sampling — no burn-in. Remove burn-in steps when producing corner plots.
+2026-05-25 13:02:50,501 INFO:Using 1 core(s).
+2026-05-25 13:03:07,267 INFO:Iteration finished with total sample Number 60
+
+2026-05-25 13:03:16,497 INFO:Iteration finished with total sample Number 120
+
+2026-05-25 13:03:28,793 INFO:Iteration finished with total sample Number 180
+
+2026-05-25 13:03:43,280 INFO:Iteration finished with total sample Number 240
+
+2026-05-25 13:03:58,345 INFO:Iteration finished with total sample Number 300
+
+2026-05-25 13:04:10,807 INFO:Iteration finished with total sample Number 360
+
+2026-05-25 13:04:23,328 INFO:Iteration finished with total sample Number 420
+
+2026-05-25 13:04:40,085 INFO:Iteration finished with total sample Number 480
+
+2026-05-25 13:04:56,684 INFO:Iteration finished with total sample Number 540
+
+2026-05-25 13:05:13,291 INFO:Iteration finished with total sample Number 600
+
+2026-05-25 13:05:28,788 INFO:Iteration finished with total sample Number 660
+
+2026-05-25 13:05:46,728 INFO:Iteration finished with total sample Number 720
+
+2026-05-25 13:06:04,439 INFO:Iteration finished with total sample Number 780
+
+2026-05-25 13:06:18,178 INFO:Iteration finished with total sample Number 840
+
+2026-05-25 13:06:37,400 INFO:Iteration finished with total sample Number 900
+
+2026-05-25 13:06:53,899 INFO:Iteration finished with total sample Number 960
+
+2026-05-25 13:07:08,964 INFO:Iteration finished with total sample Number 1020
+
+2026-05-25 13:07:21,343 INFO:Iteration finished with total sample Number 1080
+
+2026-05-25 13:07:35,023 INFO:Iteration finished with total sample Number 1140
+
+2026-05-25 13:07:51,522 INFO:Iteration finished with total sample Number 1200
+
+2026-05-25 13:08:06,905 INFO:Iteration finished with total sample Number 1260
+
+2026-05-25 13:08:23,585 INFO:Iteration finished with total sample Number 1320
+
+2026-05-25 13:08:38,772 INFO:Iteration finished with total sample Number 1380
+
+2026-05-25 13:08:47,097 INFO:Iteration finished with total sample Number 1440
+
+2026-05-25 13:09:03,784 INFO:Iteration finished with total sample Number 1500
+
+2026-05-25 13:09:17,593 INFO:Iteration finished with total sample Number 1560
+
+2026-05-25 13:09:27,362 INFO:Iteration finished with total sample Number 1620
+
+2026-05-25 13:09:45,292 INFO:Iteration finished with total sample Number 1680
+
+2026-05-25 13:10:02,105 INFO:Iteration finished with total sample Number 1740
+
+2026-05-25 13:10:14,402 INFO:Iteration finished with total sample Number 1800
+
+2026-05-25 13:10:30,858 INFO:Iteration finished with total sample Number 1860
+
+2026-05-25 13:10:44,696 INFO:Iteration finished with total sample Number 1920
+
+2026-05-25 13:10:54,353 INFO:Iteration finished with total sample Number 1980
+
+2026-05-25 13:11:13,564 INFO:Iteration finished with total sample Number 2040
+
+2026-05-25 13:11:27,306 INFO:Iteration finished with total sample Number 2100
+
+2026-05-25 13:11:42,493 INFO:Iteration finished with total sample Number 2160
+
+2026-05-25 13:11:56,180 INFO:Iteration finished with total sample Number 2220
+
+2026-05-25 13:12:07,208 INFO:Iteration finished with total sample Number 2280
+
+2026-05-25 13:12:23,667 INFO:Iteration finished with total sample Number 2340
+
+2026-05-25 13:12:44,119 INFO:Iteration finished with total sample Number 2400
+
+2026-05-25 13:12:57,840 INFO:Iteration finished with total sample Number 2460
+
+2026-05-25 13:13:11,490 INFO:Iteration finished with total sample Number 2520
+
+2026-05-25 13:13:25,254 INFO:Iteration finished with total sample Number 2580
+
+2026-05-25 13:13:43,163 INFO:Iteration finished with total sample Number 2640
+
+2026-05-25 13:13:57,029 INFO:Iteration finished with total sample Number 2700
+
+2026-05-25 13:14:16,292 INFO:Iteration finished with total sample Number 2760
+
+2026-05-25 13:14:35,410 INFO:Iteration finished with total sample Number 2820
+
+2026-05-25 13:14:53,223 INFO:Iteration finished with total sample Number 2880
+
+2026-05-25 13:15:09,606 INFO:Iteration finished with total sample Number 2940
+
+2026-05-25 13:15:24,782 INFO:Iteration finished with total sample Number 3000
+
+2026-05-25 13:15:42,622 INFO:Iteration finished with total sample Number 3060
+
+2026-05-25 13:15:59,138 INFO:Iteration finished with total sample Number 3120
+
+2026-05-25 13:16:10,182 INFO:Iteration finished with total sample Number 3180
+
+2026-05-25 13:16:25,250 INFO:Iteration finished with total sample Number 3240
+
+2026-05-25 13:16:37,599 INFO:Iteration finished with total sample Number 3300
+
+2026-05-25 13:16:56,812 INFO:Iteration finished with total sample Number 3360
+
+2026-05-25 13:17:18,852 INFO:Iteration finished with total sample Number 3420
+
+2026-05-25 13:17:38,090 INFO:Iteration finished with total sample Number 3480
+
+2026-05-25 13:17:54,632 INFO:Iteration finished with total sample Number 3540
+
+2026-05-25 13:18:11,138 INFO:Iteration finished with total sample Number 3600
+
+2026-05-25 13:18:27,433 INFO:Iteration finished with total sample Number 3660
+
+2026-05-25 13:18:42,539 INFO:Iteration finished with total sample Number 3720
+
+2026-05-25 13:19:01,813 INFO:Iteration finished with total sample Number 3780
+
+2026-05-25 13:19:18,240 INFO:Iteration finished with total sample Number 3840
+
+2026-05-25 13:19:34,770 INFO:Iteration finished with total sample Number 3900
+
+2026-05-25 13:19:52,667 INFO:Iteration finished with total sample Number 3960
+
+2026-05-25 13:20:09,217 INFO:Iteration finished with total sample Number 4020
+
+2026-05-25 13:20:25,755 INFO:Iteration finished with total sample Number 4080
+
+2026-05-25 13:20:40,800 INFO:Iteration finished with total sample Number 4140
+
+2026-05-25 13:21:01,488 INFO:Iteration finished with total sample Number 4200
+
+2026-05-25 13:21:16,651 INFO:Iteration finished with total sample Number 4260
+
+2026-05-25 13:21:34,456 INFO:Iteration finished with total sample Number 4320
+
+2026-05-25 13:21:53,665 INFO:Iteration finished with total sample Number 4380
+
+2026-05-25 13:22:12,964 INFO:Iteration finished with total sample Number 4440
+
+2026-05-25 13:22:29,424 INFO:Iteration finished with total sample Number 4500
+
+2026-05-25 13:22:45,951 INFO:Iteration finished with total sample Number 4560
+
+2026-05-25 13:23:03,869 INFO:Iteration finished with total sample Number 4620
+
+2026-05-25 13:23:21,664 INFO:Iteration finished with total sample Number 4680
+
+2026-05-25 13:23:40,968 INFO:Iteration finished with total sample Number 4740
+
+2026-05-25 13:23:56,066 INFO:Iteration finished with total sample Number 4800
+
+2026-05-25 13:24:16,680 INFO:Iteration finished with total sample Number 4860
+
+2026-05-25 13:24:30,370 INFO:Iteration finished with total sample Number 4920
+
+2026-05-25 13:24:46,786 INFO:Iteration finished with total sample Number 4980
+
+2026-05-25 13:25:03,223 INFO:Iteration finished with total sample Number 5040
+
+2026-05-25 13:25:19,690 INFO:Iteration finished with total sample Number 5100
+
+2026-05-25 13:25:40,299 INFO:Iteration finished with total sample Number 5160
+
+2026-05-25 13:26:02,214 INFO:Iteration finished with total sample Number 5220
+
+2026-05-25 13:26:21,469 INFO:Iteration finished with total sample Number 5280
+
+2026-05-25 13:26:40,720 INFO:Iteration finished with total sample Number 5340
+
+2026-05-25 13:26:58,638 INFO:Iteration finished with total sample Number 5400
+
+2026-05-25 13:27:19,261 INFO:Iteration finished with total sample Number 5460
+
+2026-05-25 13:27:35,792 INFO:Iteration finished with total sample Number 5520
+
+2026-05-25 13:27:55,020 INFO:Iteration finished with total sample Number 5580
+
+2026-05-25 13:28:16,964 INFO:Iteration finished with total sample Number 5640
+
+2026-05-25 13:28:37,463 INFO:Iteration finished with total sample Number 5700
+
+2026-05-25 13:28:58,164 INFO:Iteration finished with total sample Number 5760
+
+2026-05-25 13:29:17,450 INFO:Iteration finished with total sample Number 5820
+
+2026-05-25 13:29:43,679 INFO:Iteration finished with total sample Number 5880
+
+2026-05-25 13:30:04,299 INFO:Iteration finished with total sample Number 5940
+
+2026-05-25 13:30:22,147 INFO:Iteration finished with total sample Number 6000
+
+2026-05-25 13:30:45,614 INFO:Iteration finished with total sample Number 6060
+
+2026-05-25 13:31:08,941 INFO:Iteration finished with total sample Number 6120
+
+2026-05-25 13:31:28,160 INFO:Iteration finished with total sample Number 6180
+
+2026-05-25 13:31:51,317 INFO:Iteration finished with total sample Number 6240
+

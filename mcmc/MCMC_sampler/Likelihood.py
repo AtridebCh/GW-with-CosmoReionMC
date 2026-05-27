@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 from scipy import interpolate
 from copy import deepcopy
 #import clik
+import clipy as clik
 
 from CoredataGenerator import CoreModule
 from ChainContext import ChainContext
@@ -47,9 +48,9 @@ class Likelihood:
 
     def __init__(self, CoreModule,
                  min_param=None, max_param=None,
-                 include_planck = False,
-                 include_gw = True,
-                 include_21cm = True):
+                 include_planck = True,
+                 include_gw = False,
+                 include_21cm = False):
         self.min        = min_param
         self.max        = max_param
         self.include_planck =  include_planck
@@ -59,7 +60,7 @@ class Likelihood:
     # ------------------------------------------------------------------
     # Parameter validation
     # ------------------------------------------------------------------
-
+    
     def isValid(self, p):
         """Check whether parameter vector p lies within bounds."""
         if self.min is not None:
@@ -77,7 +78,6 @@ class Likelihood:
                         "Params out of bounds i=" + str(i) + " params " + str(p)
                     )
                     return False
-
         return True
 
     # ------------------------------------------------------------------
@@ -138,7 +138,7 @@ class Likelihood:
                     if self.clik_files[i]=='../../COM_Likelihood_Data-baseline_R3.00/baseline/plc_3.0/low_l/simall/simall_100x143_offlike5_EE_Aplanck_B.clik':                   
                         nuisense=[1.0] 
                     input = np.hstack([input, nuisense])
-                    loglike += l(input)[0]
+                    loglike += l(input) #[0]
             
             # redshift is descending (30→0) — must reverse for np.interp
             lyman_limit_interpolated = np.interp(
@@ -178,8 +178,8 @@ class Likelihood:
 
             if single_run:
                 print('loglike cmb, loglike_lyman, loglike_gamma, \
-                      loglike_tau, loglike_gw, loglike_21cm, loglike_tot', loglike, loglike_lyman, 
-                                        loglike_gamma, loglike_tau, loglike_gw, loglike_21cm, loglike_tot)
+                      loglike_tau, loglike_tot', loglike, loglike_lyman, 
+                                        loglike_gamma, loglike_tau, loglike_tot)
                 print('tau=', tau)
                 
                 plt.scatter(self.redshift_gamma, self.gamma_log)
@@ -195,13 +195,13 @@ class Likelihood:
                 plt.ylabel(r'$dN_{LL}/dz$')
                 plt.savefig('Lyman_Limit.pdf')
                 plt.show()
-                
-                plt.plot(self.T_b_redshift, self.T_b_Obs)
-                plt.plot(self.T_b_redshift, T_b_model)
-                plt.xlabel('redshift (z)')
-                plt.ylabel(r'$T_{b}(mk)$')
-                plt.savefig('T_b.pdf')
-                plt.show()
+                if self.include_21cm:
+                    plt.plot(self.T_b_redshift, self.T_b_Obs)
+                    plt.plot(self.T_b_redshift, T_b_model)
+                    plt.xlabel('redshift (z)')
+                    plt.ylabel(r'$T_{b}(mk)$')
+                    plt.savefig('T_b.pdf')
+                    plt.show()
 
             return loglike_tot, tau, Q_HII_at_z5p8
         else:
@@ -214,18 +214,18 @@ class Likelihood:
     def __call__(self, p, single_run=False):
         getLogger().debug("pid: %s, processing: %s" % (os.getpid(), p))
         ctx = self.createChainContext(p)
-
-        
-        model = self.Core(ctx, single_run=single_run)
-        if model:
-            loglike, tau, Q_HII_at_z5p8 = self.ComputeLikelihood(
+        if self.isValid(p):
+            model = self.Core(ctx, single_run=single_run)
+            if model:
+                loglike, tau, Q_HII_at_z5p8 = self.ComputeLikelihood(
                     ctx, single_run=single_run
-            )
-            blobs = np.array([tau, Q_HII_at_z5p8])
-            return loglike, blobs
+                 )
+                blobs = np.array([tau, Q_HII_at_z5p8])
+                return loglike, blobs
+            else:
+                return -np.inf, [1.0, np.nan]
         else:
             return -np.inf, [1.0, np.nan]
-        
 
     # ------------------------------------------------------------------
     # Chain context factory

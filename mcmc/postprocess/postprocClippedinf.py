@@ -2,12 +2,12 @@ import numpy as np
 import csv
 import os
 
-file_root = 'GPR_MCMC'
+file_root = 'test_MCMC'
 burnin = 0.3
 #data_dir = '/home/atridebchatterjee/reion_GPR/chain_storage/chains_Aug18/'
-data_dir='/home/atridebchatterjee/reion_GPR/chain_storage/4_param_run25_09_2022/'
+data_dir='/home/atri/GW_with_CosmoReionMC/mcmc/MCMC_sampler/chain_storage/test_run25_05_2026/'
 
-infclip_dir=os.makedirs('/home/atridebchatterjee/reion_GPR/chain_storage/4_param_run25_09_2022_Infclipped', exist_ok=True)
+infclip_dir=os.makedirs('./test_run25_05_2026_Infclipped', exist_ok=True)
 
 paramname_file = data_dir + file_root+ '.paramnames'
 with open(paramname_file) as f:
@@ -18,7 +18,7 @@ with open(paramname_file) as f:
 #param_latex_name_arr=['$H_{0}$', '$\\Omega_b\\,h^2$','$\\Omega_c\\,h^2$','$A_s$','$n_s$','$f^{II}_{esc}$', '$\\lambda_{0}$', '$m_{x}$', '$\\tau$', '$\sigma_8$']
 
 ndim=int(len(param_name_arr))
-nwalkers=20
+nwalkers=60
 
 
 for k in range(nwalkers):
@@ -58,7 +58,7 @@ lnprobInfClipped=lnprob_flat[index]
 #print(chains_2d.shape, len(lnprob_flat))
 chains_2d=chains_2d[index,:]
 
-np.savetxt('/home/atridebchatterjee/reion_GPR/chain_storage/4_param_run25_09_2022_Infclipped/Infclipped.txt', np.c_[np.ones(len(lnprobInfClipped)), lnprobInfClipped, chains_2d[:,] ], fmt='%1.4e')
+np.savetxt('./test_run25_05_2026_Infclipped/Infclipped.txt', np.c_[np.ones(len(lnprobInfClipped)), lnprobInfClipped, chains_2d[:,] ], fmt='%1.4e')
 
 '''
 import corner

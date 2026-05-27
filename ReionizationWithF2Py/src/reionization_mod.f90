@@ -245,7 +245,7 @@ contains
 
     tau_elsc_today    = tau_elsc(n)
     tau_elsc(0:n)     = tau_elsc_today - tau_elsc(0:n)
-    !if (ifprint) write(*, *) "tau_elsc_today =", tau_elsc_today
+
     tau_factor = (1-Y_He)*tau_factor * conv_factor  * c_light *6.652e-25_dp !sigma_T = 6.652e-25_dp
 
     call summarize(params)

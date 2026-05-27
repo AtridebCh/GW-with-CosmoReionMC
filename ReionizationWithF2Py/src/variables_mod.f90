@@ -25,7 +25,7 @@ module variables_mod
   ! Input parameter
   character(len=100), public :: Pop3IMF='salpeter'
   character(len=100), public :: massfunc_name = 'PS'
-  character(len=100), public :: f_coll_method = 'old' !'new'
+  character(len=100), public :: f_coll_method = 'new' !'new'
   
 
   ! 1D allocatable arrays

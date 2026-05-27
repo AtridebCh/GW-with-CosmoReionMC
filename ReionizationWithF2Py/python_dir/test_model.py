@@ -11,9 +11,9 @@ Z_arraySize = int(round(abs((zend - zstart) / dz)))
 
 cosmo = cosmology.setCosmology('planck18')
 
-fzero    = 0.16, #0.07
-alpha_lo = 0.65, 
-alpha_hi = 0.9,
+fzero    = 0.006, #0.17 
+alpha_lo = 0.0, #0.65
+alpha_hi = 0.0, #1.1
 
 # Chatterjee. 2026; fzero    = 0.16, alpha_lo = 0.65, alpha_hi = 0.9, esc_popii = 0.2; works in new method
 (Z, QH_Q, dNLLdz, gamma_PI, 
@@ -31,9 +31,9 @@ alpha_hi = 0.9,
                 fzero    = fzero, 
                 alpha_lo = alpha_lo, 
                 alpha_hi = alpha_hi,
-                alpha_z  = 1e-05,
-                esc_popii = 0.2,
-                lambda0= 5.36,
+                alpha_z  = 0.0,
+                esc_popii = 0.25, #0.30
+                lambda0= 2.64,
                 zstart_in=zstart,
                 zend_in=zend,
                 dz_in=dz,
@@ -122,7 +122,7 @@ fig, axes = plt.subplots(2, 2, figsize=(12, 8), sharex=True)
 # --- Top left: QH_Q ---
 ax = axes[0, 0]
 ax.plot(Z, QH_Q, label='model', color='b')
-ax.set_xlim(2, 20)
+#ax.set_xlim(2, 20)
 ax.set_ylabel(r'$Q_{H}$')
 ax.set_xlabel('redshift (z)')
 #ax.text(12, 0.5, 'New Method')
@@ -133,7 +133,7 @@ ax.errorbar(lyman_redshift, lyman_limit_data, yerr=lyman_error,
             fmt='o', capsize=3, label='data', color='k')
 
 ax.plot(Z, dNLLdz, label='model', color='b')
-ax.set_xlim(2, 20)
+#ax.set_xlim(2, 20)
 ax.set_ylim(0.0, 12)
 ax.set_ylabel(r'$dN_{LL}/dz$')
 ax.set_xlabel('redshift (z)')

@@ -152,4 +152,4 @@ class GWLikelihood:
         if np.any(~np.isfinite(ln_Li)):
             return -np.inf
 
-        return float(-zeta + np.sum(ln_Li)) #will there be a negative sign here?
+        return -float(-zeta + np.sum(ln_Li)) #will there be a negative sign here?

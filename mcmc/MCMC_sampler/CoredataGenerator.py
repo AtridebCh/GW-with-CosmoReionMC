@@ -11,7 +11,7 @@ filterwarnings('ignore')
 import camb
 
 # we have checked that importing outside is not creating any problem
-sys.path.append('../../ReionizationWithF2Py/python_dir') #/home/atri/GW_with_CosmoReionMC/ReionizationWithF2Py/python_dir
+sys.path.append('/home/atri/GW_with_CosmoReionMC/ReionizationWithF2Py/python_dir/') #/home/atri/GW_with_CosmoReionMC/ReionizationWithF2Py/python_dir
 import reion_f as f
 from reion_f import run_model, run_dndm, get_sfe
 
@@ -99,7 +99,10 @@ class CoreModule:
             free_params = {}
             for name, idx in self.params_mapping.items():
                 free_params[name] = p[idx]
-
+            validity_dynamical = (free_params['omega_zero'] + 1.0) * (free_params['omega_zero'] + free_params['omega_a'] + 1.0)
+            # The derivation above is done using gemini, it ensures that w(a) never crosses -1
+            if validity_dynamical< 0.0:
+                return 0.0
             # ----------------------------------------------------------
             # CAMB k-grid (h/Mpc)
             # ----------------------------------------------------------
@@ -125,35 +128,35 @@ class CoreModule:
                 redshifts=[0.0],
                 kmax=CAMB_KMAX,
             )
+            
             camb_params_base.set_dark_energy(
                 w=free_params['omega_zero'], 
                 wa=free_params['omega_a'], 
-                dark_energy_model='fluid',
+                dark_energy_model='ppf',
             )
-
+            
             camb_results_base = camb.get_results(camb_params_base)
             sigma8 = camb_results_base.get_sigma8()[-1]  # sigma8 at z=0
+            
             
 
             # ----------------------------------------------------------
             # Run reionization model using sigma8 from first CAMB call
             
-            (
-                Z_reion,
-                QH_Q, 
-                dNLLdz, 
-                gamma_PI, 
-                sfr_popII, 
-                sfr_popIII,
-                dvc_dz, 
-                D_L, 
-                age_Gyr, 
-                tau_factor,
-                omega_dyn, 
-                omega_de,
-                ierr
-            ) = run_model(
-                h0=free_params['H0'],
+            (Z_reion,
+             QH_Q, 
+             dNLLdz, 
+             gamma_PI, 
+             sfr_popII, 
+             sfr_popIII,
+             dvc_dz, 
+             D_L, 
+             age_Gyr,
+             tau_factor, 
+             omega_dyn, 
+             omega_de, 
+             ierr
+             ) = run_model(h0=free_params['H0'],
                 ombh2=free_params['ombh2'],
                 omch2=free_params['omch2'],
                 ns=free_params['ns'],
@@ -163,7 +166,7 @@ class CoreModule:
                 fzero =free_params['fzero'],
                 alpha_lo = free_params['alpha_lo'], 
                 alpha_hi = free_params['alpha_hi'],
-                alpha_z= 0.0,
+                alpha_z= free_params['alpha_z'],
                 esc_popii = free_params['esc_II'],
                 lambda0=free_params['lambda0'],
                 zstart_in=zstart,
@@ -175,9 +178,17 @@ class CoreModule:
             idx_z5p8      = np.argmin(np.abs(Z_reion - 5.8))
             Q_HII_at_z5p8 = QH_Q[idx_z5p8]
             
-            plt.plot(Z_reion, QH_Q)
-            plt.show()
-
+            ctx.add('Redshift', Z_reion)
+            ctx.add('QHII',     QH_Q)
+            ctx.add('Q_HII_at_Z5.8',  Q_HII_at_z5p8)
+            ctx.add('LymanLimit',      dNLLdz)
+            ctx.add('Gamma_PI',        gamma_PI*1e12) #converting to gamma_PI_{-12} unit
+            
+            #The reionization history should be monotonic, we are ensuring this here
+            is_monotonic = np.all(np.diff(QH_Q) >= 0)
+            
+            if not(is_monotonic):
+                QH_Q = np.maximum.accumulate(QH_Q)
 
             # ----------------------------------------------------------
             # Second CAMB call — inject external reionization history
@@ -196,11 +207,13 @@ class CoreModule:
                 redshifts=[0.0],
                 kmax=self._k_camb[-1],
             )
+            
             camb_params_reion.set_dark_energy(
                  w=free_params['omega_zero'], 
                  wa=free_params['omega_a'], 
-                 dark_energy_model='fluid',
+                 dark_energy_model='ppf',
             )
+            
             camb_params_reion.NonLinear          = camb.model.NonLinear_none
             camb_params_reion.ReionExternal      = True
             camb_params_reion.Reion.UsePCReion   = True
@@ -219,12 +232,15 @@ class CoreModule:
                          CMB_unit = 'muK',
                          raw_cl  = False      # returns Dℓ = ℓ(ℓ+1)Cℓ/2π in μK²
                          )['total']
-
+            
             data_bg= camb.get_background(camb_params_reion)
             #redshift_tau= np.linspace(0.0, 10.0, 101) #redshift for calculating tau, no need to go beyond 10
             
             back_ev = data_bg.get_background_redshift_evolution(Z_reion, ['x_e'])
+            
+            
             tau     = simpson(back_ev['x_e'] * tau_factor, Z_reion) 
+            
             
             
                   
@@ -244,13 +260,8 @@ class CoreModule:
             ctx.add('cl_TT',    powers[2:, 0])
             ctx.add('cl_EE',    powers[2:, 1])
             ctx.add('cl_BB',    powers[2:, 2])
-            ctx.add('cl_TE',    powers[2:, 3])
-            ctx.add('Redshift', Z_reion)
-            ctx.add('QHII',     QH_Q)
+            ctx.add('cl_TE',    powers[2:, 3]) 
             ctx.add('tau',      tau) 
-            ctx.add('Q_HII_at_Z5.8',  Q_HII_at_z5p8)
-            ctx.add('LymanLimit',      dNLLdz)
-            ctx.add('Gamma_PI',        gamma_PI*1e12) #converting to gamma_PI_{-12} unit
             
             # --- GW in ctx ---
             ctx.add('gw_R_merger', R_merger)

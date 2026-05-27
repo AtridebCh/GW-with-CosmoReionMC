@@ -29,9 +29,9 @@ Z_reion = np.array([ik * (-abs(dz)) + zstart for ik in range(Z_arraySize + 1)])
 # ---------------------------------------------------------------------------
 # Run reionization model once at fiducial parameters
 # ---------------------------------------------------------------------------
-fzero    = 0.16, #0.07
+fzero    = 0.17, #0.07
 alpha_lo = 0.65, 
-alpha_hi = 0.9,
+alpha_hi = 1.1,
 
 # Chatterjee. 2026; fzero    = 0.16, alpha_lo = 0.65, alpha_hi = 0.9, esc_popii = 0.2; works in new method
 (Z_reion, QH_Q, dNLLdz, gamma_PI, 
@@ -50,8 +50,8 @@ alpha_hi = 0.9,
                 alpha_lo = alpha_lo, 
                 alpha_hi = alpha_hi,
                 alpha_z  = 1e-05,
-                esc_popii = 0.2,
-                lambda0= 5.36,
+                esc_popii = 0.3,
+                lambda0= 3.36,
                 zstart_in=zstart,
                 zend_in=zend,
                 dz_in=dz,
@@ -119,7 +119,7 @@ zf_grid = np.where(
     0.0
 )
 
-dzf_dtf = hubble_gyr(zf_grid, 6.711000e+01, 2.260000e-02, 1.179535e-01) / (1.0 + zf_grid) / 1e9
+dzf_dtf = hubble_gyr(zf_grid, 6.711000e+01, 2.260000e-02, 1.179535e-01) / (1.0 + zf_grid) / 1e9 #needs to be replaced by best fit value of cmb parameters
 
 script_R_unnorm = np.where(
     valid_grid,

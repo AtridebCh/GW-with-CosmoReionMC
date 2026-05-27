@@ -5,7 +5,7 @@
 Before starting, create and activate a dedicated conda environment:
 
 ```bash
-conda create -n camb_gw_cosmo python=3.10 -y
+conda create -n camb_gw_cosmo python=3.10 -y (python 3.11 gives completely wrong answer, python3.9 is also safe)
 conda activate camb_gw_cosmo
 
 conda install -c conda-forge numpy scipy cython matplotlib astropy gfortran emcee corner -y
@@ -61,7 +61,52 @@ If successful, this will:
 
 ---
 
+### Installing in kapteyn cluster
+
+1. module load anaconda3/2022.10; otherwise the default anaconda environment has python 3.11 which will give incorrect result.
+
+2. use full path for every file i.e., change file path in CoredataGenerator.py and Likleihood.py, MCMC_run.py etc
+
+3. cd /path/to/CAMB-1.1.0_modified
+   First delete all the files that was generated in earlier installation
+   find . -name "*.o" -delete
+   find . -name "*.so" -delete
+   find . -name "*.mod" -delete
+   rm -rf build/
+
+   Now rebuild with HARD override:
+
+   export FFLAGS="-O0 -march=x86-64"
+   export FCFLAGS="-O0 -march=x86-64"
+   export CFLAGS="-O0 -march=x86-64"
+
+   Then:
+
+   python setup.py build 
+   python setup.py install --user
+
+Although installing clipy-like was easy, while running (in python3.9), it gives an error with .astype, so had to open /Users/users/achatterjee/.local/lib/python3.9/site-packages/clipy/simall.py and change
+
+dl = jnp.astype(jnp.floor(cls[1,self.lmin:]*self.llp1/self.stepEE),jnp.int32)
+
+to:
+
+dl = jnp.floor(
+    cls[1,self.lmin:] * self.llp1 / self.stepEE
+).astype(jnp.int32)
+
+so, change all jnp.astype in that code in the above mentioned way
+
+
 ## 2. Planck "clik" Likelihood Code
+
+We would strongly recommend to install using clipy from https://github.com/benabed/clipy
+
+If this installation is succesfull, then skip the "clik" installation completely. If using clipy two changes are required
+
+(i) replace "import clik" with "import clipy as clik" in path/to/GW_with_CosmoReionMC/mcmc/MCMC_sampler/Likelihood.py
+(ii) replace loglike += l(input)[0] with loglike += l(input) in path/to/GW_with_CosmoReionMC/mcmc/MCMC_sampler/Likelihood.py
+
 
 > **Warning:** This is the most complex installation in the package.
 
@@ -296,5 +341,13 @@ python mcmc_run.py
 1. open CoredataGenerator.py; add/remove the name of the parameters in FREE_PARAM_MAPPING_DEFAULT 
 2. If the parameter is required in CAMB/Reionizatiom mode then make the change in the argument while calling CAMB/run_model inside _call__ method 
 3. In single_run.py add/remove the name of the parameters along with its initial values, range, step size in params = Params(( ...))
-4. Remember to run the code for generating the mock catalogues
+4. Remember to run the code for generating the mock catalogues. To do this one needs to open the code that create the catalogues and then change the parameter values inside
 
+Updates on 27/05/2026
+(i) Added dynamical dark energy with "ppf" to even consider phantom models, the fluid model often gives error that w crossing -1
+(ii) Added isValid function in  which ensures that the free parameters are inside the prior range
+(iii) "new" method for calculating df_coll/dt has been implemented correctly, the calculations are also updated in the SFRD notes in overleaf 
+(iv) Removed two data points at z<3.5 in gamma_data and Lyman Limit data to ensure numerical convergence
+(v) Added condition to ensure the reionization history to be monotonic in CoredataGenerator.py 
+(vi) updated the convergence test and postprocessing codes in the postprocess directory.
+(vii) replaced clik with clipy 

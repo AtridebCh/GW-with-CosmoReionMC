@@ -69,7 +69,7 @@ class MCMCsampler():
         self.log("start sampling — no burn-in. Remove burn-in steps when producing corner plots.")
         self.log(f"Using {self.n_cores} core(s).")
         start = time.time()
-
+        
         if self.n_cores > 1:
             with Pool(processes=self.n_cores) as pool:
                 sampler = self.createEmceeSampler(pool=pool)
@@ -122,6 +122,7 @@ class MCMCsampler():
             lnprob_arr[:, step_index]   = prob
             blobs_arr[:, step_index]    = np.asarray(blobs)
             step_index += 1
+            
 
             if np.remainder(step_index, save_steps) == 0:
                 for k in range(self.nwalkers):

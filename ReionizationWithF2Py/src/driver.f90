@@ -23,15 +23,15 @@ program driver
   params%cosmo%m_wdm   = -1.0_dp !not using any WDM
 
 
-  params%reion%fzero           = 0.17_dp
-  params%reion%alpha_lo        = 0.65
-  params%reion%alpha_hi        = 1.1
+  params%reion%fzero           = 0.17 !0.17_dp
+  params%reion%alpha_lo        = 0.65 !0.65
+  params%reion%alpha_hi        = 1.1 !1.1
   params%reion%alpha_z         = 0.0_dp
-  params%reion%esc_PopII       = 0.36_dp
+  params%reion%esc_PopII       = 0.36_dp !0.36_dp
   params%reion%lambda_0        = 2.44_dp
   params%reion%esc_PopIII      = 0.0_dp
   params%reion%e_sf_III        = 0.0_dp
-  params%reion%e_QSO           = 0.36_dp
+  params%reion%e_QSO           = 0.36_dp 
   params%reion%Delta_H_overlap = 59.21_dp
   params%reion%betaindex       = -2.2_dp
   params%reion%vc_min          = 13.3_dp
