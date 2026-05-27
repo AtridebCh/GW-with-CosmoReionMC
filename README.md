@@ -343,11 +343,11 @@ python mcmc_run.py
 3. In single_run.py add/remove the name of the parameters along with its initial values, range, step size in params = Params(( ...))
 4. Remember to run the code for generating the mock catalogues. To do this one needs to open the code that create the catalogues and then change the parameter values inside
 
-Updates on 27/05/2026
-(i) Added dynamical dark energy with "ppf" to even consider phantom models, the fluid model often gives error that w crossing -1
-(ii) Added isValid function in  which ensures that the free parameters are inside the prior range
-(iii) "new" method for calculating df_coll/dt has been implemented correctly, the calculations are also updated in the SFRD notes in overleaf 
-(iv) Removed two data points at z<3.5 in gamma_data and Lyman Limit data to ensure numerical convergence
-(v) Added condition to ensure the reionization history to be monotonic in CoredataGenerator.py 
-(vi) updated the convergence test and postprocessing codes in the postprocess directory.
-(vii) replaced clik with clipy 
+## 7. Updates on 27/05/2026
+1. Added dynamical dark energy with "ppf" to even consider phantom models, the fluid model often gives error that "w crossing -1".
+2. Added isValid function in /path/to/GW_with_CosmoreionMC/mcmc/MCMC_sampler/Likelihood.py which ensures that the free parameters are inside the prior range.
+3. "new" method for calculating df_coll/dt has been implemented correctly, the calculations are also updated in the SFRD notes in overleaf.
+4. Removed data points at z<3.5 in gamma_data and Lyman Limit data to ensure numerical convergence
+5. Added condition to ensure the reionization history to be monotonic in CoredataGenerator.py 
+6. Updated the convergence test and postprocessing codes in the postprocess directory.
+7. Replaced clik with clipy (https://github.com/benabed/clipy) 
