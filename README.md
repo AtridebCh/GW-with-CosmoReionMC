@@ -82,7 +82,7 @@ If successful, this will:
 
    Then:
 
-   > python setup.py build 
+   > python setup.py build
    > python setup.py install --user
 
 Although installing clipy-like was easy, while running (in python3.9), it gives an error with .astype, so had to open /Users/users/achatterjee/.local/lib/python3.9/site-packages/clipy/simall.py and change
