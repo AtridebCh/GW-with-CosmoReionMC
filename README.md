@@ -69,6 +69,7 @@ If successful, this will:
 
 3. cd /path/to/CAMB-1.1.0_modified
    > First delete all the files that was generated in earlier installation
+   
    > find . -name "*.o" -delete
    > find . -name "*.so" -delete
    > find . -name "*.mod" -delete
