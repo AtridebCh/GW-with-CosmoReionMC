@@ -343,7 +343,7 @@ This runs the pipeline for the fiducial cosmology and generates diagnostic plots
 python mcmc_run.py
 ```
 
-In **Kapteyn cluster use the full path*** for every files
+In **Kapteyn cluster use the full path** for every files
 
 ## 6. Removing or adding new parameters in MCMC
 **Location:** `<parent>/mcmc/MCMC_sampler/`
