@@ -1,0 +1,9 @@
+# myjob.sub - HTCondor submission script with module load
+Universe        = vanilla
+getenv = True
+executable = /usr/bin/sh
+arguments       = /Users/users/achatterjee/Data/GW_with_CosmoReionMC/mcmc/MCMC_sampler/run_script.sh    # bash wrapper script
+Output          = job_run_MCMC.out
+Error           = job_run_MCMC.err
+Log             = job_run_MCMC.log
+Queue 1

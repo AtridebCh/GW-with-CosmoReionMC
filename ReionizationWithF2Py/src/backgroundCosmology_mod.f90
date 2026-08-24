@@ -3,7 +3,7 @@ module backgroundCosmology_mod
   use constants_mod,  only: pi, two_pi, kboltz, mprot, yrbysec, c_light
   use parameters_mod, only: h, omega_m, omega_l, omega_r, &
                            omega_k,omega_b, ombh2, ns, sigma_8, &
-                           rho_c, gamma, dn_dlnk, omega_zero, omega_a
+                           rho_c, gamma, dn_dlnk
   use variables_mod,  only: delta_c, massfunc_name, logm, logsig, &
                             logx_arr, dlogsig_dlogx, coeffspl, coeffspl2, coeffspl_deriv
   use adaptint_mod ! got d01amf, d01arf
@@ -16,8 +16,8 @@ module backgroundCosmology_mod
             nu_parameter, tdyn, delvir, pspec, age, angdist, s_k,  &
             comoving, hubbledist, norm, lumdist, omega_z, d,       &
             sigmasq, sigmasq_b, xbsq, f_integrand, set_sigma8_norm,&
-            sigma8_norm, generic_dndM, dfdnu_ST, dynamical_omega,  &
-            omega_dark_energy, growth_dynamical, differential_comoving_volume, setspline_sigma
+            sigma8_norm, generic_dndM, dfdnu_ST,                   &
+            differential_comoving_volume, setspline_sigma
 
   ! module-level working variables (replacing implicit globals)
   real(dp), save, protected :: sigma8_norm   ! add here
@@ -163,9 +163,7 @@ contains
       if (abs(err) < 1.0e-5_dp) exit
       step = step / 2.0_dp
     end do
-    !nu  = delta_c / (d(z) * sig)
-    !for dynamical dark energy
-    nu  = delta_c / (growth_dynamical(z) * sig)
+    nu  = delta_c / (d(z) * sig)
     res = -probdist_PS(nu) * (3.0_dp / (4.0_dp * pi * x**3)) * dlogsigmadlogx / x
   end function numdenx
 
@@ -208,9 +206,7 @@ contains
     sig   = 10.0_dp**splevl(log10(m), logm, logsig, coeffspl2, dum, dum, ier)
 
     dlogsigmadlogx = splevl(log10(x), logx_arr, dlogsig_dlogx, coeffspl_deriv, dum, dum, ier)
-    !nu  = delta_c / (d(z) * sig)
-    !dynamical dark energy
-    nu  = delta_c / (growth_dynamical(z) * sig)
+    nu  = delta_c / (d(z) * sig)
     
     
     ! dn/dM = - rho_0/(3M^2) * f(nu) * d ln sigma / d ln x
@@ -313,9 +309,7 @@ contains
 
     rho_0 = rho_c * omega_m
     x     = (3.0_dp * mass / (4.0_dp * pi * rho_0))**(1.0_dp / 3.0_dp)
-    !res   = delta_c / (sigma(x) * d(z))
-    !for dynamical dark energy
-    res   = delta_c / (sigma(x) * growth_dynamical(z))
+    res   = delta_c / (sigma(x) * d(z))
   end function nu_parameter
 
   function pspec(k) result(res)
@@ -379,66 +373,16 @@ contains
 
     res = hubbledist(z) / (1.0_dp + z)
   end function f_integrand
-  
-  !Start of Dynamical Dark Energy
-    
-  function growth_dynamical_integrand(zprime) result(res)
-    real(dp), intent(in) :: zprime
-    real(dp) :: res, omega_at_z_one, gamma_dyn
-  
-    omega_at_z_one  = dynamical_omega(1.0_dp)
-    
-    if (omega_at_z_one >= 1.0_dp) then
-      gamma_dyn = 0.55_dp + 0.05_dp*(1.0_dp + omega_at_z_one)
-    else
-      gamma_dyn = 0.55_dp + 0.02_dp*(1.0_dp + omega_at_z_one)
-    endif
-  
-    res = omega_z(zprime)**gamma_dyn/(1+zprime)
-  end function growth_dynamical_integrand
 
-  function growth_dynamical(z) result(res)
-    real(dp), intent(in) :: z
-    real(dp) :: res, abserr
-    integer  :: ifail, maxrul, nn, iparm
-    real(dp), dimension(390) :: alpha
-
-    maxrul = 9
-    iparm  = 0
-    ifail  = -1
-    if (z>0.0_dp) then
-      call d01arf(0.0_dp, z, growth_dynamical_integrand, 1.0e-6_dp, 0.0_dp, maxrul, iparm, abserr, res, nn, alpha, ifail)
-      res = exp(-res)
-    else
-       res = 1.0
-    endif
-  end function growth_dynamical
-  
-  function dynamical_omega(z) result(res)
-    real(dp), intent(in) :: z
-    real(dp) :: res
-    
-    res = omega_zero + omega_a * (z/(1.0_dp+z))
-  end function dynamical_omega
-  
-  function omega_dark_energy(z) result(res)
-    real(dp), intent(in) :: z
-    real(dp) :: res
-    
-    res = omega_l * (1.0_dp + z)**(3 * (1+omega_zero+omega_a))*exp(-(3.0_dp * omega_a *z)/(1.0_dp+z))
-  end function omega_dark_energy
-  
   function hubbledist(z) result(res)
     real(dp), intent(in) :: z
     real(dp) :: res, omega_k
 
     omega_k = 1.0_dp - (omega_l + omega_m + omega_r)
     res     = 1.0_dp / sqrt(omega_k * (1.0_dp + z)**2 + omega_m * (1.0_dp + z)**3 + &
-                             omega_r * (1.0_dp + z)**4 + omega_dark_energy(z))
+                             omega_r * (1.0_dp + z)**4 + omega_l)
   end function hubbledist
 
-  !End for Dynamical Dark Energy
-  
   function omega_z(z) result(res)
     real(dp), intent(in) :: z
     real(dp) :: res
@@ -533,9 +477,7 @@ contains
     if (ifail /= 0) write(*, '(a, 4f12.4)') &
     'sigmasq_b: integration failed x, z, T, mu =', x, z, T, mu
 
-    !res = sigma8_norm * d(z)**2 * res / (2.0_dp * pi**2)
-    !for dynamical dark energy
-    res = sigma8_norm * growth_dynamical(z)**2 * res / (2.0_dp * pi**2)
+    res = sigma8_norm * d(z)**2 * res / (2.0_dp * pi**2)
   end function sigmasq_b
 
   

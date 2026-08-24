@@ -1,0 +1,147 @@
+theory: null
+likelihood:
+  cobayaLikelihood.ReionLikelihood:
+    include_planck: true
+    include_gw: false
+    include_21cm: true
+    gamma_datafile: /Users/users/achatterjee/Data/GW_with_CosmoReionMC/ReionizationWithF2Py/ObsData/gamma_data_all_combined.dat
+    lyman_limit_datafile: /Users/users/achatterjee/Data/GW_with_CosmoReionMC/ReionizationWithF2Py/ObsData/Lyman_limit.dat
+    T_b_Datafile: /Users/users/achatterjee/Data/GW_with_CosmoReionMC/global_21cm_signal/brightness_temp.txt
+    type: []
+    speed: -1
+    stop_at_error: false
+    version: null
+    python_path: /dataserver/users/achatterjee/GW_with_CosmoReionMC/mcmc/MCMC_sampler
+    input_params:
+    - hubble
+    - ombh2
+    - omch2
+    - As
+    - ns
+    - f_zero
+    - alpha_lo
+    - alpha_hi
+    - alpha_z
+    - log_esc_II
+    - lambda0
+    - log_f_X
+    - log_f_alpha
+    output_params:
+    - Q_HII_at_z5p8
+    - tau
+params:
+  hubble:
+    prior:
+      min: 65.0
+      max: 80.0
+    ref: 67.2
+    proposal: 0.2
+  ombh2:
+    prior:
+      min: 0.01
+      max: 0.03
+    ref: 0.0226
+    proposal: 0.0002
+  omch2:
+    prior:
+      min: 0.09
+      max: 0.2
+    ref: 0.117
+    proposal: 0.001
+  As:
+    prior:
+      min: 1.8e-09
+      max: 2.4e-09
+    ref: 2.1e-09
+    proposal: 5.0e-11
+  ns:
+    prior:
+      min: 0.8
+      max: 1.2
+    ref: 0.96
+    proposal: 0.003
+  f_zero:
+    prior:
+      min: -4.0
+      max: 0.0
+    ref: -0.44
+    proposal: 0.1
+  alpha_lo:
+    value: 0.0
+  alpha_hi:
+    value: 0.0
+  alpha_z:
+    value: 0.0
+  log_esc_II:
+    prior:
+      min: -4.0
+      max: 0.0
+    ref: -1.45
+    proposal: 0.1
+  lambda0:
+    prior:
+      min: 1.0
+      max: 12.0
+    ref: 5.36
+    proposal: 0.1
+  log_f_X:
+    prior:
+      min: -4.0
+      max: 0.0
+    ref: -0.69
+    proposal: 0.1
+  log_f_alpha:
+    prior:
+      min: -1.0
+      max: 1.0
+    ref: 0.0
+    proposal: 0.01
+  Q_HII_at_z5p8:
+    derived: true
+  tau:
+    derived: true
+sampler:
+  mcmc:
+    burn_in: 0
+    max_tries: 40d
+    covmat: null
+    covmat_params: null
+    proposal_scale: 2.4
+    output_every: 300s
+    learn_every: 40d
+    temperature: 1
+    learn_proposal: true
+    learn_proposal_Rminus1_max: 2.0
+    learn_proposal_Rminus1_max_early: 30.0
+    learn_proposal_Rminus1_min: 0.0
+    max_samples: 500000
+    Rminus1_stop: 0.01
+    Rminus1_cl_stop: 0.2
+    Rminus1_cl_level: 0.95
+    Rminus1_single_split: 4
+    measure_speeds: false
+    oversample_power: 0.4
+    oversample_thin: true
+    drag: false
+    blocking:
+    - - 1
+      - - hubble
+        - ombh2
+        - omch2
+        - As
+        - ns
+        - f_zero
+        - log_esc_II
+        - lambda0
+        - log_f_X
+        - log_f_alpha
+    callback_function: null
+    callback_every: null
+    seed: null
+    check_every: null
+    oversample: null
+    drag_limits: null
+    fallback_covmat_scale: 4
+    version: 3.5.7
+output: run_with_CMB_Reion_ndot_21cm
+version: 3.5.7

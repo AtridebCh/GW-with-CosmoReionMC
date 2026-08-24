@@ -16,7 +16,7 @@ module stellar_mod
                                mass_integral_pop2_ion, mass_integral_pop2_neut, &
                                mass_integral_pop3_ion, mass_integral_pop3_neut, &
                                sfr_pop2_ion, sfr_pop2_neut, massfunc_name, &
-                               sfr_pop3_ion, sfr_pop3_neut, &
+                               sfr_pop3_ion, sfr_pop3_neut, f_star_mass, &
                                Gamma_PI, Gamma_PH, rho_b, rho_b_cgs, &
                                dnphotdz_ion, dnphotdz_neut, dnphotdz_H, dnphotdz_He, &
                                QH, QHe, HII, HeIII, HII_0, HeIII_0, &
@@ -27,8 +27,7 @@ module stellar_mod
                                coeffspl2, coeffspl_deriv
   use backgroundCosmology_mod, only: omega_z, hubbledist, delvir, &
                                xbsq, dfdnu_PS, d, sigma, nu_parameter, &
-                               dfdnu_ST, generic_dndM, numdenm, growth_dynamical
-                               
+                               dfdnu_ST, generic_dndM, numdenm
   use adaptint_mod,            only: d01amf, d01arf
   use onedspline_mod,          only: spline, splevl
   implicit none
@@ -64,73 +63,42 @@ contains
     fQ         = QH(k-1)%Q
     f1mQ       = 1.0_dp - fQ
     sfrfactor  = rho_b !in Msun/mpc^3 so that rho_sfr comes out in this unit
-    rho_m = omega_m *rho_b/omega_b !remember, in MdndM_ST/MdndM_PS already has rho_m multiplied
+    rho_m = omega_m *rho_b !remember, in MdndM_ST/MdndM_PS already has rho_m multiplied
     dtz = dtimedz(k)
 
 
     !new method suggested by Barun
     if (trim(f_coll_method) == 'new') then
-      dfcolldt_pop2_ion(k) = max( &
-         -1.0_dp/(t_H_array(k)*dz) * (1.0_dp + z(k)) * &
-         ( mass_integral_pop2_new( &
-             z(k), &
-             vcmin_ion(z(k), HII(k)%T, HII(k)%X), &
-             vcmax() ) &
-         - mass_integral_pop2_new( &
-             z(k-1), &
-             vcmin_ion(z(k-1), HII(k-1)%T, HII(k-1)%X), &
-             vcmax() ) ), &
-         0.0_dp )
-
-
-      dfcolldt_pop2_neut(k) = max( &
-         -1.0_dp/(t_H_array(k)*dz) * (1.0_dp + z(k)) * &
-         ( mass_integral_pop2_new( &
-             z(k), &
-             vcmin_neut(z(k)), &
-             vcmax() ) &
-         - mass_integral_pop2_new( &
-             z(k-1), &
-             vcmin_neut(z(k-1)), &
-             vcmax() ) ), &
-         0.0_dp )
-
-
-      dfcolldt_pop3_ion(k) = max( &
-         -1.0_dp/(t_H_array(k)*dz) * (1.0_dp + z(k)) * &
-         ( mass_integral_pop3_new( &
-             z(k), &
-             vcmin_ion(z(k), HeIII(k)%T, HeIII(k)%X), &
-             vcmax() ) &
-         - mass_integral_pop3_new( &
-             z(k-1), &
-             vcmin_ion(z(k), HeIII(k-1)%T, HeIII(k-1)%X), &
-             vcmax() ) ), &
-         0.0_dp )
-
-
-      dfcolldt_pop3_neut(k) = max( &
-         -1.0_dp/(t_H_array(k)*dz) * (1.0_dp + z(k)) * &
-         ( mass_integral_pop3_new( &
-             z(k), &
-             vcmin_neut(z(k)), &
-             vcmax() ) &
-         - mass_integral_pop3_new( &
-             z(k-1), &
-             vcmin_neut(z(k-1)), &
-             vcmax() ) ), &
-         0.0_dp )
+      dfcolldt_pop2_ion(k)  = -1.0_dp/ (t_H_array(k)*dz)*(1.0_dp + z(k)) * &
+                                   (mass_integral_pop2_new(z(k), vcmin_ion(z(k), HII(k-1)%T,   HII(k-1)%X), vcmax()) - &
+                                    mass_integral_pop2_new(z(k-1), vcmin_ion(z(k-1), HII(k-1)%T,   HII(k-1)%X), vcmax()))
     
-    else   
-      dfcolldt_pop2_ion(k)  = (prefactor / t_H_array(k)) * mass_integral_pop2(z(k), vcmin_ion(z(k), HII(k-1)%T,   HII(k-1)%X), vcmax())
-      dfcolldt_pop2_neut(k) = (prefactor / t_H_array(k)) * mass_integral_pop2(z(k), vcmin_neut(z(k)), vcmax())
-      dfcolldt_pop3_ion(k)  = (prefactor / t_H_array(k)) * mass_integral_pop3(z(k), vcmin_ion(z(k), HeIII(k-1)%T, HeIII(k-1)%X), vcmax())
-      dfcolldt_pop3_neut(k) = (prefactor / t_H_array(k)) * mass_integral_pop3(z(k), vcmin_neut(z(k)), vcmax())   
+    
+      dfcolldt_pop2_neut(k) = -1.0_dp/ (t_H_array(k)*dz)*(1.0_dp + z(k)) * &
+                                   (mass_integral_pop2_new(z(k), vcmin_neut(z(k)), vcmax()) - &
+                                   mass_integral_pop2_new(z(k-1), vcmin_ion(z(k-1), HII(k-1)%T,   HII(k-1)%X), vcmax()))
+    
+    
+      dfcolldt_pop3_ion(k)  = -1.0_dp/ (t_H_array(k)*dz)*(1.0_dp + z(k)) * &
+                                   (mass_integral_pop3_new(z(k), vcmin_ion(z(k), HeIII(k-1)%T, HeIII(k-1)%X), vcmax()) - &
+                                     mass_integral_pop3_new(z(k-1), vcmin_ion(z(k-1), HeIII(k-1)%T, HeIII(k-1)%X), vcmax()))
+    
+    
+      dfcolldt_pop3_neut(k) = -1.0_dp/ (t_H_array(k)*dz)*(1.0_dp + z(k)) * &
+                                    (mass_integral_pop3_new(z(k), vcmin_neut(z(k)), vcmax()) - &
+                                    mass_integral_pop3_new(z(k-1), vcmin_neut(z(k-1)), vcmax()))
+    
+    else
+      dfcolldt_pop2_ion(k)  = mass_integral_pop2(z(k), vcmin_ion(z(k), HII(k-1)%T,   HII(k-1)%X), vcmax())
+      dfcolldt_pop2_neut(k) = mass_integral_pop2(z(k), vcmin_neut(z(k)), vcmax())
+      dfcolldt_pop3_ion(k)  = mass_integral_pop3(z(k), vcmin_ion(z(k), HeIII(k-1)%T, HeIII(k-1)%X), vcmax())
+      dfcolldt_pop3_neut(k) = mass_integral_pop3(z(k), vcmin_neut(z(k)), vcmax())
+    
+      dfcolldt_pop2_neut(k) = (prefactor / t_H_array(k)) * dfcolldt_pop2_neut(k)
+      dfcolldt_pop2_ion(k)  = (prefactor / t_H_array(k)) * dfcolldt_pop2_ion(k)
+      dfcolldt_pop3_neut(k) = (prefactor / t_H_array(k)) * dfcolldt_pop3_neut(k)
+      dfcolldt_pop3_ion(k)  = (prefactor / t_H_array(k)) * dfcolldt_pop3_ion(k)
     endif
-    
-    !open(unit=10, file='output_new_method.txt', status='unknown', position='append')
-      !write(10,*) z(k), dfcolldt_pop2_ion(k), dfcolldt_pop2_neut(k)
-    !close(10)
     
     mass_integral_pop2_neut(k) = dfcolldt_pop2_neut(k)
     mass_integral_pop2_ion(k)  = dfcolldt_pop2_ion(k)
@@ -366,16 +334,22 @@ contains
     real(dp) :: res, sig, m, dum
     integer  :: ier
 
-    !sig = delta_c / (d(zmass) * nu)
-    ! for dynamical dark energy
-    sig = delta_c / (growth_dynamical(zmass) * nu)
+    sig = delta_c / (d(zmass) * nu)
     m   = splevl(log10(sig), logsig, logm, coeffspl, dum, dum, ier)
     
     select case (trim(massfunc_name))
       case ('PS')
-        res = dfdnu_PS(nu) * (1.0_dp - fpop3(zmass, m)) *f_star(10**m, fzero, alpha_lo, alpha_hi)
+        if (f_star_mass) then
+          res = dfdnu_PS(nu) * (1.0_dp - fpop3(zmass, m)) *f_star(10**m, fzero, alpha_lo, alpha_hi)
+        else
+          res = dfdnu_PS(nu) * (1.0_dp - fpop3(zmass, m)) *fzero
+        endif
       case ('ST')
-        res = dfdnu_ST(nu) * (1.0_dp - fpop3(zmass, m)) *f_star(10**m, fzero, alpha_lo, alpha_hi)
+        if (f_star_mass) then
+          res = dfdnu_ST(nu) * (1.0_dp - fpop3(zmass, m)) *f_star(10**m, fzero, alpha_lo, alpha_hi)
+        else
+          res = dfdnu_ST(nu) * (1.0_dp - fpop3(zmass, m)) *fzero
+        endif
     end select
   end function mass_integrand_pop2
 
@@ -384,16 +358,22 @@ contains
     real(dp) :: res, sig, m, dum
     integer  :: ier
 
-    !sig = delta_c / (d(zmass) * nu)
-    ! for dynamical dark energy
-    sig = delta_c / (growth_dynamical(zmass) * nu)
+    sig = delta_c / (d(zmass) * nu)
     m   = splevl(log10(sig), logsig, logm, coeffspl, dum, dum, ier)
     
     select case (trim(massfunc_name))
       case ('PS')
-        res = dfdnu_PS(nu) * fpop3(zmass, m)*f_star(10**m, fzero, alpha_lo, alpha_hi)
+        if (f_star_mass) then
+          res = dfdnu_PS(nu) * fpop3(zmass, m)*f_star(10**m, fzero, alpha_lo, alpha_hi)
+        else
+          res = dfdnu_PS(nu) * fpop3(zmass, m)*fzero
+        endif
       case ('ST')
-        res = dfdnu_ST(nu) * fpop3(zmass, m) *f_star(10**m, fzero, alpha_lo, alpha_hi)
+        if (f_star_mass) then
+          res = dfdnu_ST(nu) * fpop3(zmass, m) *f_star(10**m, fzero, alpha_lo, alpha_hi)
+        else
+          res = dfdnu_ST(nu) * fpop3(zmass, m) *fzero
+        endif
     end select
   end function mass_integrand_pop3
 
@@ -402,14 +382,6 @@ contains
   ! Mass function integrals shared implementation for ST (added by Atri) and f_star(M)
   ! ---------------------------------------------------------------------------
   
-  function fnu_PS(nu) result(res)
-    real(dp), intent(in) :: nu
-    real(dp) :: res
-
-    res = sqrt(2.0_dp/pi) * &
-        exp(-0.5_dp * nu * nu)
-
-   end function fnu_PS
   
   function f_star(Mh, fzero, alpha_lo, alpha_hi ) result(res)
     real(dp), intent(in) :: Mh, fzero, alpha_lo, alpha_hi   ! log10 of halo mass
@@ -419,7 +391,7 @@ contains
 
     ratio = Mh/Mp
 
-    res = 2*fzero / (ratio**(alpha_lo) + ratio**(-alpha_hi))
+    res = fzero / (ratio**(alpha_lo) + ratio**(-alpha_hi))
 
   end function f_star
   
@@ -449,12 +421,14 @@ contains
     real(dp) :: res, sig, m, dum
     integer  :: ier
 
-    !sig = delta_c / (d(zmass) * nu)
-    !for dynamical dark energy
-    sig = delta_c / (growth_dynamical(zmass) * nu)
+    sig = delta_c / (d(zmass) * nu)
     m   = splevl(log10(sig), logsig, logm, coeffspl, dum, dum, ier)  
-     
-    res = (1.0_dp- fpop3(zmass, m)) * fnu_PS(nu) *f_star(10**m, fzero, alpha_lo, alpha_hi)
+    
+    if (f_star_mass) then 
+      res = (1.0_dp- fpop3(zmass, m)) *10**m * generic_dndM(10**m, zmass) *f_star(10**m, fzero, alpha_lo, alpha_hi)
+    else
+      res = (1.0_dp- fpop3(zmass, m)) *10**m * generic_dndM(10**m, zmass) *fzero
+    endif
   end function mass_integrand_pop2_new
 
   function mass_integrand_pop3_new(nu) result(res)
@@ -462,11 +436,13 @@ contains
     real(dp) :: res, sig, m, dum
     integer  :: ier
 
-    !sig = delta_c / (d(zmass) * nu)
-    ! for dynamical dark energy
-    sig = delta_c / (growth_dynamical(zmass) * nu)
+    sig = delta_c / (d(zmass) * nu)
     m   = splevl(log10(sig), logsig, logm, coeffspl, dum, dum, ier) 
-    res = fpop3(zmass, m) * fnu_PS(nu)*f_star(10**m, fzero, alpha_lo, alpha_hi)
+    if (f_star_mass) then
+      res = fpop3(zmass, m) *10**m * generic_dndM(10**m, zmass)*f_star(10**m, fzero, alpha_lo, alpha_hi)
+    else
+      res = fpop3(zmass, m) *10**m * generic_dndM(10**m, zmass)*fzero
+    endif
   end function mass_integrand_pop3_new
 
   ! ---------------------------------------------------------------------------

@@ -5,7 +5,7 @@ module parameters_mod
   private
   
   public :: cosmo_params_t, reion_params_t, parameters_t,     &
-            init_cosmo, init_params, omega_zero, omega_a,     &
+            init_cosmo, init_params,     &
             h, omega_m, omega_l, omega_r, omega_k, gamma,     &
             omega_b, ombh2, ns, dn_dlnk, sigma_8, delta_c_z0, &
             rho_c, fzero, alpha_lo, alpha_hi, alpha_z,        &
@@ -21,8 +21,6 @@ module parameters_mod
     real(dp) :: ns
     real(dp) :: dn_dlnk
     real(dp) :: sigma_8
-    real(dp) :: omega_zero
-    real(dp) :: omega_a
     real(dp) :: m_wdm    ! set to -1 if not used
     real(dp) :: delta_c_z0 = delta_c_z_0
     real(dp) :: rho_c_0 = rho_crit_0
@@ -61,7 +59,7 @@ module parameters_mod
     type(reion_params_t) :: reion
   end type parameters_t
   
-  real(dp), save, protected :: h, omega_m, omega_l, omega_r, omega_k, omega_zero, omega_a
+  real(dp), save, protected :: h, omega_m, omega_l, omega_r, omega_k
   real(dp), save, protected :: omega_b, ombh2, ns, sigma_8, dn_dlnk, delta_c_z0, rho_c, gamma
   real(dp), save, protected :: fzero, alpha_lo, alpha_hi, alpha_z
   real(dp), save, protected :: lambda_0, esc_PopII, esc_PopIII
@@ -98,8 +96,6 @@ contains
     ombh2    = params%cosmo%ombh2
     ns       = params%cosmo%ns
     sigma_8  = params%cosmo%sigma_8
-    omega_zero = params%cosmo%omega_zero
-    omega_a  = params%cosmo%omega_a
     delta_c_z0  = params%cosmo%delta_c_z0
     gamma    = params%cosmo%gamma
     rho_c    = params%cosmo%rho_c_0*h**2

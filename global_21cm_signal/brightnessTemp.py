@@ -54,8 +54,8 @@ class Generate21cmSignal:
         self.h       = H0 / 100.0
         self.omega_b = ombh2 / self.h ** 2
         self.omega_m = (ombh2 + omch2) / self.h ** 2
-        self.f_X     = f_X
-        self.f_alpha = f_alpha
+        self.f_X     = 10**f_X
+        self.f_alpha = 10**f_alpha
         self.Z_21cm  = Z_21cm
 
         # Interpolators from reionization model output
