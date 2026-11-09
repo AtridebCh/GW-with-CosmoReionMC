@@ -1,10 +1,9 @@
-subroutine run_model(H0, ombh2, omch2, ns, sigma_8, omega_zero, omega_a, &
+subroutine run_model(H0, ombh2, omch2, ns, sigma_8, &
                      fzero, alpha_lo, alpha_hi, alpha_z, esc_PopII, lambda0, &
                      zstart_in, zend_in, dz_in, Z_arraySize, &
                      Z_out, QH_Q_out, dNLLdz_out, gammaHI_out, &
                      sfr_pop2_out, sfr_pop3_out, dvc_out, &
-                     D_L_out, age_out, tau_factor_out, &
-                     omega_dyn_out, omega_de_out, ierr)
+                     D_L_out, age_out, tau_factor_out, ndot_H_out, ierr)
   
   use kinds_mod,        only: dp
   use constants_mod,    only: yrbysec
@@ -13,8 +12,8 @@ subroutine run_model(H0, ombh2, omch2, ns, sigma_8, omega_zero, omega_a, &
                               dNLLdz, QH, gammaHI, &
                               sfr_pop2_ion, sfr_pop2_neut, &
                               sfr_pop3_ion, sfr_pop3_neut, &
-                              dvc_dz, D_L, age_Gyr, z, &
-                              tau_factor, omega_dyn, omega_de
+                              dvc_dz, D_L, age_Gyr, z, tau_factor, &
+                              ndot_H
                               
                               
   use reionization_mod, only: initialize, filling, finalize
@@ -22,7 +21,7 @@ subroutine run_model(H0, ombh2, omch2, ns, sigma_8, omega_zero, omega_a, &
 
 
   ! inputs
-  real(kind=8), intent(in)  :: H0, ombh2, omch2, ns, sigma_8, omega_zero, omega_a
+  real(kind=8), intent(in)  :: H0, ombh2, omch2, ns, sigma_8
   real(kind=8), intent(in)  :: fzero, alpha_lo, alpha_hi, alpha_z
   real(kind=8), intent(in)  :: esc_PopII, lambda0
   real(kind=8), intent(in)  :: zstart_in, zend_in, dz_in
@@ -37,10 +36,9 @@ subroutine run_model(H0, ombh2, omch2, ns, sigma_8, omega_zero, omega_a, &
   real(kind=8), intent(out) :: sfr_pop3_out(0:Z_arraySize)
   real(kind=8), intent(out) :: dvc_out(0:Z_arraySize)
   real(kind=8), intent(out) :: D_L_out(0:Z_arraySize)
-  real(kind=8), intent(out) :: omega_dyn_out(0:Z_arraySize)
-  real(kind=8), intent(out) :: omega_de_out(0:Z_arraySize)
   real(kind=8), intent(out) :: age_out(0:Z_arraySize)
   real(kind=8), intent(out) :: tau_factor_out(0:Z_arraySize)
+  real(kind=8), intent(out) :: ndot_H_out(0:Z_arraySize)
   integer,      intent(out) :: ierr
   
   integer                   :: ik
@@ -59,8 +57,6 @@ subroutine run_model(H0, ombh2, omch2, ns, sigma_8, omega_zero, omega_a, &
   params%cosmo%ns      = ns
   params%cosmo%dn_dlnk = 0.0_dp
   params%cosmo%sigma_8 = sigma_8
-  params%cosmo%omega_zero = omega_zero
-  params%cosmo%omega_a = omega_a
   params%cosmo%m_wdm   = -1.0_dp
 
   params%reion%fzero           = fzero
@@ -92,15 +88,12 @@ subroutine run_model(H0, ombh2, omch2, ns, sigma_8, omega_zero, omega_a, &
     D_L_out(ik)      = D_L(ik)
     age_out(ik)      = age_Gyr(ik)
     tau_factor_out(ik) = tau_factor(ik)
-    omega_dyn_out(ik)  = omega_dyn(ik)
-    omega_de_out(ik)   = omega_de(ik)
+    ndot_H_out(ik) = ndot_H(ik)
   end do
   
   call finalize()
   
 end subroutine run_model
-
-
 
 !add the mass function
 

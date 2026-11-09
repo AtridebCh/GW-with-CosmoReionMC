@@ -13,7 +13,7 @@ from ChainContext import ChainContext
 from utils import getLogger
 
 # GW likelihood path, change this path
-sys.path.append('../../GravWave')
+sys.path.append('/Users/users/achatterjee/Data/GW_with_CosmoReionMC/GravWave')
 from gw_likelihood import GWLikelihood
 
 
@@ -49,8 +49,8 @@ class Likelihood:
     def __init__(self, CoreModule,
                  min_param=None, max_param=None,
                  include_planck = True,
-                 include_gw = False,
-                 include_21cm = False):
+                 include_gw = True,
+                 include_21cm = True):
         self.min        = min_param
         self.max        = max_param
         self.include_planck =  include_planck
@@ -104,6 +104,7 @@ class Likelihood:
         tau              = ctx.get('tau')
         Q_HII_at_z5p8    = ctx.get('Q_HII_at_Z5.8')
         lyman_limit      = ctx.get('LymanLimit')
+        ndot             = ctx.get('ndot')
         gamma_PI         = ctx.get('Gamma_PI')
         cl_TT            = ctx.get('cl_TT')
         cl_EE            = ctx.get('cl_EE')
@@ -118,7 +119,7 @@ class Likelihood:
         p = deepcopy(ctx.getParams())
         cl01 = np.array([0.0, 0.0])
 
-        if 0.135>tau>0.04 and Q_HII_at_z5p8>0.94:  #dark pixel fraction gives an upper limit of x_HI=0.06 hence QHII>(1-0.06)
+        if 0.135>tau>0.04 and Q_HII_at_z5p8>0.85:  #dark pixel fraction gives an upper limit of x_HI=0.06 hence QHII>(1-0.06)
             loglike = 0.
             if self.include_planck:
                 for i, clik_file in enumerate(self.clik_files):
@@ -131,11 +132,11 @@ class Likelihood:
                         if flag:
                             tcl = np.append(cl01, cls[j][:lmax[j]-1])
                             input = np.append(input, tcl)
-                    if self.clik_files[i]=='../../COM_Likelihood_Data-baseline_R3.00/baseline/plc_3.0/low_l/commander/commander_dx12_v3_2_29.clik':
+                    if self.clik_files[i]=='/Users/users/achatterjee/Data/GW_with_CosmoReionMC/COM_Likelihood_Data-baseline_R3.00/baseline/plc_3.0/low_l/commander/commander_dx12_v3_2_29.clik':
                         nuisense=[1.0]
-                    if self.clik_files[i]=='../../COM_Likelihood_Data-baseline_R3.00/baseline/plc_3.0/hi_l/plik_lite/plik_lite_v22_TTTEEE.clik':
+                    if self.clik_files[i]=='/Users/users/achatterjee/Data/GW_with_CosmoReionMC/COM_Likelihood_Data-baseline_R3.00/baseline/plc_3.0/hi_l/plik_lite/plik_lite_v22_TTTEEE.clik':
                         nuisense=[1.0]
-                    if self.clik_files[i]=='../../COM_Likelihood_Data-baseline_R3.00/baseline/plc_3.0/low_l/simall/simall_100x143_offlike5_EE_Aplanck_B.clik':                   
+                    if self.clik_files[i]=='/Users/users/achatterjee/Data/GW_with_CosmoReionMC/COM_Likelihood_Data-baseline_R3.00/baseline/plc_3.0/low_l/simall/simall_100x143_offlike5_EE_Aplanck_B.clik':                   
                         nuisense=[1.0] 
                     input = np.hstack([input, nuisense])
                     loglike += l(input) #[0]
@@ -145,6 +146,12 @@ class Likelihood:
                                        self.lyman_redshift,
                                        redshift[::-1],      
                                        lyman_limit[::-1]   
+                                       )
+            
+            ndot_interpolated = np.interp(
+                                       self.ndot_redshift,
+                                       redshift[::-1],
+                                       ndot[::-1]
                                        )
 
             gamma_interpolated = np.interp(
@@ -156,11 +163,16 @@ class Likelihood:
             loglike_lyman  = -0.5 * np.sum(
                              (self.lyman_limit_data - lyman_limit_interpolated) ** 2 / self.lyman_error ** 2
                            )
+            
+            loglike_ndot   = -0.5 * np.sum(
+                             (self.ndot_data - ndot_interpolated) ** 2 / self.ndot_error ** 2
+                           )
+
             loglike_gamma  = -0.5 * np.sum(
                               (self.gamma_log - gamma_interpolated) ** 2 / self.error_log ** 2
                            )
             loglike_tau    = -0.5 * (tau - 0.054) ** 2 / (0.007 ** 2)
-            loglike_tot    = loglike + loglike_lyman + loglike_gamma + loglike_tau
+            loglike_tot    = loglike + loglike_tau + loglike_lyman + loglike_gamma +loglike_ndot
             
             # ---- GW hyperlikelihood ----
             if self.include_gw:
@@ -177,11 +189,9 @@ class Likelihood:
             
 
             if single_run:
-                print('loglike cmb, loglike_lyman, loglike_gamma, \
-                      loglike_tau, loglike_tot', loglike, loglike_lyman, 
-                                        loglike_gamma, loglike_tau, loglike_tot)
+                print('loglike cmb, loglike_reion, loglike_GW, loglike_tot', loglike, loglike_tau+ loglike_lyman + loglike_gamma + loglike_ndot, loglike_gw, loglike_tot)
                 print('tau=', tau)
-                
+                  
                 plt.scatter(self.redshift_gamma, self.gamma_log)
                 plt.plot(self.redshift_gamma, gamma_interpolated)
                 plt.xlabel('redshift (z)')
@@ -189,6 +199,7 @@ class Likelihood:
                 plt.savefig('Gamma_PI.pdf')
                 plt.show()
                 
+                '''
                 plt.scatter(self.lyman_redshift, self.lyman_limit_data)
                 plt.plot(self.lyman_redshift, lyman_limit_interpolated)
                 plt.xlabel('redshift (z)')
@@ -202,7 +213,7 @@ class Likelihood:
                     plt.ylabel(r'$T_{b}(mk)$')
                     plt.savefig('T_b.pdf')
                     plt.show()
-
+                ''' 
             return loglike_tot, tau, Q_HII_at_z5p8
         else:
             return -np.inf, tau, Q_HII_at_z5p8
@@ -268,11 +279,16 @@ class Likelihood:
             lyman_limit_datafile, usecols=(0, 1, 2), unpack=True
         )
         
+        #ndot data from Gaikwad+23 (Table 3)
+        self.ndot_redshift = np.array([4.90, 5.00, 5.10, 5.20, 5.30, 5.40, 5.50, 5.60, 5.70, 5.80, 5.90, 6.00])
+        self.ndot_data     = np.array([0.600, 0.563, 0.614, 0.668, 0.624, 0.648, 0.587, 0.666, 0.627, 0.609, 0.634, 0.701])
+        self.ndot_error    = np.array([0.304, 0.352, 0.475, 0.461, 0.421, 0.462, 0.417, 0.402, 0.340, 0.420, 0.343, 0.357])
+        
         #change these paths
         self.clik_files = [
-            "../../COM_Likelihood_Data-baseline_R3.00/baseline/plc_3.0/low_l/commander/commander_dx12_v3_2_29.clik",
-            "../../COM_Likelihood_Data-baseline_R3.00/baseline/plc_3.0/low_l/simall/simall_100x143_offlike5_EE_Aplanck_B.clik",
-            "../../COM_Likelihood_Data-baseline_R3.00/baseline/plc_3.0/hi_l/plik_lite/plik_lite_v22_TTTEEE.clik",
+            "/Users/users/achatterjee/Data/GW_with_CosmoReionMC/COM_Likelihood_Data-baseline_R3.00/baseline/plc_3.0/low_l/commander/commander_dx12_v3_2_29.clik",
+            "/Users/users/achatterjee/Data/GW_with_CosmoReionMC/COM_Likelihood_Data-baseline_R3.00/baseline/plc_3.0/low_l/simall/simall_100x143_offlike5_EE_Aplanck_B.clik",
+            "/Users/users/achatterjee/Data/GW_with_CosmoReionMC/COM_Likelihood_Data-baseline_R3.00/baseline/plc_3.0/hi_l/plik_lite/plik_lite_v22_TTTEEE.clik",
         ]
 
         self.Core = CoreModule()

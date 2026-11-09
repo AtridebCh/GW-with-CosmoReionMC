@@ -1,0 +1,86 @@
+
+#==============================================================
+# Likelihood
+#==============================================================
+
+likelihood:
+
+  cobayaLikelihood.ReionLikelihood:
+    python_path: /dataserver/users/achatterjee/GW_with_CosmoReionMC/mcmc/MCMC_sampler
+    include_planck: True
+    include_gw: True
+    include_21cm: True
+
+    lyman_limit_datafile: '/Users/users/achatterjee/Data/GW_with_CosmoReionMC/ReionizationWithF2Py/ObsData/Lyman_limit.dat'
+    gamma_datafile:       '/Users/users/achatterjee/Data/GW_with_CosmoReionMC/ReionizationWithF2Py/ObsData/gamma_data_all_combined.dat'
+    T_b_Datafile:        '/Users/users/achatterjee/Data/GW_with_CosmoReionMC/global_21cm_signal/brightness_temp.txt'
+
+
+#==============================================================
+# Parameters
+#==============================================================
+
+params:
+
+  hubble:
+    value: 67.266
+
+  ombh2:
+    value: 2.23740e-02
+
+  omch2:
+    value: 1.206109e-01
+
+  As:
+    value: 2.112747e-09
+
+  ns:
+    value: 9.655997e-01
+
+  f_zero:
+    value: -0.44
+
+  alpha_lo:
+    value: 0.0
+
+  alpha_hi:
+    value: 0.0
+
+  alpha_z:
+    value: 0.0
+
+  log_esc_II:
+    value: -1.79 #np.log10(0.035)
+
+  lambda0:
+    value: 5.56
+
+  log_f_X:
+    value: -0.69
+  log_f_alpha:
+    value: 0.0
+
+
+  Q_HII_at_z5p8:
+    derived: True
+  tau:
+    derived: True
+
+#==============================================================
+# Sampler
+#==============================================================
+
+sampler:
+
+  evaluate:
+
+#==============================================================
+# Derived parameters
+#==============================================================
+
+derived:
+
+  tau:
+
+  Q_HII_at_z5p8:
+

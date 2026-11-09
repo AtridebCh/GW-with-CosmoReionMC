@@ -1,0 +1,1051 @@
+[output] Output to be read-from/written-into folder 'chains_with_varying_log_f_esc', with prefix 'run_with_CMB_Reion'
+[output] Found existing info files with the requested output prefix: 'chains_with_varying_log_f_esc/run_with_CMB_Reion'
+[output] Let's try to resume/load.
+[output] Found an old sample. Resuming.
+[mcmc] Resuming from previous sample!
+[samplecollection] Loaded 337 sample points from 'chains_with_varying_log_f_esc/run_with_CMB_Reion.1.txt'
+[mcmc] Initial point: hubble:68.2097, ombh2:0.02247399, omch2:0.1180258, As:2.126949e-09, ns:0.9737747, f_zero:0.1989057, log_esc_II:-1.453399, lambda0:4.493198
+[mcmc] Covariance matrix from previous sample.
+[mcmc] Sampling!
+----
+clipy_0.15
+Checking likelihood '/Users/users/achatterjee/Data/GW_with_CosmoReionMC/COM_Likelihood_Data-baseline_R3.00/baseline/plc_3.0/low_l/commander/commander_dx12_v3_2_29.clik' on test data. got -11.6257 expected -11.6257 (diff 1.02746e-06)
+----
+----
+clipy_0.15
+Checking likelihood '/Users/users/achatterjee/Data/GW_with_CosmoReionMC/COM_Likelihood_Data-baseline_R3.00/baseline/plc_3.0/low_l/simall/simall_100x143_offlike5_EE_Aplanck_B.clik' on test data. got -197.99 expected -197.99 (diff -4.1778e-08)
+----
+----
+clipy_0.15
+Checking likelihood '/Users/users/achatterjee/Data/GW_with_CosmoReionMC/COM_Likelihood_Data-baseline_R3.00/baseline/plc_3.0/hi_l/plik_lite/plik_lite_v22_TTTEEE.clik' on test data. got -292.286 expected -292.286 (diff -3.86223e-09)
+----
+[mcmc] Progress @ 2026-07-17 19:21:40 : 1 steps taken, and 337 accepted.
+[mcmc] Progress @ 2026-07-17 19:26:40 : 394 steps taken, and 361 accepted.
+[mcmc] Progress @ 2026-07-17 19:31:40 : 777 steps taken, and 381 accepted.
+[mcmc] Progress @ 2026-07-17 19:36:41 : 1161 steps taken, and 415 accepted.
+[mcmc] Progress @ 2026-07-17 19:41:42 : 1547 steps taken, and 447 accepted.
+[mcmc] Progress @ 2026-07-17 19:46:42 : 1932 steps taken, and 482 accepted.
+[mcmc] Progress @ 2026-07-17 19:51:43 : 2319 steps taken, and 511 accepted.
+[mcmc] Progress @ 2026-07-17 19:56:43 : 2705 steps taken, and 542 accepted.
+[mcmc] Progress @ 2026-07-17 20:01:44 : 3091 steps taken, and 571 accepted.
+[mcmc] Progress @ 2026-07-17 20:06:44 : 3475 steps taken, and 608 accepted.
+[mcmc] Learn + convergence test @ 640 samples accepted.
+[mcmc]  - Acceptance rate: 0.078
+[mcmc]  - Convergence of means: R-1 = 16.272678 after 512 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-17 20:11:45 : 3858 steps taken, and 641 accepted.
+[mcmc] Progress @ 2026-07-17 20:16:45 : 4243 steps taken, and 662 accepted.
+[mcmc] Progress @ 2026-07-17 20:21:46 : 4627 steps taken, and 694 accepted.
+[mcmc] Progress @ 2026-07-17 20:26:46 : 5011 steps taken, and 718 accepted.
+[mcmc] Progress @ 2026-07-17 20:31:47 : 5395 steps taken, and 746 accepted.
+[mcmc] Progress @ 2026-07-17 20:36:47 : 5778 steps taken, and 774 accepted.
+[mcmc] Progress @ 2026-07-17 20:41:48 : 6164 steps taken, and 799 accepted.
+[mcmc] Progress @ 2026-07-17 20:46:48 : 6548 steps taken, and 832 accepted.
+[mcmc] Progress @ 2026-07-17 20:51:49 : 6931 steps taken, and 862 accepted.
+[mcmc] Progress @ 2026-07-17 20:56:49 : 7315 steps taken, and 898 accepted.
+[mcmc] Progress @ 2026-07-17 21:01:49 : 7698 steps taken, and 927 accepted.
+[mcmc] Progress @ 2026-07-17 21:06:50 : 8082 steps taken, and 959 accepted.
+[mcmc] Learn + convergence test @ 960 samples accepted.
+[mcmc]  - Acceptance rate: 0.075
+[mcmc]  - Convergence of means: R-1 = 15.009428 after 768 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-17 21:11:50 : 8466 steps taken, and 994 accepted.
+[mcmc] Progress @ 2026-07-17 21:16:51 : 8849 steps taken, and 1021 accepted.
+[mcmc] Progress @ 2026-07-17 21:21:51 : 9232 steps taken, and 1060 accepted.
+[mcmc] Progress @ 2026-07-17 21:26:51 : 9616 steps taken, and 1082 accepted.
+[mcmc] Progress @ 2026-07-17 21:31:52 : 9998 steps taken, and 1111 accepted.
+[mcmc] Progress @ 2026-07-17 21:36:52 : 10381 steps taken, and 1144 accepted.
+[mcmc] Progress @ 2026-07-17 21:41:53 : 10764 steps taken, and 1177 accepted.
+[mcmc] Progress @ 2026-07-17 21:46:53 : 11146 steps taken, and 1218 accepted.
+[mcmc] Progress @ 2026-07-17 21:51:54 : 11524 steps taken, and 1247 accepted.
+[mcmc] Progress @ 2026-07-17 21:56:54 : 11906 steps taken, and 1275 accepted.
+[mcmc] Learn + convergence test @ 1280 samples accepted.
+[mcmc]  - Acceptance rate: 0.078
+[mcmc]  - Convergence of means: R-1 = 24.498497 after 1024 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-17 22:01:54 : 12290 steps taken, and 1305 accepted.
+[mcmc] Progress @ 2026-07-17 22:06:55 : 12674 steps taken, and 1338 accepted.
+[mcmc] Progress @ 2026-07-17 22:11:56 : 13058 steps taken, and 1363 accepted.
+[mcmc] Progress @ 2026-07-17 22:16:56 : 13441 steps taken, and 1396 accepted.
+[mcmc] Progress @ 2026-07-17 22:21:56 : 13825 steps taken, and 1416 accepted.
+[mcmc] Progress @ 2026-07-17 22:26:57 : 14211 steps taken, and 1447 accepted.
+[mcmc] Progress @ 2026-07-17 22:31:57 : 14594 steps taken, and 1478 accepted.
+[mcmc] Progress @ 2026-07-17 22:36:58 : 14978 steps taken, and 1521 accepted.
+[mcmc] Progress @ 2026-07-17 22:41:58 : 15360 steps taken, and 1553 accepted.
+[mcmc] Progress @ 2026-07-17 22:46:58 : 15742 steps taken, and 1587 accepted.
+[mcmc] Learn + convergence test @ 1600 samples accepted.
+[mcmc]  - Acceptance rate: 0.079
+[mcmc]  - Convergence of means: R-1 = 8.625938 after 1280 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-17 22:51:59 : 16127 steps taken, and 1628 accepted.
+[mcmc] Progress @ 2026-07-17 22:56:59 : 16510 steps taken, and 1661 accepted.
+[mcmc] Progress @ 2026-07-17 23:02:00 : 16893 steps taken, and 1679 accepted.
+[mcmc] Progress @ 2026-07-17 23:07:00 : 17276 steps taken, and 1716 accepted.
+[mcmc] Progress @ 2026-07-17 23:12:01 : 17657 steps taken, and 1756 accepted.
+[mcmc] Progress @ 2026-07-17 23:17:01 : 18035 steps taken, and 1778 accepted.
+[mcmc] Progress @ 2026-07-17 23:22:01 : 18418 steps taken, and 1809 accepted.
+[mcmc] Progress @ 2026-07-17 23:27:02 : 18802 steps taken, and 1830 accepted.
+[mcmc] Progress @ 2026-07-17 23:32:02 : 19187 steps taken, and 1864 accepted.
+[mcmc] Progress @ 2026-07-17 23:37:02 : 19570 steps taken, and 1891 accepted.
+[mcmc] Progress @ 2026-07-17 23:42:03 : 19953 steps taken, and 1916 accepted.
+[mcmc] Learn + convergence test @ 1920 samples accepted.
+[mcmc]  - Acceptance rate: 0.080
+[mcmc]  - Convergence of means: R-1 = 3.691350 after 1536 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-17 23:47:03 : 20335 steps taken, and 1951 accepted.
+[mcmc] Progress @ 2026-07-17 23:52:03 : 20718 steps taken, and 1967 accepted.
+[mcmc] Progress @ 2026-07-17 23:57:04 : 21101 steps taken, and 1991 accepted.
+[mcmc] Progress @ 2026-07-18 00:02:04 : 21482 steps taken, and 2021 accepted.
+[mcmc] Progress @ 2026-07-18 00:07:05 : 21862 steps taken, and 2053 accepted.
+[mcmc] Progress @ 2026-07-18 00:12:05 : 22245 steps taken, and 2075 accepted.
+[mcmc] Progress @ 2026-07-18 00:17:05 : 22629 steps taken, and 2106 accepted.
+[mcmc] Progress @ 2026-07-18 00:22:06 : 23001 steps taken, and 2143 accepted.
+[mcmc] Progress @ 2026-07-18 00:27:07 : 23386 steps taken, and 2180 accepted.
+[mcmc] Progress @ 2026-07-18 00:32:07 : 23769 steps taken, and 2206 accepted.
+[mcmc] Progress @ 2026-07-18 00:37:07 : 24151 steps taken, and 2239 accepted.
+[mcmc] Learn + convergence test @ 2240 samples accepted.
+[mcmc]  - Acceptance rate: 0.079
+[mcmc]  - Convergence of means: R-1 = 7.750184 after 1792 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-18 00:42:08 : 24534 steps taken, and 2276 accepted.
+[mcmc] Progress @ 2026-07-18 00:47:08 : 24917 steps taken, and 2304 accepted.
+[mcmc] Progress @ 2026-07-18 00:52:09 : 25300 steps taken, and 2336 accepted.
+[mcmc] Progress @ 2026-07-18 00:57:09 : 25683 steps taken, and 2364 accepted.
+[mcmc] Progress @ 2026-07-18 01:02:10 : 26066 steps taken, and 2388 accepted.
+[mcmc] Progress @ 2026-07-18 01:07:10 : 26448 steps taken, and 2410 accepted.
+[mcmc] Progress @ 2026-07-18 01:12:11 : 26831 steps taken, and 2442 accepted.
+[mcmc] Progress @ 2026-07-18 01:17:11 : 27214 steps taken, and 2473 accepted.
+[mcmc] Progress @ 2026-07-18 01:22:11 : 27597 steps taken, and 2497 accepted.
+[mcmc] Progress @ 2026-07-18 01:27:12 : 27982 steps taken, and 2526 accepted.
+[mcmc] Progress @ 2026-07-18 01:32:12 : 28364 steps taken, and 2557 accepted.
+[mcmc] Learn + convergence test @ 2560 samples accepted.
+[mcmc]  - Acceptance rate: 0.079
+[mcmc]  - Convergence of means: R-1 = 7.447950 after 2048 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-18 01:37:12 : 28746 steps taken, and 2583 accepted.
+[mcmc] Progress @ 2026-07-18 01:42:13 : 29128 steps taken, and 2618 accepted.
+[mcmc] Progress @ 2026-07-18 01:47:13 : 29511 steps taken, and 2636 accepted.
+[mcmc] Progress @ 2026-07-18 01:52:13 : 29895 steps taken, and 2671 accepted.
+[mcmc] Progress @ 2026-07-18 01:57:13 : 30278 steps taken, and 2701 accepted.
+[mcmc] Progress @ 2026-07-18 02:02:14 : 30661 steps taken, and 2733 accepted.
+[mcmc] Progress @ 2026-07-18 02:07:14 : 31045 steps taken, and 2759 accepted.
+[mcmc] Progress @ 2026-07-18 02:12:15 : 31430 steps taken, and 2793 accepted.
+[mcmc] Progress @ 2026-07-18 02:17:15 : 31812 steps taken, and 2826 accepted.
+[mcmc] Progress @ 2026-07-18 02:22:16 : 32195 steps taken, and 2857 accepted.
+[mcmc] Learn + convergence test @ 2880 samples accepted.
+[mcmc]  - Acceptance rate: 0.078
+[mcmc]  - Convergence of means: R-1 = 8.284153 after 2304 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-18 02:27:16 : 32579 steps taken, and 2887 accepted.
+[mcmc] Progress @ 2026-07-18 02:32:17 : 32963 steps taken, and 2926 accepted.
+[mcmc] Progress @ 2026-07-18 02:37:17 : 33346 steps taken, and 2963 accepted.
+[mcmc] Progress @ 2026-07-18 02:42:17 : 33730 steps taken, and 2993 accepted.
+[mcmc] Progress @ 2026-07-18 02:47:17 : 34113 steps taken, and 3026 accepted.
+[mcmc] Progress @ 2026-07-18 02:52:18 : 34494 steps taken, and 3062 accepted.
+[mcmc] Progress @ 2026-07-18 02:57:18 : 34874 steps taken, and 3094 accepted.
+[mcmc] Progress @ 2026-07-18 03:02:18 : 35257 steps taken, and 3118 accepted.
+[mcmc] Progress @ 2026-07-18 03:07:19 : 35636 steps taken, and 3152 accepted.
+[mcmc] Progress @ 2026-07-18 03:12:19 : 36019 steps taken, and 3188 accepted.
+[mcmc] Learn + convergence test @ 3200 samples accepted.
+[mcmc]  - Acceptance rate: 0.079
+[mcmc]  - Convergence of means: R-1 = 14.308522 after 2560 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-18 03:17:19 : 36402 steps taken, and 3223 accepted.
+[mcmc] Progress @ 2026-07-18 03:22:19 : 36786 steps taken, and 3251 accepted.
+[mcmc] Progress @ 2026-07-18 03:27:20 : 37171 steps taken, and 3269 accepted.
+[mcmc] Progress @ 2026-07-18 03:32:20 : 37555 steps taken, and 3305 accepted.
+[mcmc] Progress @ 2026-07-18 03:37:20 : 37938 steps taken, and 3339 accepted.
+[mcmc] Progress @ 2026-07-18 03:42:21 : 38320 steps taken, and 3375 accepted.
+[mcmc] Progress @ 2026-07-18 03:47:21 : 38703 steps taken, and 3406 accepted.
+[mcmc] Progress @ 2026-07-18 03:52:21 : 39086 steps taken, and 3432 accepted.
+[mcmc] Progress @ 2026-07-18 03:57:22 : 39470 steps taken, and 3462 accepted.
+[mcmc] Progress @ 2026-07-18 04:02:22 : 39854 steps taken, and 3503 accepted.
+[mcmc] Learn + convergence test @ 3520 samples accepted.
+[mcmc]  - Acceptance rate: 0.080
+[mcmc]  - Convergence of means: R-1 = 8.949155 after 2816 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-18 04:07:23 : 40237 steps taken, and 3530 accepted.
+[mcmc] Progress @ 2026-07-18 04:12:23 : 40621 steps taken, and 3556 accepted.
+[mcmc] Progress @ 2026-07-18 04:17:24 : 41004 steps taken, and 3587 accepted.
+[mcmc] Progress @ 2026-07-18 04:22:24 : 41387 steps taken, and 3623 accepted.
+[mcmc] Progress @ 2026-07-18 04:27:25 : 41773 steps taken, and 3653 accepted.
+[mcmc] Progress @ 2026-07-18 04:32:25 : 42156 steps taken, and 3678 accepted.
+[mcmc] Progress @ 2026-07-18 04:37:26 : 42539 steps taken, and 3713 accepted.
+[mcmc] Progress @ 2026-07-18 04:42:26 : 42921 steps taken, and 3743 accepted.
+[mcmc] Progress @ 2026-07-18 04:47:27 : 43306 steps taken, and 3769 accepted.
+[mcmc] Progress @ 2026-07-18 04:52:27 : 43689 steps taken, and 3803 accepted.
+[mcmc] Progress @ 2026-07-18 04:57:28 : 44071 steps taken, and 3839 accepted.
+[mcmc] Learn + convergence test @ 3840 samples accepted.
+[mcmc]  - Acceptance rate: 0.080
+[mcmc]  - Convergence of means: R-1 = 4.953983 after 3072 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-18 05:02:28 : 44454 steps taken, and 3874 accepted.
+[mcmc] Progress @ 2026-07-18 05:07:28 : 44837 steps taken, and 3901 accepted.
+[mcmc] Progress @ 2026-07-18 05:12:29 : 45220 steps taken, and 3922 accepted.
+[mcmc] Progress @ 2026-07-18 05:17:29 : 45604 steps taken, and 3954 accepted.
+[mcmc] Progress @ 2026-07-18 05:22:30 : 45987 steps taken, and 3986 accepted.
+[mcmc] Progress @ 2026-07-18 05:27:31 : 46374 steps taken, and 4025 accepted.
+[mcmc] Progress @ 2026-07-18 05:32:31 : 46759 steps taken, and 4045 accepted.
+[mcmc] Progress @ 2026-07-18 05:37:32 : 47141 steps taken, and 4079 accepted.
+[mcmc] Progress @ 2026-07-18 05:42:32 : 47524 steps taken, and 4108 accepted.
+[mcmc] Progress @ 2026-07-18 05:47:32 : 47906 steps taken, and 4140 accepted.
+[mcmc] Learn + convergence test @ 4160 samples accepted.
+[mcmc]  - Acceptance rate: 0.080
+[mcmc]  - Convergence of means: R-1 = 6.128108 after 3328 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-18 05:52:32 : 48288 steps taken, and 4179 accepted.
+[mcmc] Progress @ 2026-07-18 05:57:32 : 48671 steps taken, and 4205 accepted.
+[mcmc] Progress @ 2026-07-18 06:02:32 : 49055 steps taken, and 4229 accepted.
+[mcmc] Progress @ 2026-07-18 06:07:33 : 49435 steps taken, and 4251 accepted.
+[mcmc] Progress @ 2026-07-18 06:12:33 : 49819 steps taken, and 4277 accepted.
+[mcmc] Progress @ 2026-07-18 06:17:34 : 50202 steps taken, and 4312 accepted.
+[mcmc] Progress @ 2026-07-18 06:22:34 : 50584 steps taken, and 4342 accepted.
+[mcmc] Progress @ 2026-07-18 06:27:35 : 50967 steps taken, and 4371 accepted.
+[mcmc] Progress @ 2026-07-18 06:32:35 : 51350 steps taken, and 4412 accepted.
+[mcmc] Progress @ 2026-07-18 06:37:36 : 51734 steps taken, and 4439 accepted.
+[mcmc] Progress @ 2026-07-18 06:42:36 : 52118 steps taken, and 4467 accepted.
+[mcmc] Learn + convergence test @ 4480 samples accepted.
+[mcmc]  - Acceptance rate: 0.080
+[mcmc]  - Convergence of means: R-1 = 9.997697 after 3584 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-18 06:47:37 : 52501 steps taken, and 4494 accepted.
+[mcmc] Progress @ 2026-07-18 06:52:37 : 52884 steps taken, and 4535 accepted.
+[mcmc] Progress @ 2026-07-18 06:57:38 : 53262 steps taken, and 4567 accepted.
+[mcmc] Progress @ 2026-07-18 07:02:38 : 53647 steps taken, and 4594 accepted.
+[mcmc] Progress @ 2026-07-18 07:07:39 : 54030 steps taken, and 4617 accepted.
+[mcmc] Progress @ 2026-07-18 07:12:40 : 54415 steps taken, and 4660 accepted.
+[mcmc] Progress @ 2026-07-18 07:17:40 : 54798 steps taken, and 4691 accepted.
+[mcmc] Progress @ 2026-07-18 07:22:40 : 55183 steps taken, and 4728 accepted.
+[mcmc] Progress @ 2026-07-18 07:27:40 : 55567 steps taken, and 4764 accepted.
+[mcmc] Progress @ 2026-07-18 07:32:41 : 55952 steps taken, and 4788 accepted.
+[mcmc] Learn + convergence test @ 4800 samples accepted.
+[mcmc]  - Acceptance rate: 0.080
+[mcmc]  - Convergence of means: R-1 = 5.888686 after 3840 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-18 07:37:41 : 56334 steps taken, and 4814 accepted.
+[mcmc] Progress @ 2026-07-18 07:42:42 : 56717 steps taken, and 4852 accepted.
+[mcmc] Progress @ 2026-07-18 07:47:43 : 57100 steps taken, and 4882 accepted.
+[mcmc] Progress @ 2026-07-18 07:52:43 : 57484 steps taken, and 4911 accepted.
+[mcmc] Progress @ 2026-07-18 07:57:44 : 57867 steps taken, and 4946 accepted.
+[mcmc] Progress @ 2026-07-18 08:02:44 : 58249 steps taken, and 4972 accepted.
+[mcmc] Progress @ 2026-07-18 08:07:44 : 58632 steps taken, and 5001 accepted.
+[mcmc] Progress @ 2026-07-18 08:12:45 : 59015 steps taken, and 5030 accepted.
+[mcmc] Progress @ 2026-07-18 08:17:46 : 59399 steps taken, and 5068 accepted.
+[mcmc] Progress @ 2026-07-18 08:22:46 : 59782 steps taken, and 5096 accepted.
+[mcmc] Progress @ 2026-07-18 08:27:47 : 60167 steps taken, and 5119 accepted.
+[mcmc] Learn + convergence test @ 5120 samples accepted.
+[mcmc]  - Acceptance rate: 0.080
+[mcmc]  - Convergence of means: R-1 = 4.678559 after 4096 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-18 08:32:47 : 60551 steps taken, and 5147 accepted.
+[mcmc] Progress @ 2026-07-18 08:37:48 : 60934 steps taken, and 5179 accepted.
+[mcmc] Progress @ 2026-07-18 08:42:49 : 61317 steps taken, and 5206 accepted.
+[mcmc] Progress @ 2026-07-18 08:47:49 : 61699 steps taken, and 5236 accepted.
+[mcmc] Progress @ 2026-07-18 08:52:49 : 62081 steps taken, and 5266 accepted.
+[mcmc] Progress @ 2026-07-18 08:57:50 : 62466 steps taken, and 5295 accepted.
+[mcmc] Progress @ 2026-07-18 09:02:51 : 62849 steps taken, and 5322 accepted.
+[mcmc] Progress @ 2026-07-18 09:07:51 : 63232 steps taken, and 5349 accepted.
+[mcmc] Progress @ 2026-07-18 09:12:52 : 63615 steps taken, and 5376 accepted.
+[mcmc] Progress @ 2026-07-18 09:17:52 : 63996 steps taken, and 5418 accepted.
+[mcmc] Learn + convergence test @ 5440 samples accepted.
+[mcmc]  - Acceptance rate: 0.080
+[mcmc]  - Convergence of means: R-1 = 6.481382 after 4352 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-18 09:22:52 : 64379 steps taken, and 5457 accepted.
+[mcmc] Progress @ 2026-07-18 09:27:52 : 64761 steps taken, and 5482 accepted.
+[mcmc] Progress @ 2026-07-18 09:32:52 : 65143 steps taken, and 5511 accepted.
+[mcmc] Progress @ 2026-07-18 09:37:52 : 65525 steps taken, and 5545 accepted.
+[mcmc] Progress @ 2026-07-18 09:42:52 : 65907 steps taken, and 5575 accepted.
+[mcmc] Progress @ 2026-07-18 09:47:53 : 66291 steps taken, and 5611 accepted.
+[mcmc] Progress @ 2026-07-18 09:52:53 : 66674 steps taken, and 5640 accepted.
+[mcmc] Progress @ 2026-07-18 09:57:53 : 67057 steps taken, and 5668 accepted.
+[mcmc] Progress @ 2026-07-18 10:02:54 : 67437 steps taken, and 5696 accepted.
+[mcmc] Progress @ 2026-07-18 10:07:54 : 67820 steps taken, and 5728 accepted.
+[mcmc] Progress @ 2026-07-18 10:12:55 : 68205 steps taken, and 5755 accepted.
+[mcmc] Learn + convergence test @ 5760 samples accepted.
+[mcmc]  - Acceptance rate: 0.080
+[mcmc]  - Convergence of means: R-1 = 6.392515 after 4608 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-18 10:17:55 : 68588 steps taken, and 5791 accepted.
+[mcmc] Progress @ 2026-07-18 10:22:56 : 68971 steps taken, and 5826 accepted.
+[mcmc] Progress @ 2026-07-18 10:27:56 : 69354 steps taken, and 5859 accepted.
+[mcmc] Progress @ 2026-07-18 10:32:56 : 69737 steps taken, and 5890 accepted.
+[mcmc] Progress @ 2026-07-18 10:37:57 : 70120 steps taken, and 5924 accepted.
+[mcmc] Progress @ 2026-07-18 10:42:57 : 70504 steps taken, and 5950 accepted.
+[mcmc] Progress @ 2026-07-18 10:47:58 : 70888 steps taken, and 5975 accepted.
+[mcmc] Progress @ 2026-07-18 10:52:58 : 71271 steps taken, and 6005 accepted.
+[mcmc] Progress @ 2026-07-18 10:57:59 : 71655 steps taken, and 6035 accepted.
+[mcmc] Progress @ 2026-07-18 11:02:59 : 72039 steps taken, and 6062 accepted.
+[mcmc] Learn + convergence test @ 6080 samples accepted.
+[mcmc]  - Acceptance rate: 0.079
+[mcmc]  - Convergence of means: R-1 = 5.087029 after 4864 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-18 11:08:00 : 72423 steps taken, and 6087 accepted.
+[mcmc] Progress @ 2026-07-18 11:13:00 : 72807 steps taken, and 6116 accepted.
+[mcmc] Progress @ 2026-07-18 11:18:01 : 73191 steps taken, and 6152 accepted.
+[mcmc] Progress @ 2026-07-18 11:23:01 : 73575 steps taken, and 6187 accepted.
+[mcmc] Progress @ 2026-07-18 11:28:01 : 73957 steps taken, and 6219 accepted.
+[mcmc] Progress @ 2026-07-18 11:33:02 : 74341 steps taken, and 6241 accepted.
+[mcmc] Progress @ 2026-07-18 11:38:02 : 74724 steps taken, and 6272 accepted.
+[mcmc] Progress @ 2026-07-18 11:43:03 : 75109 steps taken, and 6300 accepted.
+[mcmc] Progress @ 2026-07-18 11:48:03 : 75491 steps taken, and 6326 accepted.
+[mcmc] Progress @ 2026-07-18 11:53:03 : 75874 steps taken, and 6353 accepted.
+[mcmc] Progress @ 2026-07-18 11:58:03 : 76256 steps taken, and 6393 accepted.
+[mcmc] Learn + convergence test @ 6400 samples accepted.
+[mcmc]  - Acceptance rate: 0.080
+[mcmc]  - Convergence of means: R-1 = 5.852397 after 5120 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-18 12:03:04 : 76642 steps taken, and 6428 accepted.
+[mcmc] Progress @ 2026-07-18 12:08:04 : 77025 steps taken, and 6458 accepted.
+[mcmc] Progress @ 2026-07-18 12:13:04 : 77408 steps taken, and 6489 accepted.
+[mcmc] Progress @ 2026-07-18 12:18:05 : 77791 steps taken, and 6514 accepted.
+[mcmc] Progress @ 2026-07-18 12:23:05 : 78170 steps taken, and 6549 accepted.
+[mcmc] Progress @ 2026-07-18 12:28:05 : 78553 steps taken, and 6588 accepted.
+[mcmc] Progress @ 2026-07-18 12:33:05 : 78936 steps taken, and 6614 accepted.
+[mcmc] Progress @ 2026-07-18 12:38:06 : 79319 steps taken, and 6642 accepted.
+[mcmc] Progress @ 2026-07-18 12:43:07 : 79701 steps taken, and 6670 accepted.
+[mcmc] Progress @ 2026-07-18 12:48:07 : 80085 steps taken, and 6701 accepted.
+[mcmc] Learn + convergence test @ 6720 samples accepted.
+[mcmc]  - Acceptance rate: 0.079
+[mcmc]  - Convergence of means: R-1 = 6.201354 after 5376 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-18 12:53:08 : 80467 steps taken, and 6721 accepted.
+[mcmc] Progress @ 2026-07-18 12:58:08 : 80851 steps taken, and 6738 accepted.
+[mcmc] Progress @ 2026-07-18 13:03:08 : 81233 steps taken, and 6776 accepted.
+[mcmc] Progress @ 2026-07-18 13:08:09 : 81616 steps taken, and 6804 accepted.
+[mcmc] Progress @ 2026-07-18 13:13:09 : 81999 steps taken, and 6840 accepted.
+[mcmc] Progress @ 2026-07-18 13:18:09 : 82380 steps taken, and 6874 accepted.
+[mcmc] Progress @ 2026-07-18 13:23:10 : 82760 steps taken, and 6902 accepted.
+[mcmc] Progress @ 2026-07-18 13:28:11 : 83146 steps taken, and 6921 accepted.
+[mcmc] Progress @ 2026-07-18 13:33:11 : 83529 steps taken, and 6950 accepted.
+[mcmc] Progress @ 2026-07-18 13:38:12 : 83911 steps taken, and 6971 accepted.
+[mcmc] Progress @ 2026-07-18 13:43:12 : 84293 steps taken, and 7007 accepted.
+[mcmc] Progress @ 2026-07-18 13:48:13 : 84676 steps taken, and 7036 accepted.
+[mcmc] Learn + convergence test @ 7040 samples accepted.
+[mcmc]  - Acceptance rate: 0.079
+[mcmc]  - Convergence of means: R-1 = 7.262091 after 5632 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-18 13:53:13 : 85057 steps taken, and 7054 accepted.
+[mcmc] Progress @ 2026-07-18 13:58:13 : 85439 steps taken, and 7092 accepted.
+[mcmc] Progress @ 2026-07-18 14:03:13 : 85822 steps taken, and 7120 accepted.
+[mcmc] Progress @ 2026-07-18 14:08:13 : 86205 steps taken, and 7155 accepted.
+[mcmc] Progress @ 2026-07-18 14:13:14 : 86587 steps taken, and 7191 accepted.
+[mcmc] Progress @ 2026-07-18 14:18:14 : 86970 steps taken, and 7213 accepted.
+[mcmc] Progress @ 2026-07-18 14:23:14 : 87352 steps taken, and 7246 accepted.
+[mcmc] Progress @ 2026-07-18 14:28:14 : 87734 steps taken, and 7272 accepted.
+[mcmc] Progress @ 2026-07-18 14:33:15 : 88117 steps taken, and 7306 accepted.
+[mcmc] Progress @ 2026-07-18 14:38:15 : 88499 steps taken, and 7337 accepted.
+[mcmc] Learn + convergence test @ 7360 samples accepted.
+[mcmc]  - Acceptance rate: 0.079
+[mcmc]  - Convergence of means: R-1 = 13.159207 after 5888 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-18 14:43:15 : 88880 steps taken, and 7361 accepted.
+[mcmc] Progress @ 2026-07-18 14:48:15 : 89264 steps taken, and 7388 accepted.
+[mcmc] Progress @ 2026-07-18 14:53:15 : 89646 steps taken, and 7418 accepted.
+[mcmc] Progress @ 2026-07-18 14:58:15 : 90030 steps taken, and 7455 accepted.
+[mcmc] Progress @ 2026-07-18 15:03:15 : 90411 steps taken, and 7485 accepted.
+[mcmc] Progress @ 2026-07-18 15:08:16 : 90794 steps taken, and 7517 accepted.
+[mcmc] Progress @ 2026-07-18 15:13:17 : 91177 steps taken, and 7549 accepted.
+[mcmc] Progress @ 2026-07-18 15:18:17 : 91561 steps taken, and 7583 accepted.
+[mcmc] Progress @ 2026-07-18 15:23:18 : 91944 steps taken, and 7618 accepted.
+[mcmc] Progress @ 2026-07-18 15:28:19 : 92329 steps taken, and 7637 accepted.
+[mcmc] Progress @ 2026-07-18 15:33:19 : 92708 steps taken, and 7678 accepted.
+[mcmc] Learn + convergence test @ 7680 samples accepted.
+[mcmc]  - Acceptance rate: 0.079
+[mcmc]  - Convergence of means: R-1 = 9.553410 after 6144 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-18 15:38:20 : 93092 steps taken, and 7723 accepted.
+[mcmc] Progress @ 2026-07-18 15:43:21 : 93476 steps taken, and 7755 accepted.
+[mcmc] Progress @ 2026-07-18 15:48:21 : 93858 steps taken, and 7791 accepted.
+[mcmc] Progress @ 2026-07-18 15:53:21 : 94241 steps taken, and 7827 accepted.
+[mcmc] Progress @ 2026-07-18 15:58:22 : 94623 steps taken, and 7858 accepted.
+[mcmc] Progress @ 2026-07-18 16:03:22 : 95007 steps taken, and 7890 accepted.
+[mcmc] Progress @ 2026-07-18 16:08:22 : 95390 steps taken, and 7925 accepted.
+[mcmc] Progress @ 2026-07-18 16:13:22 : 95773 steps taken, and 7968 accepted.
+[mcmc] Learn + convergence test @ 8000 samples accepted.
+[mcmc]  - Acceptance rate: 0.080
+[mcmc]  - Convergence of means: R-1 = 6.919153 after 6400 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-18 16:18:23 : 96155 steps taken, and 8001 accepted.
+[mcmc] Progress @ 2026-07-18 16:23:23 : 96538 steps taken, and 8031 accepted.
+[mcmc] Progress @ 2026-07-18 16:28:23 : 96921 steps taken, and 8066 accepted.
+[mcmc] Progress @ 2026-07-18 16:33:24 : 97305 steps taken, and 8097 accepted.
+[mcmc] Progress @ 2026-07-18 16:38:24 : 97689 steps taken, and 8124 accepted.
+[mcmc] Progress @ 2026-07-18 16:43:24 : 98072 steps taken, and 8143 accepted.
+[mcmc] Progress @ 2026-07-18 16:48:25 : 98455 steps taken, and 8172 accepted.
+[mcmc] Progress @ 2026-07-18 16:53:25 : 98838 steps taken, and 8203 accepted.
+[mcmc] Progress @ 2026-07-18 16:58:25 : 99222 steps taken, and 8230 accepted.
+[mcmc] Progress @ 2026-07-18 17:03:26 : 99607 steps taken, and 8261 accepted.
+[mcmc] Progress @ 2026-07-18 17:08:26 : 99990 steps taken, and 8291 accepted.
+[mcmc] Learn + convergence test @ 8320 samples accepted.
+[mcmc]  - Acceptance rate: 0.079
+[mcmc]  - Convergence of means: R-1 = 7.424588 after 6656 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-18 17:13:27 : 100372 steps taken, and 8323 accepted.
+[mcmc] Progress @ 2026-07-18 17:18:27 : 100754 steps taken, and 8351 accepted.
+[mcmc] Progress @ 2026-07-18 17:23:28 : 101137 steps taken, and 8384 accepted.
+[mcmc] Progress @ 2026-07-18 17:28:28 : 101519 steps taken, and 8424 accepted.
+[mcmc] Progress @ 2026-07-18 17:33:28 : 101900 steps taken, and 8450 accepted.
+[mcmc] Progress @ 2026-07-18 17:38:28 : 102276 steps taken, and 8467 accepted.
+[mcmc] Progress @ 2026-07-18 17:43:29 : 102659 steps taken, and 8496 accepted.
+[mcmc] Progress @ 2026-07-18 17:48:29 : 103041 steps taken, and 8520 accepted.
+[mcmc] Progress @ 2026-07-18 17:53:29 : 103424 steps taken, and 8551 accepted.
+[mcmc] Progress @ 2026-07-18 17:58:30 : 103808 steps taken, and 8577 accepted.
+[mcmc] Progress @ 2026-07-18 18:03:30 : 104191 steps taken, and 8600 accepted.
+[mcmc] Progress @ 2026-07-18 18:08:30 : 104577 steps taken, and 8629 accepted.
+[mcmc] Learn + convergence test @ 8640 samples accepted.
+[mcmc]  - Acceptance rate: 0.079
+[mcmc]  - Convergence of means: R-1 = 11.114678 after 6912 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-18 18:13:31 : 104959 steps taken, and 8669 accepted.
+[mcmc] Progress @ 2026-07-18 18:18:31 : 105343 steps taken, and 8693 accepted.
+[mcmc] Progress @ 2026-07-18 18:23:31 : 105726 steps taken, and 8717 accepted.
+[mcmc] Progress @ 2026-07-18 18:28:32 : 106109 steps taken, and 8740 accepted.
+[mcmc] Progress @ 2026-07-18 18:33:32 : 106492 steps taken, and 8769 accepted.
+[mcmc] Progress @ 2026-07-18 18:38:32 : 106874 steps taken, and 8812 accepted.
+[mcmc] Progress @ 2026-07-18 18:43:32 : 107258 steps taken, and 8849 accepted.
+[mcmc] Progress @ 2026-07-18 18:48:33 : 107642 steps taken, and 8885 accepted.
+[mcmc] Progress @ 2026-07-18 18:53:33 : 108025 steps taken, and 8914 accepted.
+[mcmc] Progress @ 2026-07-18 18:58:34 : 108407 steps taken, and 8939 accepted.
+[mcmc] Learn + convergence test @ 8960 samples accepted.
+[mcmc]  - Acceptance rate: 0.079
+[mcmc]  - Convergence of means: R-1 = 13.586771 after 7168 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-18 19:03:34 : 108790 steps taken, and 8973 accepted.
+[mcmc] Progress @ 2026-07-18 19:08:35 : 109175 steps taken, and 8992 accepted.
+[mcmc] Progress @ 2026-07-18 19:13:35 : 109558 steps taken, and 9018 accepted.
+[mcmc] Progress @ 2026-07-18 19:18:36 : 109941 steps taken, and 9051 accepted.
+[mcmc] Progress @ 2026-07-18 19:23:36 : 110323 steps taken, and 9080 accepted.
+[mcmc] Progress @ 2026-07-18 19:28:36 : 110705 steps taken, and 9111 accepted.
+[mcmc] Progress @ 2026-07-18 19:33:36 : 111086 steps taken, and 9136 accepted.
+[mcmc] Progress @ 2026-07-18 19:38:37 : 111466 steps taken, and 9162 accepted.
+[mcmc] Progress @ 2026-07-18 19:43:37 : 111845 steps taken, and 9196 accepted.
+[mcmc] Progress @ 2026-07-18 19:48:37 : 112228 steps taken, and 9230 accepted.
+[mcmc] Progress @ 2026-07-18 19:53:38 : 112611 steps taken, and 9260 accepted.
+[mcmc] Learn + convergence test @ 9280 samples accepted.
+[mcmc]  - Acceptance rate: 0.079
+[mcmc]  - Convergence of means: R-1 = 12.106882 after 7424 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-18 19:58:38 : 112994 steps taken, and 9292 accepted.
+[mcmc] Progress @ 2026-07-18 20:03:39 : 113377 steps taken, and 9328 accepted.
+[mcmc] Progress @ 2026-07-18 20:08:39 : 113760 steps taken, and 9355 accepted.
+[mcmc] Progress @ 2026-07-18 20:13:40 : 114143 steps taken, and 9374 accepted.
+[mcmc] Progress @ 2026-07-18 20:18:41 : 114526 steps taken, and 9397 accepted.
+[mcmc] Progress @ 2026-07-18 20:23:41 : 114908 steps taken, and 9430 accepted.
+[mcmc] Progress @ 2026-07-18 20:28:42 : 115291 steps taken, and 9452 accepted.
+[mcmc] Progress @ 2026-07-18 20:33:42 : 115673 steps taken, and 9487 accepted.
+[mcmc] Progress @ 2026-07-18 20:38:43 : 116057 steps taken, and 9519 accepted.
+[mcmc] Progress @ 2026-07-18 20:43:43 : 116439 steps taken, and 9551 accepted.
+[mcmc] Progress @ 2026-07-18 20:48:43 : 116821 steps taken, and 9591 accepted.
+[mcmc] Learn + convergence test @ 9600 samples accepted.
+[mcmc]  - Acceptance rate: 0.079
+[mcmc]  - Convergence of means: R-1 = 10.833188 after 7680 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-18 20:53:44 : 117203 steps taken, and 9624 accepted.
+[mcmc] Progress @ 2026-07-18 20:58:45 : 117586 steps taken, and 9643 accepted.
+[mcmc] Progress @ 2026-07-18 21:03:45 : 117969 steps taken, and 9665 accepted.
+[mcmc] Progress @ 2026-07-18 21:08:45 : 118352 steps taken, and 9689 accepted.
+[mcmc] Progress @ 2026-07-18 21:13:45 : 118734 steps taken, and 9722 accepted.
+[mcmc] Progress @ 2026-07-18 21:18:46 : 119116 steps taken, and 9746 accepted.
+[mcmc] Progress @ 2026-07-18 21:23:46 : 119499 steps taken, and 9776 accepted.
+[mcmc] Progress @ 2026-07-18 21:28:46 : 119882 steps taken, and 9803 accepted.
+[mcmc] Progress @ 2026-07-18 21:33:46 : 120264 steps taken, and 9837 accepted.
+[mcmc] Progress @ 2026-07-18 21:38:47 : 120647 steps taken, and 9867 accepted.
+[mcmc] Progress @ 2026-07-18 21:43:47 : 121029 steps taken, and 9899 accepted.
+[mcmc] Learn + convergence test @ 9920 samples accepted.
+[mcmc]  - Acceptance rate: 0.079
+[mcmc]  - Convergence of means: R-1 = 10.012026 after 7936 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-18 21:48:47 : 121412 steps taken, and 9929 accepted.
+[mcmc] Progress @ 2026-07-18 21:53:48 : 121797 steps taken, and 9955 accepted.
+[mcmc] Progress @ 2026-07-18 21:58:48 : 122179 steps taken, and 9984 accepted.
+[mcmc] Progress @ 2026-07-18 22:03:49 : 122563 steps taken, and 10018 accepted.
+[mcmc] Progress @ 2026-07-18 22:08:49 : 122945 steps taken, and 10057 accepted.
+[mcmc] Progress @ 2026-07-18 22:13:50 : 123325 steps taken, and 10074 accepted.
+[mcmc] Progress @ 2026-07-18 22:18:50 : 123709 steps taken, and 10104 accepted.
+[mcmc] Progress @ 2026-07-18 22:23:51 : 124092 steps taken, and 10130 accepted.
+[mcmc] Progress @ 2026-07-18 22:28:51 : 124474 steps taken, and 10163 accepted.
+[mcmc] Progress @ 2026-07-18 22:33:52 : 124857 steps taken, and 10193 accepted.
+[mcmc] Progress @ 2026-07-18 22:38:52 : 125240 steps taken, and 10217 accepted.
+[mcmc] Learn + convergence test @ 10240 samples accepted.
+[mcmc]  - Acceptance rate: 0.079
+[mcmc]  - Convergence of means: R-1 = 9.633044 after 8192 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-18 22:43:52 : 125624 steps taken, and 10252 accepted.
+[mcmc] Progress @ 2026-07-18 22:48:52 : 126006 steps taken, and 10278 accepted.
+[mcmc] Progress @ 2026-07-18 22:53:53 : 126388 steps taken, and 10308 accepted.
+[mcmc] Progress @ 2026-07-18 22:58:53 : 126769 steps taken, and 10344 accepted.
+[mcmc] Progress @ 2026-07-18 23:03:54 : 127154 steps taken, and 10371 accepted.
+[mcmc] Progress @ 2026-07-18 23:08:54 : 127536 steps taken, and 10396 accepted.
+[mcmc] Progress @ 2026-07-18 23:13:55 : 127918 steps taken, and 10431 accepted.
+[mcmc] Progress @ 2026-07-18 23:18:55 : 128300 steps taken, and 10458 accepted.
+[mcmc] Progress @ 2026-07-18 23:23:56 : 128682 steps taken, and 10494 accepted.
+[mcmc] Progress @ 2026-07-18 23:28:56 : 129064 steps taken, and 10520 accepted.
+[mcmc] Progress @ 2026-07-18 23:33:57 : 129447 steps taken, and 10549 accepted.
+[mcmc] Learn + convergence test @ 10560 samples accepted.
+[mcmc]  - Acceptance rate: 0.079
+[mcmc]  - Convergence of means: R-1 = 10.501611 after 8448 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-18 23:38:58 : 129830 steps taken, and 10577 accepted.
+[mcmc] Progress @ 2026-07-18 23:43:58 : 130215 steps taken, and 10603 accepted.
+[mcmc] Progress @ 2026-07-18 23:48:59 : 130597 steps taken, and 10630 accepted.
+[mcmc] Progress @ 2026-07-18 23:53:59 : 130979 steps taken, and 10658 accepted.
+[mcmc] Progress @ 2026-07-18 23:59:00 : 131362 steps taken, and 10690 accepted.
+[mcmc] Progress @ 2026-07-19 00:04:00 : 131744 steps taken, and 10709 accepted.
+[mcmc] Progress @ 2026-07-19 00:09:01 : 132129 steps taken, and 10735 accepted.
+[mcmc] Progress @ 2026-07-19 00:14:01 : 132512 steps taken, and 10764 accepted.
+[mcmc] Progress @ 2026-07-19 00:19:02 : 132896 steps taken, and 10799 accepted.
+[mcmc] Progress @ 2026-07-19 00:24:02 : 133279 steps taken, and 10837 accepted.
+[mcmc] Progress @ 2026-07-19 00:29:03 : 133664 steps taken, and 10871 accepted.
+[mcmc] Learn + convergence test @ 10880 samples accepted.
+[mcmc]  - Acceptance rate: 0.079
+[mcmc]  - Convergence of means: R-1 = 10.484133 after 8704 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-19 00:34:03 : 134048 steps taken, and 10902 accepted.
+[mcmc] Progress @ 2026-07-19 00:39:03 : 134432 steps taken, and 10924 accepted.
+[mcmc] Progress @ 2026-07-19 00:44:03 : 134816 steps taken, and 10960 accepted.
+[mcmc] Progress @ 2026-07-19 00:49:04 : 135200 steps taken, and 10995 accepted.
+[mcmc] Progress @ 2026-07-19 00:54:04 : 135586 steps taken, and 11018 accepted.
+[mcmc] Progress @ 2026-07-19 00:59:04 : 135972 steps taken, and 11049 accepted.
+[mcmc] Progress @ 2026-07-19 01:04:04 : 136356 steps taken, and 11080 accepted.
+[mcmc] Progress @ 2026-07-19 01:09:05 : 136739 steps taken, and 11109 accepted.
+[mcmc] Progress @ 2026-07-19 01:14:06 : 137123 steps taken, and 11138 accepted.
+[mcmc] Progress @ 2026-07-19 01:19:06 : 137505 steps taken, and 11172 accepted.
+[mcmc] Learn + convergence test @ 11200 samples accepted.
+[mcmc]  - Acceptance rate: 0.079
+[mcmc]  - Convergence of means: R-1 = 7.764646 after 8960 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-19 01:24:06 : 137888 steps taken, and 11200 accepted.
+[mcmc] Progress @ 2026-07-19 01:29:06 : 138272 steps taken, and 11230 accepted.
+[mcmc] Progress @ 2026-07-19 01:34:07 : 138657 steps taken, and 11250 accepted.
+[mcmc] Progress @ 2026-07-19 01:39:07 : 139040 steps taken, and 11289 accepted.
+[mcmc] Progress @ 2026-07-19 01:44:07 : 139424 steps taken, and 11314 accepted.
+[mcmc] Progress @ 2026-07-19 01:49:07 : 139808 steps taken, and 11338 accepted.
+[mcmc] Progress @ 2026-07-19 01:54:08 : 140191 steps taken, and 11372 accepted.
+[mcmc] Progress @ 2026-07-19 01:59:08 : 140573 steps taken, and 11407 accepted.
+[mcmc] Progress @ 2026-07-19 02:04:09 : 140956 steps taken, and 11430 accepted.
+[mcmc] Progress @ 2026-07-19 02:09:10 : 141340 steps taken, and 11459 accepted.
+[mcmc] Progress @ 2026-07-19 02:14:10 : 141723 steps taken, and 11487 accepted.
+[mcmc] Progress @ 2026-07-19 02:19:10 : 142105 steps taken, and 11510 accepted.
+[mcmc] Learn + convergence test @ 11520 samples accepted.
+[mcmc]  - Acceptance rate: 0.079
+[mcmc]  - Convergence of means: R-1 = 3.975896 after 9216 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-19 02:24:10 : 142488 steps taken, and 11537 accepted.
+[mcmc] Progress @ 2026-07-19 02:29:11 : 142872 steps taken, and 11565 accepted.
+[mcmc] Progress @ 2026-07-19 02:34:11 : 143254 steps taken, and 11599 accepted.
+[mcmc] Progress @ 2026-07-19 02:39:11 : 143637 steps taken, and 11625 accepted.
+[mcmc] Progress @ 2026-07-19 02:44:11 : 144019 steps taken, and 11646 accepted.
+[mcmc] Progress @ 2026-07-19 02:49:11 : 144401 steps taken, and 11675 accepted.
+[mcmc] Progress @ 2026-07-19 02:54:12 : 144784 steps taken, and 11713 accepted.
+[mcmc] Progress @ 2026-07-19 02:59:13 : 145167 steps taken, and 11740 accepted.
+[mcmc] Progress @ 2026-07-19 03:04:13 : 145548 steps taken, and 11763 accepted.
+[mcmc] Progress @ 2026-07-19 03:09:13 : 145931 steps taken, and 11788 accepted.
+[mcmc] Progress @ 2026-07-19 03:14:13 : 146314 steps taken, and 11824 accepted.
+[mcmc] Learn + convergence test @ 11840 samples accepted.
+[mcmc]  - Acceptance rate: 0.078
+[mcmc]  - Convergence of means: R-1 = 2.534496 after 9472 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-19 03:19:14 : 146696 steps taken, and 11859 accepted.
+[mcmc] Progress @ 2026-07-19 03:24:14 : 147079 steps taken, and 11890 accepted.
+[mcmc] Progress @ 2026-07-19 03:29:15 : 147460 steps taken, and 11913 accepted.
+[mcmc] Progress @ 2026-07-19 03:34:15 : 147842 steps taken, and 11927 accepted.
+[mcmc] Progress @ 2026-07-19 03:39:16 : 148227 steps taken, and 11966 accepted.
+[mcmc] Progress @ 2026-07-19 03:44:16 : 148611 steps taken, and 11998 accepted.
+[mcmc] Progress @ 2026-07-19 03:49:16 : 148993 steps taken, and 12021 accepted.
+[mcmc] Progress @ 2026-07-19 03:54:17 : 149376 steps taken, and 12046 accepted.
+[mcmc] Progress @ 2026-07-19 03:59:17 : 149758 steps taken, and 12079 accepted.
+[mcmc] Progress @ 2026-07-19 04:04:18 : 150141 steps taken, and 12109 accepted.
+[mcmc] Progress @ 2026-07-19 04:09:18 : 150523 steps taken, and 12141 accepted.
+[mcmc] Learn + convergence test @ 12160 samples accepted.
+[mcmc]  - Acceptance rate: 0.078
+[mcmc]  - Convergence of means: R-1 = 2.280369 after 9728 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-19 04:14:19 : 150905 steps taken, and 12166 accepted.
+[mcmc] Progress @ 2026-07-19 04:19:19 : 151286 steps taken, and 12193 accepted.
+[mcmc] Progress @ 2026-07-19 04:24:19 : 151669 steps taken, and 12226 accepted.
+[mcmc] Progress @ 2026-07-19 04:29:20 : 152053 steps taken, and 12253 accepted.
+[mcmc] Progress @ 2026-07-19 04:34:20 : 152434 steps taken, and 12284 accepted.
+[mcmc] Progress @ 2026-07-19 04:39:20 : 152817 steps taken, and 12312 accepted.
+[mcmc] Progress @ 2026-07-19 04:44:20 : 153200 steps taken, and 12331 accepted.
+[mcmc] Progress @ 2026-07-19 04:49:20 : 153581 steps taken, and 12359 accepted.
+[mcmc] Progress @ 2026-07-19 04:54:21 : 153964 steps taken, and 12389 accepted.
+[mcmc] Progress @ 2026-07-19 04:59:21 : 154347 steps taken, and 12421 accepted.
+[mcmc] Progress @ 2026-07-19 05:04:21 : 154729 steps taken, and 12454 accepted.
+[mcmc] Learn + convergence test @ 12480 samples accepted.
+[mcmc]  - Acceptance rate: 0.078
+[mcmc]  - Convergence of means: R-1 = 2.337329 after 9984 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-19 05:09:21 : 155111 steps taken, and 12484 accepted.
+[mcmc] Progress @ 2026-07-19 05:14:22 : 155494 steps taken, and 12509 accepted.
+[mcmc] Progress @ 2026-07-19 05:19:22 : 155877 steps taken, and 12541 accepted.
+[mcmc] Progress @ 2026-07-19 05:24:23 : 156260 steps taken, and 12572 accepted.
+[mcmc] Progress @ 2026-07-19 05:29:23 : 156643 steps taken, and 12610 accepted.
+[mcmc] Progress @ 2026-07-19 05:34:23 : 157024 steps taken, and 12645 accepted.
+[mcmc] Progress @ 2026-07-19 05:39:23 : 157408 steps taken, and 12682 accepted.
+[mcmc] Progress @ 2026-07-19 05:44:23 : 157789 steps taken, and 12716 accepted.
+[mcmc] Progress @ 2026-07-19 05:49:24 : 158172 steps taken, and 12743 accepted.
+[mcmc] Progress @ 2026-07-19 05:54:24 : 158555 steps taken, and 12779 accepted.
+[mcmc] Learn + convergence test @ 12800 samples accepted.
+[mcmc]  - Acceptance rate: 0.079
+[mcmc]  - Convergence of means: R-1 = 2.515547 after 10240 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-19 05:59:24 : 158939 steps taken, and 12814 accepted.
+[mcmc] Progress @ 2026-07-19 06:04:25 : 159322 steps taken, and 12847 accepted.
+[mcmc] Progress @ 2026-07-19 06:09:26 : 159698 steps taken, and 12876 accepted.
+[mcmc] Progress @ 2026-07-19 06:14:26 : 160079 steps taken, and 12898 accepted.
+[mcmc] Progress @ 2026-07-19 06:19:26 : 160461 steps taken, and 12921 accepted.
+[mcmc] Progress @ 2026-07-19 06:24:26 : 160843 steps taken, and 12948 accepted.
+[mcmc] Progress @ 2026-07-19 06:29:27 : 161225 steps taken, and 12983 accepted.
+[mcmc] Progress @ 2026-07-19 06:34:27 : 161607 steps taken, and 13009 accepted.
+[mcmc] Progress @ 2026-07-19 06:39:28 : 161989 steps taken, and 13040 accepted.
+[mcmc] Progress @ 2026-07-19 06:44:28 : 162371 steps taken, and 13069 accepted.
+[mcmc] Progress @ 2026-07-19 06:49:28 : 162753 steps taken, and 13093 accepted.
+[mcmc] Learn + convergence test @ 13120 samples accepted.
+[mcmc]  - Acceptance rate: 0.078
+[mcmc]  - Convergence of means: R-1 = 3.321915 after 10496 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-19 06:54:28 : 163135 steps taken, and 13121 accepted.
+[mcmc] Progress @ 2026-07-19 06:59:28 : 163517 steps taken, and 13166 accepted.
+[mcmc] Progress @ 2026-07-19 07:04:28 : 163900 steps taken, and 13197 accepted.
+[mcmc] Progress @ 2026-07-19 07:09:28 : 164282 steps taken, and 13228 accepted.
+[mcmc] Progress @ 2026-07-19 07:14:29 : 164665 steps taken, and 13254 accepted.
+[mcmc] Progress @ 2026-07-19 07:19:29 : 165047 steps taken, and 13287 accepted.
+[mcmc] Progress @ 2026-07-19 07:24:29 : 165429 steps taken, and 13314 accepted.
+[mcmc] Progress @ 2026-07-19 07:29:29 : 165811 steps taken, and 13339 accepted.
+[mcmc] Progress @ 2026-07-19 07:34:30 : 166195 steps taken, and 13375 accepted.
+[mcmc] Progress @ 2026-07-19 07:39:30 : 166580 steps taken, and 13409 accepted.
+[mcmc] Progress @ 2026-07-19 07:44:31 : 166965 steps taken, and 13432 accepted.
+[mcmc] Learn + convergence test @ 13440 samples accepted.
+[mcmc]  - Acceptance rate: 0.078
+[mcmc]  - Convergence of means: R-1 = 4.167786 after 10752 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-19 07:49:31 : 167348 steps taken, and 13460 accepted.
+[mcmc] Progress @ 2026-07-19 07:54:32 : 167731 steps taken, and 13496 accepted.
+[mcmc] Progress @ 2026-07-19 07:59:32 : 168110 steps taken, and 13530 accepted.
+[mcmc] Progress @ 2026-07-19 08:04:33 : 168491 steps taken, and 13564 accepted.
+[mcmc] Progress @ 2026-07-19 08:09:34 : 168874 steps taken, and 13599 accepted.
+[mcmc] Progress @ 2026-07-19 08:14:34 : 169257 steps taken, and 13624 accepted.
+[mcmc] Progress @ 2026-07-19 08:19:35 : 169640 steps taken, and 13648 accepted.
+[mcmc] Progress @ 2026-07-19 08:24:35 : 170023 steps taken, and 13698 accepted.
+[mcmc] Progress @ 2026-07-19 08:29:35 : 170407 steps taken, and 13737 accepted.
+[mcmc] Learn + convergence test @ 13760 samples accepted.
+[mcmc]  - Acceptance rate: 0.079
+[mcmc]  - Convergence of means: R-1 = 3.931482 after 11008 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-19 08:34:35 : 170790 steps taken, and 13764 accepted.
+[mcmc] Progress @ 2026-07-19 08:39:36 : 171174 steps taken, and 13793 accepted.
+[mcmc] Progress @ 2026-07-19 08:44:36 : 171561 steps taken, and 13828 accepted.
+[mcmc] Progress @ 2026-07-19 08:49:37 : 171945 steps taken, and 13857 accepted.
+[mcmc] Progress @ 2026-07-19 08:54:37 : 172329 steps taken, and 13886 accepted.
+[mcmc] Progress @ 2026-07-19 08:59:37 : 172711 steps taken, and 13910 accepted.
+[mcmc] Progress @ 2026-07-19 09:04:37 : 173094 steps taken, and 13940 accepted.
+[mcmc] Progress @ 2026-07-19 09:09:37 : 173476 steps taken, and 13971 accepted.
+[mcmc] Progress @ 2026-07-19 09:14:38 : 173858 steps taken, and 13998 accepted.
+[mcmc] Progress @ 2026-07-19 09:19:39 : 174240 steps taken, and 14021 accepted.
+[mcmc] Progress @ 2026-07-19 09:24:39 : 174624 steps taken, and 14058 accepted.
+[mcmc] Learn + convergence test @ 14080 samples accepted.
+[mcmc]  - Acceptance rate: 0.079
+[mcmc]  - Convergence of means: R-1 = 4.266998 after 11264 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-19 09:29:40 : 175006 steps taken, and 14092 accepted.
+[mcmc] Progress @ 2026-07-19 09:34:40 : 175389 steps taken, and 14122 accepted.
+[mcmc] Progress @ 2026-07-19 09:39:41 : 175772 steps taken, and 14147 accepted.
+[mcmc] Progress @ 2026-07-19 09:44:41 : 176158 steps taken, and 14184 accepted.
+[mcmc] Progress @ 2026-07-19 09:49:41 : 176540 steps taken, and 14224 accepted.
+[mcmc] Progress @ 2026-07-19 09:54:41 : 176925 steps taken, and 14249 accepted.
+[mcmc] Progress @ 2026-07-19 09:59:42 : 177307 steps taken, and 14275 accepted.
+[mcmc] Progress @ 2026-07-19 10:04:42 : 177689 steps taken, and 14299 accepted.
+[mcmc] Progress @ 2026-07-19 10:09:42 : 178072 steps taken, and 14333 accepted.
+[mcmc] Progress @ 2026-07-19 10:14:43 : 178454 steps taken, and 14364 accepted.
+[mcmc] Progress @ 2026-07-19 10:19:43 : 178836 steps taken, and 14397 accepted.
+[mcmc] Learn + convergence test @ 14400 samples accepted.
+[mcmc]  - Acceptance rate: 0.079
+[mcmc]  - Convergence of means: R-1 = 4.588626 after 11520 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-19 10:24:43 : 179221 steps taken, and 14430 accepted.
+[mcmc] Progress @ 2026-07-19 10:29:44 : 179603 steps taken, and 14462 accepted.
+[mcmc] Progress @ 2026-07-19 10:34:44 : 179987 steps taken, and 14492 accepted.
+[mcmc] Progress @ 2026-07-19 10:39:45 : 180370 steps taken, and 14520 accepted.
+[mcmc] Progress @ 2026-07-19 10:44:45 : 180753 steps taken, and 14543 accepted.
+[mcmc] Progress @ 2026-07-19 10:49:46 : 181136 steps taken, and 14572 accepted.
+[mcmc] Progress @ 2026-07-19 10:54:47 : 181521 steps taken, and 14594 accepted.
+[mcmc] Progress @ 2026-07-19 10:59:47 : 181904 steps taken, and 14637 accepted.
+[mcmc] Progress @ 2026-07-19 11:04:48 : 182286 steps taken, and 14664 accepted.
+[mcmc] Progress @ 2026-07-19 11:09:48 : 182669 steps taken, and 14690 accepted.
+[mcmc] Learn + convergence test @ 14720 samples accepted.
+[mcmc]  - Acceptance rate: 0.079
+[mcmc]  - Convergence of means: R-1 = 4.474683 after 11776 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-19 11:14:48 : 183052 steps taken, and 14723 accepted.
+[mcmc] Progress @ 2026-07-19 11:19:49 : 183434 steps taken, and 14753 accepted.
+[mcmc] Progress @ 2026-07-19 11:24:49 : 183817 steps taken, and 14786 accepted.
+[mcmc] Progress @ 2026-07-19 11:29:50 : 184200 steps taken, and 14808 accepted.
+[mcmc] Progress @ 2026-07-19 11:34:50 : 184581 steps taken, and 14842 accepted.
+[mcmc] Progress @ 2026-07-19 11:39:50 : 184964 steps taken, and 14868 accepted.
+[mcmc] Progress @ 2026-07-19 11:44:51 : 185347 steps taken, and 14900 accepted.
+[mcmc] Progress @ 2026-07-19 11:49:51 : 185729 steps taken, and 14931 accepted.
+[mcmc] Progress @ 2026-07-19 11:54:51 : 186112 steps taken, and 14955 accepted.
+[mcmc] Progress @ 2026-07-19 11:59:52 : 186494 steps taken, and 14994 accepted.
+[mcmc] Progress @ 2026-07-19 12:04:52 : 186877 steps taken, and 15028 accepted.
+[mcmc] Learn + convergence test @ 15040 samples accepted.
+[mcmc]  - Acceptance rate: 0.079
+[mcmc]  - Convergence of means: R-1 = 4.135831 after 12032 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-19 12:09:52 : 187260 steps taken, and 15058 accepted.
+[mcmc] Progress @ 2026-07-19 12:14:52 : 187644 steps taken, and 15093 accepted.
+[mcmc] Progress @ 2026-07-19 12:19:53 : 188027 steps taken, and 15125 accepted.
+[mcmc] Progress @ 2026-07-19 12:24:53 : 188409 steps taken, and 15147 accepted.
+[mcmc] Progress @ 2026-07-19 12:29:54 : 188792 steps taken, and 15173 accepted.
+[mcmc] Progress @ 2026-07-19 12:34:54 : 189175 steps taken, and 15200 accepted.
+[mcmc] Progress @ 2026-07-19 12:39:54 : 189556 steps taken, and 15231 accepted.
+[mcmc] Progress @ 2026-07-19 12:44:54 : 189939 steps taken, and 15257 accepted.
+[mcmc] Progress @ 2026-07-19 12:49:54 : 190322 steps taken, and 15292 accepted.
+[mcmc] Progress @ 2026-07-19 12:54:55 : 190705 steps taken, and 15328 accepted.
+[mcmc] Progress @ 2026-07-19 12:59:55 : 191090 steps taken, and 15354 accepted.
+[mcmc] Learn + convergence test @ 15360 samples accepted.
+[mcmc]  - Acceptance rate: 0.079
+[mcmc]  - Convergence of means: R-1 = 3.713626 after 12288 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-19 13:04:55 : 191474 steps taken, and 15376 accepted.
+[mcmc] Progress @ 2026-07-19 13:09:55 : 191856 steps taken, and 15414 accepted.
+[mcmc] Progress @ 2026-07-19 13:14:55 : 192244 steps taken, and 15438 accepted.
+[mcmc] Progress @ 2026-07-19 13:19:56 : 192633 steps taken, and 15464 accepted.
+[mcmc] Progress @ 2026-07-19 13:24:56 : 193017 steps taken, and 15493 accepted.
+[mcmc] Progress @ 2026-07-19 13:29:57 : 193403 steps taken, and 15524 accepted.
+[mcmc] Progress @ 2026-07-19 13:34:57 : 193787 steps taken, and 15548 accepted.
+[mcmc] Progress @ 2026-07-19 13:39:57 : 194171 steps taken, and 15571 accepted.
+[mcmc] Progress @ 2026-07-19 13:44:57 : 194555 steps taken, and 15596 accepted.
+[mcmc] Progress @ 2026-07-19 13:49:58 : 194942 steps taken, and 15620 accepted.
+[mcmc] Progress @ 2026-07-19 13:54:58 : 195330 steps taken, and 15645 accepted.
+[mcmc] Progress @ 2026-07-19 13:59:58 : 195713 steps taken, and 15677 accepted.
+[mcmc] Learn + convergence test @ 15680 samples accepted.
+[mcmc]  - Acceptance rate: 0.078
+[mcmc]  - Convergence of means: R-1 = 3.766151 after 12544 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-19 14:04:59 : 196096 steps taken, and 15709 accepted.
+[mcmc] Progress @ 2026-07-19 14:09:59 : 196480 steps taken, and 15737 accepted.
+[mcmc] Progress @ 2026-07-19 14:15:00 : 196863 steps taken, and 15778 accepted.
+[mcmc] Progress @ 2026-07-19 14:20:00 : 197246 steps taken, and 15813 accepted.
+[mcmc] Progress @ 2026-07-19 14:25:01 : 197629 steps taken, and 15842 accepted.
+[mcmc] Progress @ 2026-07-19 14:30:01 : 198011 steps taken, and 15874 accepted.
+[mcmc] Progress @ 2026-07-19 14:35:01 : 198393 steps taken, and 15905 accepted.
+[mcmc] Progress @ 2026-07-19 14:40:01 : 198776 steps taken, and 15939 accepted.
+[mcmc] Progress @ 2026-07-19 14:45:02 : 199158 steps taken, and 15990 accepted.
+[mcmc] Learn + convergence test @ 16000 samples accepted.
+[mcmc]  - Acceptance rate: 0.078
+[mcmc]  - Convergence of means: R-1 = 3.693114 after 12800 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-19 14:50:02 : 199541 steps taken, and 16016 accepted.
+[mcmc] Progress @ 2026-07-19 14:55:02 : 199924 steps taken, and 16039 accepted.
+[mcmc] Progress @ 2026-07-19 15:00:03 : 200307 steps taken, and 16069 accepted.
+[mcmc] Progress @ 2026-07-19 15:05:03 : 200689 steps taken, and 16098 accepted.
+[mcmc] Progress @ 2026-07-19 15:10:03 : 201072 steps taken, and 16132 accepted.
+[mcmc] Progress @ 2026-07-19 15:15:03 : 201454 steps taken, and 16168 accepted.
+[mcmc] Progress @ 2026-07-19 15:20:04 : 201840 steps taken, and 16200 accepted.
+[mcmc] Progress @ 2026-07-19 15:25:04 : 202222 steps taken, and 16227 accepted.
+[mcmc] Progress @ 2026-07-19 15:30:05 : 202606 steps taken, and 16265 accepted.
+[mcmc] Progress @ 2026-07-19 15:35:05 : 202989 steps taken, and 16291 accepted.
+[mcmc] Learn + convergence test @ 16320 samples accepted.
+[mcmc]  - Acceptance rate: 0.079
+[mcmc]  - Convergence of means: R-1 = 3.699282 after 13056 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-19 15:40:05 : 203372 steps taken, and 16326 accepted.
+[mcmc] Progress @ 2026-07-19 15:45:05 : 203756 steps taken, and 16358 accepted.
+[mcmc] Progress @ 2026-07-19 15:50:06 : 204140 steps taken, and 16392 accepted.
+[mcmc] Progress @ 2026-07-19 15:55:06 : 204523 steps taken, and 16427 accepted.
+[mcmc] Progress @ 2026-07-19 16:00:06 : 204906 steps taken, and 16454 accepted.
+[mcmc] Progress @ 2026-07-19 16:05:07 : 205289 steps taken, and 16483 accepted.
+[mcmc] Progress @ 2026-07-19 16:10:07 : 205673 steps taken, and 16515 accepted.
+[mcmc] Progress @ 2026-07-19 16:15:07 : 206055 steps taken, and 16546 accepted.
+[mcmc] Progress @ 2026-07-19 16:20:08 : 206438 steps taken, and 16573 accepted.
+[mcmc] Progress @ 2026-07-19 16:25:08 : 206822 steps taken, and 16603 accepted.
+[mcmc] Learn + convergence test @ 16640 samples accepted.
+[mcmc]  - Acceptance rate: 0.079
+[mcmc]  - Convergence of means: R-1 = 4.188423 after 13312 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-19 16:30:09 : 207206 steps taken, and 16641 accepted.
+[mcmc] Progress @ 2026-07-19 16:35:09 : 207588 steps taken, and 16669 accepted.
+[mcmc] Progress @ 2026-07-19 16:40:09 : 207972 steps taken, and 16701 accepted.
+[mcmc] Progress @ 2026-07-19 16:45:09 : 208354 steps taken, and 16736 accepted.
+[mcmc] Progress @ 2026-07-19 16:50:10 : 208737 steps taken, and 16765 accepted.
+[mcmc] Progress @ 2026-07-19 16:55:10 : 209119 steps taken, and 16789 accepted.
+[mcmc] Progress @ 2026-07-19 17:00:10 : 209502 steps taken, and 16816 accepted.
+[mcmc] Progress @ 2026-07-19 17:05:11 : 209886 steps taken, and 16849 accepted.
+[mcmc] Progress @ 2026-07-19 17:10:11 : 210267 steps taken, and 16874 accepted.
+[mcmc] Progress @ 2026-07-19 17:15:11 : 210650 steps taken, and 16921 accepted.
+[mcmc] Progress @ 2026-07-19 17:20:12 : 211032 steps taken, and 16956 accepted.
+[mcmc] Learn + convergence test @ 16960 samples accepted.
+[mcmc]  - Acceptance rate: 0.079
+[mcmc]  - Convergence of means: R-1 = 4.684248 after 13568 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-19 17:25:12 : 211415 steps taken, and 16992 accepted.
+[mcmc] Progress @ 2026-07-19 17:30:12 : 211797 steps taken, and 17032 accepted.
+[mcmc] Progress @ 2026-07-19 17:35:12 : 212180 steps taken, and 17053 accepted.
+[mcmc] Progress @ 2026-07-19 17:40:12 : 212564 steps taken, and 17083 accepted.
+[mcmc] Progress @ 2026-07-19 17:45:13 : 212949 steps taken, and 17109 accepted.
+[mcmc] Progress @ 2026-07-19 17:50:14 : 213333 steps taken, and 17133 accepted.
+[mcmc] Progress @ 2026-07-19 17:55:15 : 213716 steps taken, and 17155 accepted.
+[mcmc] Progress @ 2026-07-19 18:00:15 : 214098 steps taken, and 17188 accepted.
+[mcmc] Progress @ 2026-07-19 18:05:15 : 214482 steps taken, and 17210 accepted.
+[mcmc] Progress @ 2026-07-19 18:10:15 : 214864 steps taken, and 17231 accepted.
+[mcmc] Progress @ 2026-07-19 18:15:15 : 215247 steps taken, and 17262 accepted.
+[mcmc] Learn + convergence test @ 17280 samples accepted.
+[mcmc]  - Acceptance rate: 0.078
+[mcmc]  - Convergence of means: R-1 = 5.438885 after 13824 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-19 18:20:16 : 215631 steps taken, and 17284 accepted.
+[mcmc] Progress @ 2026-07-19 18:25:16 : 216013 steps taken, and 17310 accepted.
+[mcmc] Progress @ 2026-07-19 18:30:17 : 216396 steps taken, and 17343 accepted.
+[mcmc] Progress @ 2026-07-19 18:35:17 : 216779 steps taken, and 17371 accepted.
+[mcmc] Progress @ 2026-07-19 18:40:18 : 217163 steps taken, and 17397 accepted.
+[mcmc] Progress @ 2026-07-19 18:45:18 : 217548 steps taken, and 17423 accepted.
+[mcmc] Progress @ 2026-07-19 18:50:18 : 217936 steps taken, and 17451 accepted.
+[mcmc] Progress @ 2026-07-19 18:55:19 : 218321 steps taken, and 17478 accepted.
+[mcmc] Progress @ 2026-07-19 19:00:19 : 218705 steps taken, and 17504 accepted.
+[mcmc] Progress @ 2026-07-19 19:05:19 : 219088 steps taken, and 17523 accepted.
+[mcmc] Progress @ 2026-07-19 19:10:19 : 219472 steps taken, and 17550 accepted.
+[mcmc] Progress @ 2026-07-19 19:15:19 : 219855 steps taken, and 17581 accepted.
+[mcmc] Learn + convergence test @ 17600 samples accepted.
+[mcmc]  - Acceptance rate: 0.078
+[mcmc]  - Convergence of means: R-1 = 6.279066 after 14080 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-19 19:20:19 : 220244 steps taken, and 17616 accepted.
+[mcmc] Progress @ 2026-07-19 19:25:19 : 220638 steps taken, and 17650 accepted.
+[mcmc] Progress @ 2026-07-19 19:30:19 : 221029 steps taken, and 17685 accepted.
+[mcmc] Progress @ 2026-07-19 19:35:19 : 221415 steps taken, and 17707 accepted.
+[mcmc] Progress @ 2026-07-19 19:40:19 : 221803 steps taken, and 17740 accepted.
+[mcmc] Progress @ 2026-07-19 19:45:19 : 222186 steps taken, and 17775 accepted.
+[mcmc] Progress @ 2026-07-19 19:50:20 : 222569 steps taken, and 17800 accepted.
+[mcmc] Progress @ 2026-07-19 19:55:20 : 222952 steps taken, and 17832 accepted.
+[mcmc] Progress @ 2026-07-19 20:00:21 : 223334 steps taken, and 17864 accepted.
+[mcmc] Progress @ 2026-07-19 20:05:21 : 223720 steps taken, and 17900 accepted.
+[mcmc] Learn + convergence test @ 17920 samples accepted.
+[mcmc]  - Acceptance rate: 0.078
+[mcmc]  - Convergence of means: R-1 = 7.083835 after 14336 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-19 20:10:22 : 224104 steps taken, and 17926 accepted.
+[mcmc] Progress @ 2026-07-19 20:15:22 : 224489 steps taken, and 17956 accepted.
+[mcmc] Progress @ 2026-07-19 20:20:23 : 224874 steps taken, and 17992 accepted.
+[mcmc] Progress @ 2026-07-19 20:25:24 : 225259 steps taken, and 18022 accepted.
+[mcmc] Progress @ 2026-07-19 20:30:24 : 225643 steps taken, and 18056 accepted.
+[mcmc] Progress @ 2026-07-19 20:35:24 : 226034 steps taken, and 18091 accepted.
+[mcmc] Progress @ 2026-07-19 20:40:25 : 226428 steps taken, and 18117 accepted.
+[mcmc] Progress @ 2026-07-19 20:45:25 : 226823 steps taken, and 18144 accepted.
+[mcmc] Progress @ 2026-07-19 20:50:25 : 227219 steps taken, and 18163 accepted.
+[mcmc] Progress @ 2026-07-19 20:55:25 : 227610 steps taken, and 18193 accepted.
+[mcmc] Progress @ 2026-07-19 21:00:25 : 227996 steps taken, and 18221 accepted.
+[mcmc] Learn + convergence test @ 18240 samples accepted.
+[mcmc]  - Acceptance rate: 0.078
+[mcmc]  - Convergence of means: R-1 = 7.428324 after 14592 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-19 21:05:26 : 228381 steps taken, and 18248 accepted.
+[mcmc] Progress @ 2026-07-19 21:10:26 : 228766 steps taken, and 18285 accepted.
+[mcmc] Progress @ 2026-07-19 21:15:27 : 229151 steps taken, and 18312 accepted.
+[mcmc] Progress @ 2026-07-19 21:20:27 : 229536 steps taken, and 18356 accepted.
+[mcmc] Progress @ 2026-07-19 21:25:27 : 229921 steps taken, and 18382 accepted.
+[mcmc] Progress @ 2026-07-19 21:30:28 : 230304 steps taken, and 18418 accepted.
+[mcmc] Progress @ 2026-07-19 21:35:28 : 230691 steps taken, and 18442 accepted.
+[mcmc] Progress @ 2026-07-19 21:40:29 : 231076 steps taken, and 18472 accepted.
+[mcmc] Progress @ 2026-07-19 21:45:29 : 231458 steps taken, and 18500 accepted.
+[mcmc] Progress @ 2026-07-19 21:50:29 : 231841 steps taken, and 18533 accepted.
+[mcmc] Learn + convergence test @ 18560 samples accepted.
+[mcmc]  - Acceptance rate: 0.078
+[mcmc]  - Convergence of means: R-1 = 8.032221 after 14848 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-19 21:55:29 : 232225 steps taken, and 18563 accepted.
+[mcmc] Progress @ 2026-07-19 22:00:30 : 232607 steps taken, and 18586 accepted.
+[mcmc] Progress @ 2026-07-19 22:05:30 : 232990 steps taken, and 18612 accepted.
+[mcmc] Progress @ 2026-07-19 22:10:30 : 233374 steps taken, and 18649 accepted.
+[mcmc] Progress @ 2026-07-19 22:15:30 : 233757 steps taken, and 18669 accepted.
+[mcmc] Progress @ 2026-07-19 22:20:31 : 234141 steps taken, and 18694 accepted.
+[mcmc] Progress @ 2026-07-19 22:25:31 : 234527 steps taken, and 18722 accepted.
+[mcmc] Progress @ 2026-07-19 22:30:31 : 234919 steps taken, and 18749 accepted.
+[mcmc] Progress @ 2026-07-19 22:35:31 : 235313 steps taken, and 18774 accepted.
+[mcmc] Progress @ 2026-07-19 22:40:32 : 235701 steps taken, and 18801 accepted.
+[mcmc] Progress @ 2026-07-19 22:45:32 : 236089 steps taken, and 18834 accepted.
+[mcmc] Progress @ 2026-07-19 22:50:33 : 236475 steps taken, and 18869 accepted.
+[mcmc] Learn + convergence test @ 18880 samples accepted.
+[mcmc]  - Acceptance rate: 0.078
+[mcmc]  - Convergence of means: R-1 = 9.271241 after 15104 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-19 22:55:33 : 236860 steps taken, and 18909 accepted.
+[mcmc] Progress @ 2026-07-19 23:00:34 : 237248 steps taken, and 18942 accepted.
+[mcmc] Progress @ 2026-07-19 23:05:35 : 237637 steps taken, and 18969 accepted.
+[mcmc] Progress @ 2026-07-19 23:10:35 : 238024 steps taken, and 19011 accepted.
+[mcmc] Progress @ 2026-07-19 23:15:36 : 238410 steps taken, and 19046 accepted.
+[mcmc] Progress @ 2026-07-19 23:20:36 : 238794 steps taken, and 19073 accepted.
+[mcmc] Progress @ 2026-07-19 23:25:36 : 239176 steps taken, and 19091 accepted.
+[mcmc] Progress @ 2026-07-19 23:30:36 : 239559 steps taken, and 19111 accepted.
+[mcmc] Progress @ 2026-07-19 23:35:37 : 239941 steps taken, and 19140 accepted.
+[mcmc] Progress @ 2026-07-19 23:40:37 : 240324 steps taken, and 19164 accepted.
+[mcmc] Learn + convergence test @ 19200 samples accepted.
+[mcmc]  - Acceptance rate: 0.078
+[mcmc]  - Convergence of means: R-1 = 9.577584 after 15360 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-19 23:45:37 : 240707 steps taken, and 19203 accepted.
+[mcmc] Progress @ 2026-07-19 23:50:38 : 241091 steps taken, and 19241 accepted.
+[mcmc] Progress @ 2026-07-19 23:55:38 : 241474 steps taken, and 19272 accepted.
+[mcmc] Progress @ 2026-07-20 00:00:39 : 241859 steps taken, and 19315 accepted.
+[mcmc] Progress @ 2026-07-20 00:05:39 : 242241 steps taken, and 19346 accepted.
+[mcmc] Progress @ 2026-07-20 00:10:39 : 242624 steps taken, and 19384 accepted.
+[mcmc] Progress @ 2026-07-20 00:15:40 : 243008 steps taken, and 19419 accepted.
+[mcmc] Progress @ 2026-07-20 00:20:41 : 243390 steps taken, and 19454 accepted.
+[mcmc] Progress @ 2026-07-20 00:25:41 : 243772 steps taken, and 19483 accepted.
+[mcmc] Progress @ 2026-07-20 00:30:41 : 244153 steps taken, and 19512 accepted.
+[mcmc] Learn + convergence test @ 19520 samples accepted.
+[mcmc]  - Acceptance rate: 0.078
+[mcmc]  - Convergence of means: R-1 = 9.966772 after 15616 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-20 00:35:42 : 244536 steps taken, and 19552 accepted.
+[mcmc] Progress @ 2026-07-20 00:40:42 : 244919 steps taken, and 19589 accepted.
+[mcmc] Progress @ 2026-07-20 00:45:42 : 245300 steps taken, and 19620 accepted.
+[mcmc] Progress @ 2026-07-20 00:50:43 : 245683 steps taken, and 19661 accepted.
+[mcmc] Progress @ 2026-07-20 00:55:43 : 246067 steps taken, and 19699 accepted.
+[mcmc] Progress @ 2026-07-20 01:00:44 : 246450 steps taken, and 19723 accepted.
+[mcmc] Progress @ 2026-07-20 01:05:44 : 246832 steps taken, and 19750 accepted.
+[mcmc] Progress @ 2026-07-20 01:10:44 : 247214 steps taken, and 19774 accepted.
+[mcmc] Progress @ 2026-07-20 01:15:44 : 247596 steps taken, and 19801 accepted.
+[mcmc] Progress @ 2026-07-20 01:20:44 : 247978 steps taken, and 19834 accepted.
+[mcmc] Learn + convergence test @ 19840 samples accepted.
+[mcmc]  - Acceptance rate: 0.078
+[mcmc]  - Convergence of means: R-1 = 9.539062 after 15872 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-20 01:25:45 : 248360 steps taken, and 19865 accepted.
+[mcmc] Progress @ 2026-07-20 01:30:45 : 248741 steps taken, and 19891 accepted.
+[mcmc] Progress @ 2026-07-20 01:35:45 : 249124 steps taken, and 19924 accepted.
+[mcmc] Progress @ 2026-07-20 01:40:45 : 249506 steps taken, and 19957 accepted.
+[mcmc] Progress @ 2026-07-20 01:45:46 : 249888 steps taken, and 19986 accepted.
+[mcmc] Progress @ 2026-07-20 01:50:46 : 250270 steps taken, and 20012 accepted.
+[mcmc] Progress @ 2026-07-20 01:55:47 : 250654 steps taken, and 20040 accepted.
+[mcmc] Progress @ 2026-07-20 02:00:47 : 251035 steps taken, and 20066 accepted.
+[mcmc] Progress @ 2026-07-20 02:05:48 : 251417 steps taken, and 20091 accepted.
+[mcmc] Progress @ 2026-07-20 02:10:48 : 251799 steps taken, and 20115 accepted.
+[mcmc] Progress @ 2026-07-20 02:15:48 : 252182 steps taken, and 20144 accepted.
+[mcmc] Learn + convergence test @ 20160 samples accepted.
+[mcmc]  - Acceptance rate: 0.078
+[mcmc]  - Convergence of means: R-1 = 8.540002 after 16128 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-20 02:20:48 : 252565 steps taken, and 20173 accepted.
+[mcmc] Progress @ 2026-07-20 02:25:49 : 252949 steps taken, and 20200 accepted.
+[mcmc] Progress @ 2026-07-20 02:30:49 : 253332 steps taken, and 20233 accepted.
+[mcmc] Progress @ 2026-07-20 02:35:50 : 253715 steps taken, and 20267 accepted.
+[mcmc] Progress @ 2026-07-20 02:40:50 : 254097 steps taken, and 20297 accepted.
+[mcmc] Progress @ 2026-07-20 02:45:50 : 254479 steps taken, and 20327 accepted.
+[mcmc] Progress @ 2026-07-20 02:50:51 : 254861 steps taken, and 20352 accepted.
+[mcmc] Progress @ 2026-07-20 02:55:51 : 255243 steps taken, and 20381 accepted.
+[mcmc] Progress @ 2026-07-20 03:00:52 : 255625 steps taken, and 20420 accepted.
+[mcmc] Progress @ 2026-07-20 03:05:52 : 256009 steps taken, and 20456 accepted.
+[mcmc] Learn + convergence test @ 20480 samples accepted.
+[mcmc]  - Acceptance rate: 0.078
+[mcmc]  - Convergence of means: R-1 = 8.157657 after 16384 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-20 03:10:53 : 256392 steps taken, and 20484 accepted.
+[mcmc] Progress @ 2026-07-20 03:15:54 : 256776 steps taken, and 20521 accepted.
+[mcmc] Progress @ 2026-07-20 03:20:54 : 257158 steps taken, and 20552 accepted.
+[mcmc] Progress @ 2026-07-20 03:25:55 : 257543 steps taken, and 20581 accepted.
+[mcmc] Progress @ 2026-07-20 03:30:55 : 257926 steps taken, and 20617 accepted.
+[mcmc] Progress @ 2026-07-20 03:35:55 : 258309 steps taken, and 20651 accepted.
+[mcmc] Progress @ 2026-07-20 03:40:56 : 258691 steps taken, and 20680 accepted.
+[mcmc] Progress @ 2026-07-20 03:45:56 : 259073 steps taken, and 20710 accepted.
+[mcmc] Progress @ 2026-07-20 03:50:57 : 259455 steps taken, and 20743 accepted.
+[mcmc] Progress @ 2026-07-20 03:55:58 : 259838 steps taken, and 20777 accepted.
+[mcmc] Learn + convergence test @ 20800 samples accepted.
+[mcmc]  - Acceptance rate: 0.078
+[mcmc]  - Convergence of means: R-1 = 7.934270 after 16640 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-20 04:00:58 : 260220 steps taken, and 20806 accepted.
+[mcmc] Progress @ 2026-07-20 04:05:59 : 260603 steps taken, and 20847 accepted.
+[mcmc] Progress @ 2026-07-20 04:10:59 : 260984 steps taken, and 20880 accepted.
+[mcmc] Progress @ 2026-07-20 04:16:00 : 261367 steps taken, and 20902 accepted.
+[mcmc] Progress @ 2026-07-20 04:21:01 : 261750 steps taken, and 20934 accepted.
+[mcmc] Progress @ 2026-07-20 04:26:01 : 262132 steps taken, and 20961 accepted.
+[mcmc] Progress @ 2026-07-20 04:31:02 : 262516 steps taken, and 20987 accepted.
+[mcmc] Progress @ 2026-07-20 04:36:02 : 262897 steps taken, and 21010 accepted.
+[mcmc] Progress @ 2026-07-20 04:41:03 : 263279 steps taken, and 21051 accepted.
+[mcmc] Progress @ 2026-07-20 04:46:03 : 263662 steps taken, and 21086 accepted.
+[mcmc] Learn + convergence test @ 21120 samples accepted.
+[mcmc]  - Acceptance rate: 0.079
+[mcmc]  - Convergence of means: R-1 = 8.025011 after 16896 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-20 04:51:04 : 264044 steps taken, and 21124 accepted.
+[mcmc] Progress @ 2026-07-20 04:56:04 : 264425 steps taken, and 21155 accepted.
+[mcmc] Progress @ 2026-07-20 05:01:04 : 264807 steps taken, and 21173 accepted.
+[mcmc] Progress @ 2026-07-20 05:06:04 : 265188 steps taken, and 21200 accepted.
+[mcmc] Progress @ 2026-07-20 05:11:04 : 265570 steps taken, and 21224 accepted.
+[mcmc] Progress @ 2026-07-20 05:16:05 : 265953 steps taken, and 21249 accepted.
+[mcmc] Progress @ 2026-07-20 05:21:05 : 266334 steps taken, and 21268 accepted.
+[mcmc] Progress @ 2026-07-20 05:26:06 : 266716 steps taken, and 21301 accepted.
+[mcmc] Progress @ 2026-07-20 05:31:06 : 267098 steps taken, and 21320 accepted.
+[mcmc] Progress @ 2026-07-20 05:36:07 : 267481 steps taken, and 21347 accepted.
+[mcmc] Progress @ 2026-07-20 05:41:07 : 267863 steps taken, and 21381 accepted.
+[mcmc] Progress @ 2026-07-20 05:46:07 : 268245 steps taken, and 21417 accepted.
+[mcmc] Learn + convergence test @ 21440 samples accepted.
+[mcmc]  - Acceptance rate: 0.078
+[mcmc]  - Convergence of means: R-1 = 7.651190 after 17152 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-20 05:51:08 : 268627 steps taken, and 21458 accepted.
+[mcmc] Progress @ 2026-07-20 05:56:08 : 269010 steps taken, and 21489 accepted.
+[mcmc] Progress @ 2026-07-20 06:01:08 : 269393 steps taken, and 21523 accepted.
+[mcmc] Progress @ 2026-07-20 06:06:09 : 269773 steps taken, and 21551 accepted.
+[mcmc] Progress @ 2026-07-20 06:11:10 : 270156 steps taken, and 21594 accepted.
+[mcmc] Progress @ 2026-07-20 06:16:10 : 270538 steps taken, and 21626 accepted.
+[mcmc] Progress @ 2026-07-20 06:21:11 : 270922 steps taken, and 21659 accepted.
+[mcmc] Progress @ 2026-07-20 06:26:11 : 271304 steps taken, and 21685 accepted.
+[mcmc] Progress @ 2026-07-20 06:31:11 : 271685 steps taken, and 21717 accepted.
+[mcmc] Progress @ 2026-07-20 06:36:11 : 272068 steps taken, and 21742 accepted.
+[mcmc] Learn + convergence test @ 21760 samples accepted.
+[mcmc]  - Acceptance rate: 0.079
+[mcmc]  - Convergence of means: R-1 = 6.905383 after 17408 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-20 06:41:12 : 272450 steps taken, and 21764 accepted.
+[mcmc] Progress @ 2026-07-20 06:46:12 : 272832 steps taken, and 21799 accepted.
+[mcmc] Progress @ 2026-07-20 06:51:13 : 273214 steps taken, and 21833 accepted.
+[mcmc] Progress @ 2026-07-20 06:56:13 : 273596 steps taken, and 21860 accepted.
+[mcmc] Progress @ 2026-07-20 07:01:13 : 273979 steps taken, and 21882 accepted.
+[mcmc] Progress @ 2026-07-20 07:06:14 : 274360 steps taken, and 21913 accepted.
+[mcmc] Progress @ 2026-07-20 07:11:14 : 274741 steps taken, and 21940 accepted.
+[mcmc] Progress @ 2026-07-20 07:16:15 : 275124 steps taken, and 21978 accepted.
+[mcmc] Progress @ 2026-07-20 07:21:15 : 275507 steps taken, and 22019 accepted.
+[mcmc] Progress @ 2026-07-20 07:26:15 : 275888 steps taken, and 22042 accepted.
+[mcmc] Progress @ 2026-07-20 07:31:16 : 276270 steps taken, and 22076 accepted.
+[mcmc] Learn + convergence test @ 22080 samples accepted.
+[mcmc]  - Acceptance rate: 0.079
+[mcmc]  - Convergence of means: R-1 = 6.517662 after 17664 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-20 07:36:17 : 276652 steps taken, and 22103 accepted.
+[mcmc] Progress @ 2026-07-20 07:41:17 : 277035 steps taken, and 22134 accepted.
+[mcmc] Progress @ 2026-07-20 07:46:17 : 277417 steps taken, and 22160 accepted.
+[mcmc] Progress @ 2026-07-20 07:51:17 : 277799 steps taken, and 22181 accepted.
+[mcmc] Progress @ 2026-07-20 07:56:17 : 278182 steps taken, and 22197 accepted.
+[mcmc] Progress @ 2026-07-20 08:01:18 : 278564 steps taken, and 22222 accepted.
+[mcmc] Progress @ 2026-07-20 08:06:18 : 278947 steps taken, and 22245 accepted.
+[mcmc] Progress @ 2026-07-20 08:11:18 : 279329 steps taken, and 22272 accepted.
+[mcmc] Progress @ 2026-07-20 08:16:18 : 279711 steps taken, and 22303 accepted.
+[mcmc] Progress @ 2026-07-20 08:21:18 : 280095 steps taken, and 22331 accepted.
+[mcmc] Progress @ 2026-07-20 08:26:18 : 280478 steps taken, and 22358 accepted.
+[mcmc] Progress @ 2026-07-20 08:31:19 : 280860 steps taken, and 22380 accepted.
+[mcmc] Learn + convergence test @ 22400 samples accepted.
+[mcmc]  - Acceptance rate: 0.078
+[mcmc]  - Convergence of means: R-1 = 6.457856 after 17920 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-20 08:36:19 : 281242 steps taken, and 22409 accepted.
+[mcmc] Progress @ 2026-07-20 08:41:19 : 281624 steps taken, and 22444 accepted.
+[mcmc] Progress @ 2026-07-20 08:46:20 : 282006 steps taken, and 22476 accepted.
+[mcmc] Progress @ 2026-07-20 08:51:20 : 282389 steps taken, and 22506 accepted.
+[mcmc] Progress @ 2026-07-20 08:56:21 : 282775 steps taken, and 22543 accepted.
+[mcmc] Progress @ 2026-07-20 09:01:21 : 283159 steps taken, and 22572 accepted.
+[mcmc] Progress @ 2026-07-20 09:06:22 : 283543 steps taken, and 22596 accepted.
+[mcmc] Progress @ 2026-07-20 09:11:22 : 283927 steps taken, and 22628 accepted.
+[mcmc] Progress @ 2026-07-20 09:16:22 : 284311 steps taken, and 22659 accepted.
+[mcmc] Progress @ 2026-07-20 09:21:22 : 284692 steps taken, and 22686 accepted.
+[mcmc] Learn + convergence test @ 22720 samples accepted.
+[mcmc]  - Acceptance rate: 0.078
+[mcmc]  - Convergence of means: R-1 = 6.218983 after 18176 accepted steps
+[mcmc] Convergence less than requested for updates: waiting until the next convergence check.
+[mcmc] Progress @ 2026-07-20 09:26:23 : 285074 steps taken, and 22724 accepted.
+[mcmc] Progress @ 2026-07-20 09:31:23 : 285456 steps taken, and 22750 accepted.
+[mcmc] Progress @ 2026-07-20 09:36:23 : 285838 steps taken, and 22780 accepted.
+[mcmc] Progress @ 2026-07-20 09:41:24 : 286221 steps taken, and 22824 accepted.
+[mcmc] Progress @ 2026-07-20 09:46:24 : 286603 steps taken, and 22853 accepted.
+[mcmc] Progress @ 2026-07-20 09:51:25 : 286985 steps taken, and 22885 accepted.

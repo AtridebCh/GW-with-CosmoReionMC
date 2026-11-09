@@ -1,0 +1,46 @@
+likelihood:
+  cobayaLikelihood.ReionLikelihood:
+    python_path: /dataserver/users/achatterjee/GW_with_CosmoReionMC/mcmc/MCMC_sampler
+    include_planck: true
+    include_gw: true
+    include_21cm: true
+    lyman_limit_datafile: /Users/users/achatterjee/Data/GW_with_CosmoReionMC/ReionizationWithF2Py/ObsData/Lyman_limit.dat
+    gamma_datafile: /Users/users/achatterjee/Data/GW_with_CosmoReionMC/ReionizationWithF2Py/ObsData/gamma_data_all_combined.dat
+    T_b_Datafile: /Users/users/achatterjee/Data/GW_with_CosmoReionMC/global_21cm_signal/brightness_temp.txt
+params:
+  hubble:
+    value: 67.266
+  ombh2:
+    value: 0.022374
+  omch2:
+    value: 0.1206109
+  As:
+    value: 2.112747e-09
+  ns:
+    value: 0.9655997
+  f_zero:
+    value: -0.44
+  alpha_lo:
+    value: 0.0
+  alpha_hi:
+    value: 0.0
+  alpha_z:
+    value: 0.0
+  log_esc_II:
+    value: -1.79
+  lambda0:
+    value: 5.56
+  log_f_X:
+    value: -0.69
+  log_f_alpha:
+    value: 0.0
+  Q_HII_at_z5p8:
+    derived: true
+  tau:
+    derived: true
+sampler:
+  evaluate: null
+derived:
+  tau: null
+  Q_HII_at_z5p8: null
+output: cobaya_test

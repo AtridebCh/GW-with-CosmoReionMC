@@ -13,10 +13,10 @@ plt.rcParams['font.size'] = 10
 
 file_root = 'test_MCMC'
 
-data_dir = '/home/atri/GW_with_CosmoReionMC/mcmc/MCMC_sampler/chain_storage/test_run25_05_2026/'
+data_dir = '/Users/users/achatterjee/Data/GW_with_CosmoReionMC/mcmc/MCMC_sampler/chain_storage/run_with_merger_rate/'
 
 burnin = 0.3        # fraction or integer
-nwalkers = 60
+nwalkers = 52
 
 
 # ============================================================
@@ -61,7 +61,7 @@ for k in range(nwalkers):
 
     chains[k, :, :] = all_data.T[:mcmc_steps, 2:ndim+2]
 
-
+print('shape of the chains', chains.shape)
 print("Number of walkers =", nwalkers)
 print("Number of dimensions =", ndim)
 print("Total MCMC steps =", mcmc_steps)
@@ -103,9 +103,10 @@ taus = []
 for j in range(ndim):
 
     try:
+        chain_j = chains[:, burnin:, j].T
 
         tau = emcee.autocorr.integrated_time(
-            chains[:, burnin:, j],
+            chain_j,
             quiet=True
         )
 
@@ -229,8 +230,6 @@ for j in range(ndim):
 
         ax.plot(
             chains[i, :, j],
-            alpha=0.3,
-            lw=0.5
         )
 
     ax.axvline(
@@ -266,8 +265,6 @@ for i in range(nwalkers):
 
     plt.plot(
         lnprob[i],
-        alpha=0.3,
-        lw=0.5
     )
 
 plt.axvline(

@@ -14,7 +14,7 @@ from utils import getLogger
 class MCMCsampler():
 
     def __init__(self, params, likelihoodComputation, filePrefix, chain_storage_path, fileroot,
-                 walkersRatio, sampleIterations, n_cores=1, logLevel=logging.INFO):
+                 walkersRatio, sampleIterations, n_cores=1, backend = None, logLevel=logging.INFO):
         """
         MCMC sampler implementation.
 
@@ -41,6 +41,7 @@ class MCMCsampler():
         self.paramCount                  = len(self.paramValues)
         self.nwalkers                    = self.paramCount * walkersRatio
         self.sampleIterations            = sampleIterations
+        self.backend                     = backend
 
         if not hasattr(self.likelihoodComputationChain, "params"):
             self.likelihoodComputationChain.params = params
@@ -69,7 +70,7 @@ class MCMCsampler():
         self.log("start sampling — no burn-in. Remove burn-in steps when producing corner plots.")
         self.log(f"Using {self.n_cores} core(s).")
         start = time.time()
-        
+
         if self.n_cores > 1:
             with Pool(processes=self.n_cores) as pool:
                 sampler = self.createEmceeSampler(pool=pool)
@@ -90,15 +91,25 @@ class MCMCsampler():
         pool=None  → serial execution
         pool=Pool  → parallel execution via multiprocessing
         """
-        return emcee.EnsembleSampler(
+        if self.backend is not None:
+
+            return emcee.EnsembleSampler(
             self.nwalkers,
             self.paramCount,
             self.likelihoodComputationChain,
-            pool=pool,
-        )
+            pool=pool, 
+            backend=self.backend)
+
+        else:
+            return emcee.EnsembleSampler(
+            self.nwalkers,
+            self.paramCount,
+            self.likelihoodComputationChain,
+            pool=pool)
 
     # ------------------------------------------------------------------
-
+    
+    '''
     def sample(self, sampler, InitPos):
         """
         Run the MCMC sampler and save chain to disk every save_steps iterations.
@@ -117,12 +128,11 @@ class MCMCsampler():
         counter          = 1
         save_steps       = 10
 
-        for pos, prob, stat, blobs in sampler.sample(InitPos, iterations=self.sampleIterations):
+        for pos, prob, stat, blobs in sampler.sample(InitPos, iterations = self.sampleIterations):
             chain_arr[:, step_index, :] = pos
             lnprob_arr[:, step_index]   = prob
             blobs_arr[:, step_index]    = np.asarray(blobs)
             step_index += 1
-            
 
             if np.remainder(step_index, save_steps) == 0:
                 for k in range(self.nwalkers):
@@ -144,6 +154,28 @@ class MCMCsampler():
                 self.log("Iteration finished with total sample Number " + str(counter * self.nwalkers) + '\n')
 
             counter += 1
+    '''
+    
+    def sample(self, sampler, InitPos):
+        completed = self.backend.iteration
+
+        if completed == 0:
+            self.backend.reset(self.nwalkers, self.paramCount)
+            start_state = InitPos
+        else:
+            self.log(f"Completed step before this run {completed}")
+            print(f"Completed step before this run {completed}")
+            start_state = self.backend.get_last_sample()      # Resume from backend
+
+        
+        remaining = self.sampleIterations - completed
+
+        for state in sampler.sample(start_state,
+                            iterations=remaining):
+
+            if sampler.iteration % 10 == 0:
+                self.log(
+                         f"Completed {sampler.iteration}/{self.sampleIterations} iterations")
 
     # ------------------------------------------------------------------
 

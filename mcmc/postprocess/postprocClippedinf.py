@@ -5,9 +5,9 @@ import os
 file_root = 'test_MCMC'
 burnin = 0.3
 #data_dir = '/home/atridebchatterjee/reion_GPR/chain_storage/chains_Aug18/'
-data_dir='/home/atri/GW_with_CosmoReionMC/mcmc/MCMC_sampler/chain_storage/test_run25_05_2026/'
+data_dir='/Users/users/achatterjee/Data/GW_with_CosmoReionMC/mcmc/MCMC_sampler/chain_storage/run_with_merger_rate/'
 
-infclip_dir=os.makedirs('./test_run25_05_2026_Infclipped', exist_ok=True)
+infclip_dir=os.makedirs('./run_with_merger_rate_Infclipped/', exist_ok=True)
 
 paramname_file = data_dir + file_root+ '.paramnames'
 with open(paramname_file) as f:
@@ -18,7 +18,7 @@ with open(paramname_file) as f:
 #param_latex_name_arr=['$H_{0}$', '$\\Omega_b\\,h^2$','$\\Omega_c\\,h^2$','$A_s$','$n_s$','$f^{II}_{esc}$', '$\\lambda_{0}$', '$m_{x}$', '$\\tau$', '$\sigma_8$']
 
 ndim=int(len(param_name_arr))
-nwalkers=60
+nwalkers=52
 
 
 for k in range(nwalkers):
@@ -44,21 +44,24 @@ samples = chains[:, :, :]
 chains_2d=samples.reshape(-1,ndim)
 lnprob_flat=lnprob.flatten()
 
+
 print(len(lnprob_flat))
 
 print ('best-fit likelihood = ', np.min(lnprob_flat))
-param_best = chains_2d[np.argmax(lnprob_flat),:]
 
-print(param_best)
 
 index=np.logical_not(np.isinf(lnprob_flat))
 
 lnprobInfClipped=lnprob_flat[index]
-
+'''
+print ('best-fit likelihood = ', np.max(lnprobInfClipped))
+param_best = chains_2d[np.argmax(lnprobInfClipped),:]
+print(param_best)
+'''
 #print(chains_2d.shape, len(lnprob_flat))
 chains_2d=chains_2d[index,:]
 
-np.savetxt('./test_run25_05_2026_Infclipped/Infclipped.txt', np.c_[np.ones(len(lnprobInfClipped)), lnprobInfClipped, chains_2d[:,] ], fmt='%1.4e')
+np.savetxt('./run_with_merger_rate_Infclipped/Infclipped.txt', np.c_[np.ones(len(lnprobInfClipped)), lnprobInfClipped, chains_2d[:,] ], fmt='%1.4e')
 
 '''
 import corner

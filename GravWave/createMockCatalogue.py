@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 # Reionization model — Fortran f2py compiled module
 # change the path
 # ---------------------------------------------------------------------------
-sys.path.append('../ReionizationWithF2Py/python_dir')
+sys.path.append('/Users/users/achatterjee/Data/GW_with_CosmoReionMC/ReionizationWithF2Py/python_dir')
 import reion_f as f
 from reion_f import run_model
 
@@ -29,38 +29,31 @@ Z_reion = np.array([ik * (-abs(dz)) + zstart for ik in range(Z_arraySize + 1)])
 # ---------------------------------------------------------------------------
 # Run reionization model once at fiducial parameters
 # ---------------------------------------------------------------------------
-fzero    = 0.17, #0.07
-alpha_lo = 0.65, 
-alpha_hi = 1.1,
+fzero    = 10**(-0.43567402)
+alpha_lo = 0.0 
+alpha_hi = 0.0
 
-# Chatterjee. 2026; fzero    = 0.16, alpha_lo = 0.65, alpha_hi = 0.9, esc_popii = 0.2; works in new method
 (Z_reion, QH_Q, dNLLdz, gamma_PI, 
          sfr_popII, sfr_popIII,
          dvc_dz, D_L, age_Gyr,
-         tau_factor, omega_dyn, omega_de, ierr
+         tau_factor, ndot_H, ierr
             ) = run_model(
-                h0     = 6.811000e+01,
-                ombh2  = 2.260000e-02,
-                omch2  = 1.179535e-01,
-                ns     = 9.600000e-01,
+                h0     = 6.7380389E+01,
+                ombh2  = 2.2358184E-02,
+                omch2  = 1.1992849E-01,
+                ns     = 9.6480108E-01,
                 sigma_8= 0.8159,
-                omega_zero = -1.0,
-                omega_a   = 0.0,
                 fzero    = fzero, 
                 alpha_lo = alpha_lo, 
                 alpha_hi = alpha_hi,
-                alpha_z  = 1e-05,
-                esc_popii = 0.3,
-                lambda0= 3.36,
+                alpha_z  = 0.0,
+                esc_popii = 10**(-1.7893972),
+                lambda0= 5.5645855E+00,
                 zstart_in=zstart,
                 zend_in=zend,
                 dz_in=dz,
                 z_arraysize = Z_arraySize
             )
-
-print(f"sfr_popII  range: {sfr_popII.min():.3e} – {sfr_popII.max():.3e}")
-print(f"lumdist    range: {D_L.min():.3e} – {D_L.max():.3e}")
-print(f"dvc_dz     range: {dvc_dz.min():.3e} – {dvc_dz.max():.3e}")
 
 
 t_to_z_interp = interp1d(age_Gyr, Z_reion, fill_value   = 'extrapolate')
@@ -119,7 +112,8 @@ zf_grid = np.where(
     0.0
 )
 
-dzf_dtf = hubble_gyr(zf_grid, 6.711000e+01, 2.260000e-02, 1.179535e-01) / (1.0 + zf_grid) / 1e9 #needs to be replaced by best fit value of cmb parameters
+dzf_dtf = hubble_gyr(zf_grid, 6.726630e+01, 2.234821e-02, 1.206109e-01) / (1.0 + zf_grid) / 1e9
+
 
 script_R_unnorm = np.where(
     valid_grid,
@@ -296,6 +290,7 @@ while len(catalogue) < N_events:
 
     catalogue.append({
         "z_true":            z,
+        "R_true":      float(np.interp(z, z_grid, R_z)),   # fiducial R(z_true)
         "injection":         injection_parameters, 
         "snr":               snr,
         "sigma_DL":          sigma_DL,

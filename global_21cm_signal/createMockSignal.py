@@ -15,7 +15,7 @@ np.random.seed(42)
 # Reionization model — Fortran f2py compiled module
 # change the path
 # ---------------------------------------------------------------------------
-sys.path.append('../ReionizationWithF2Py/python_dir')
+sys.path.append('/Users/users/achatterjee/Data/GW_with_CosmoReionMC/ReionizationWithF2Py/python_dir')
 import reion_f as f
 from reion_f import run_model
 
@@ -25,45 +25,42 @@ from reion_f import run_model
 zstart, zend, dz = 30.0, 0.0, 0.2
 Z_arraySize = int(round(abs((zend - zstart) / dz)))
 
-
 # ---------------------------------------------------------------------------
 # Run reionization model once at fiducial parameters
 # ---------------------------------------------------------------------------
+fzero    = 10**(-0.43567402)
+alpha_lo = 0.0
+alpha_hi = 0.0
 
-fzero    = 0.17, #0.07
-alpha_lo = 0.65, 
-alpha_hi = 1.1,
-
-# Chatterjee. 2026; fzero    = 0.16, alpha_lo = 0.65, alpha_hi = 0.9, esc_popii = 0.2; works in new method
-(Z_reion, QH_Q, dNLLdz, gamma_PI, 
+(Z_reion, QH_Q, dNLLdz, gamma_PI,
          sfr_popII, sfr_popIII,
          dvc_dz, D_L, age_Gyr,
-         tau_factor, omega_dyn, omega_de, ierr
+         tau_factor, ndot_H, ierr
             ) = run_model(
-                h0     = 6.811000e+01,
-                ombh2  = 2.260000e-02,
-                omch2  = 1.179535e-01,
-                ns     = 9.600000e-01,
+                h0     = 6.7380389E+01,
+                ombh2  = 2.2358184E-02,
+                omch2  = 1.1992849E-01,
+                ns     = 9.6480108E-01,
                 sigma_8= 0.8159,
-                omega_zero = -1.0,
-                omega_a   = 0.0,
-                fzero    = fzero, 
-                alpha_lo = alpha_lo, 
+                fzero    = fzero,
+                alpha_lo = alpha_lo,
                 alpha_hi = alpha_hi,
-                alpha_z  = 1e-05,
-                esc_popii = 0.3,
-                lambda0= 3.36,
+                alpha_z  = 0.0,
+                esc_popii = 10**(-1.7893972),
+                lambda0= 5.5645855E+00,
                 zstart_in=zstart,
                 zend_in=zend,
                 dz_in=dz,
                 z_arraysize = Z_arraySize
             )
 
+
+
 n_alpha_per_solar_mass = 9690*(1.12*1e57) #Furlanetto 06 provides N_alpha=9690 per unit baryon, multiplied by (M_Sun/M_p)
 const_epsilon_x = 3.4*1e40 #chatterjee+ 19 in CGS
 
-f_X     = 0.2
-f_alpha = 1.0
+f_X     = np.log10(0.2)
+f_alpha = np.log10(1.0)
 
 Z_21cm = np.linspace(25.0, 6.0, 1000)
 
@@ -73,13 +70,14 @@ Z_21cm = np.linspace(25.0, 6.0, 1000)
 logEps_X     = np.log10(np.maximum(const_epsilon_x*sfr_popII, 1e-03)) #in erg/sec/mpc^3
 lognDotAlpha = np.log10(np.maximum(n_alpha_per_solar_mass*sfr_popII/YR_TO_SEC, 1e-03)) #/sec/mpc^3
 
-signal_setup = Generate21cmSignal(6.811000e+01, 2.260000e-02, 1.179535e-01, Z_reion,
+signal_setup = Generate21cmSignal(6.7380389E+01, 2.2358184E-02, 1.1992849E-01, Z_reion,
                  logEps_X, lognDotAlpha, QH_Q, Z_21cm, f_X, f_alpha)
 T_b          = signal_setup.signal_generator()
 
 T_b += np.random.normal(0, 10.0, size=T_b.shape)   # adding 10 mK noise
 
 plt.plot(Z_21cm, T_b)
+plt.savefig('21cmSignalMock.pdf')
 plt.show()
 
 
