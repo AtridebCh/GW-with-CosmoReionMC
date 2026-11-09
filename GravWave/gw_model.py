@@ -120,11 +120,13 @@ class GWModel:
 
             # script_R(z_m) = Psi(z_f) * dz_f/dt_f  — Eq 11
             script_R_unnorm = np.where(valid_grid, 10**_sfrd_interp(zf_grid) * dzf_dtf, 0.0)
+            
             # --- Normalise: script_R(z_m=4.822) = 20 Gpc^-3 yr^-1 ---
             script_R_at_4822 = interp1d(self.z_grid_gw, script_R_unnorm,
                                         bounds_error=False,
                                         fill_value='extrapolate')(4.822)
             norm             = 20.0 / script_R_at_4822
+            #print(f'norm from gw_model {norm}')
             
             # --- Observer-frame merger rate — Eq 10 ---
             DL_grid  = DL_interp(self.z_grid_gw)                          # D_L at merger z
