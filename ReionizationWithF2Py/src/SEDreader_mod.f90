@@ -4,6 +4,7 @@ module SEDreader_mod
   use state_mod,     only: lumsource_t, ionsource_t
   use variables_mod, only: dnphotdm, sigma_PH, sigma_PI, ifprint, Pop3IMF
   use crossSection_mod !sigma_HI(nu), sigma_HeII(nu), etc
+  use file_paths
   implicit none
   private
   public :: get_SED
@@ -24,9 +25,10 @@ contains
                          lumsource_t(0.0_dp, 0.0_dp, 0.0_dp), &
                          lumsource_t(0.0_dp, 0.0_dp, 0.0_dp))
 
-    call get_stellar_SED("/Users/users/achatterjee/Data/GW_with_CosmoReionMC/ReionizationWithF2Py/SpecData/dndm_PopII_salpeter_Z0.004", dndm2, sPI2, sPH2)
-    call get_stellar_SED("/Users/users/achatterjee/Data/GW_with_CosmoReionMC/ReionizationWithF2Py/SpecData/dndm_PopIII_" // trim(Pop3IMF) // "_star", dndm3, sPI3, sPH3)
-
+    if (len_trim(spec_data_dir) == 0) stop 'set_data_paths was not called'
+    call get_stellar_SED(trim(spec_data_dir) // "/dndm_PopII_salpeter_Z0.004", dndm2, sPI2, sPH2)
+    call get_stellar_SED(trim(spec_data_dir) // "/dndm_PopIII_" // trim(Pop3IMF) // "_star", dndm3, sPI3, sPH3)
+    
     dnphotdm%pop2 = dndm2;  sigma_PI%pop2 = sPI2;  sigma_PH%pop2 = sPH2
     dnphotdm%pop3 = dndm3;  sigma_PI%pop3 = sPI3;  sigma_PH%pop3 = sPH3
 

@@ -146,3 +146,12 @@ subroutine get_sfe(m_arr, nm, fzero, alpha_lo, alpha_hi, sfe_out, ierr)
   end do
 end subroutine get_sfe
 
+subroutine set_data_paths(spec_dir)
+  use file_paths, only: spec_data_dir
+  implicit none
+
+  ! inputs
+  character(len=*), intent(in) :: spec_dir
+
+  spec_data_dir = spec_dir
+end subroutine set_data_paths

@@ -2,9 +2,15 @@ import numpy as np
 import matplotlib.pyplot as plt
 #from colossus.cosmology import cosmology
 #from colossus.lss import mass_function
+from project_paths import add_code_dirs_to_syspath, REIONIZATION_SPEC_DIR
+add_code_dirs_to_syspath()
 
 import reion_f as f
+
 from reion_f import run_model, run_dndm, get_sfe
+
+f.set_data_paths(str(REIONIZATION_SPEC_DIR))
+
 
 zstart, zend, dz = 30.0, 0.0, 0.2
 Z_arraySize = int(round(abs((zend - zstart) / dz)))
@@ -41,11 +47,9 @@ alpha_hi = 0.0 #0.14,
 if ierr != 0:
     raise RuntimeError("filling() failed")
     
-print(ndot_H)
 
 idx_z5p8      = np.argmin(np.abs(Z - 5.8))
 Q_HII_at_z5p8 = QH_Q[idx_z5p8]
-print(Q_HII_at_z5p8)
 
 '''
 # Mass array and single redshift

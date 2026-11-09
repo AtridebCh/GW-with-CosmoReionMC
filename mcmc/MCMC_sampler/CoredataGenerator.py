@@ -10,17 +10,19 @@ filterwarnings('ignore')
 
 import camb
 
-# we have checked that importing outside is not creating any problem
-sys.path.append('/Users/users/achatterjee/Data/GW_with_CosmoReionMC/ReionizationWithF2Py/python_dir') #/home/atri/GW_with_CosmoReionMC/ReionizationWithF2Py/python_dir
+from project_paths import add_code_dirs_to_syspath, REIONIZATION_SPEC_DIR
+add_code_dirs_to_syspath()
+
+
+from gw_model import GWModel
 import reion_f as f
 from reion_f import run_model, run_dndm, get_sfe
 
-sys.path.append('/Users/users/achatterjee/Data/GW_with_CosmoReionMC/GravWave')
-from gw_model import GWModel
+f.set_data_paths(str(REIONIZATION_SPEC_DIR))
 
 
-sys.path.append('/Users/users/achatterjee/Data/GW_with_CosmoReionMC/global_21cm_signal')
 from brightnessTemp import Generate21cmSignal
+
 
 YR_TO_SEC    = 3.1557e+07       # yr/s
 

@@ -31,6 +31,7 @@ from scipy.stats import binned_statistic
 import matplotlib.pyplot as plt
 from scipy.interpolate import interp1d
 
+from project_paths import CATALOGUE_DIR
 
 class GWLikelihood:
     """
@@ -45,9 +46,9 @@ class GWLikelihood:
     def __init__(
         self,
         #change path
-        catalogue_path = "/Users/users/achatterjee/Data/GW_with_CosmoReionMC/GravWave/CE_mock_catalog_13274_events_without_snr_noisy_sigmaD_x0.25_seed65.pkl", #"/Users/users/achatterjee/Data/GW_with_CosmoReionMC/GravWave/CE_mock_catalog_6636_events_with_snr_8_test.pkl", #  "/Users/users/achatterjee/Data/GW_with_CosmoReionMC/GravWave/CE_mock_catalog_6591_events_without_snr.pkl",
+        catalogue_path = CATALOGUE_DIR / "CE_mock_catalog_13274_events_without_snr_noisy_sigmaD_x0.25_seed65.pkl", #"/Users/users/achatterjee/Data/GW_with_CosmoReionMC/GravWave/CE_mock_catalog_6636_events_with_snr_8_test.pkl", #  "/Users/users/achatterjee/Data/GW_with_CosmoReionMC/GravWave/CE_mock_catalog_6591_events_without_snr.pkl",
         #catalogue_path = "/Users/users/achatterjee/Data/GW_with_CosmoReionMC/GravWave/CE_mock_catalog_100_events_with_snr_8.pkl",
-        pdet_path = "/Users/users/achatterjee/Data/GW_with_CosmoReionMC/GravWave/selection_function_p_det.pkl",
+        pdet_path = CATALOGUE_DIR / "selection_function_p_det.pkl",
     ):
         self.catalogue_path = catalogue_path
         self.p_det_path = pdet_path

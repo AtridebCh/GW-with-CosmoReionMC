@@ -1,7 +1,9 @@
 import sys
 import os
-import numpy as np
+from pathlib import Path
 import logging
+
+import numpy as np
 import matplotlib.pyplot as plt
 from scipy import interpolate
 from copy import deepcopy
@@ -12,10 +14,10 @@ from CoredataGenerator import CoreModule
 from ChainContext import ChainContext
 from utils import getLogger
 
-# GW likelihood path, change this path
-sys.path.append('/Users/users/achatterjee/Data/GW_with_CosmoReionMC/GravWave')
-from gw_likelihood import GWLikelihood
+from project_paths import add_code_dirs_to_syspath, CLIK_COMMANDER_LOWL_TT, CLIK_SIMALL_LOWL_EE, CLIK_PLIK_LITE_TTTEEE
+add_code_dirs_to_syspath()
 
+from gw_likelihood import GWLikelihood
 
 _CLIK_CACHE = {}
 
@@ -132,12 +134,13 @@ class Likelihood:
                         if flag:
                             tcl = np.append(cl01, cls[j][:lmax[j]-1])
                             input = np.append(input, tcl)
-                    if self.clik_files[i]=='/Users/users/achatterjee/Data/GW_with_CosmoReionMC/COM_Likelihood_Data-baseline_R3.00/baseline/plc_3.0/low_l/commander/commander_dx12_v3_2_29.clik':
-                        nuisense=[1.0]
-                    if self.clik_files[i]=='/Users/users/achatterjee/Data/GW_with_CosmoReionMC/COM_Likelihood_Data-baseline_R3.00/baseline/plc_3.0/hi_l/plik_lite/plik_lite_v22_TTTEEE.clik':
-                        nuisense=[1.0]
-                    if self.clik_files[i]=='/Users/users/achatterjee/Data/GW_with_CosmoReionMC/COM_Likelihood_Data-baseline_R3.00/baseline/plc_3.0/low_l/simall/simall_100x143_offlike5_EE_Aplanck_B.clik':                   
-                        nuisense=[1.0] 
+                        
+                    if Path(self.clik_files[i]).resolve() == CLIK_COMMANDER_LOWL_TT:
+                        nuisense = [1.0]
+                    if Path(self.clik_files[i]).resolve() == CLIK_PLIK_LITE_TTTEEE:
+                        nuisense = [1.0]
+                    if Path(self.clik_files[i]).resolve() == CLIK_SIMALL_LOWL_EE:
+                        nuisense = [1.0]    
                     input = np.hstack([input, nuisense])
                     loglike += l(input) #[0]
             
@@ -286,9 +289,9 @@ class Likelihood:
         
         #change these paths
         self.clik_files = [
-            "/Users/users/achatterjee/Data/GW_with_CosmoReionMC/COM_Likelihood_Data-baseline_R3.00/baseline/plc_3.0/low_l/commander/commander_dx12_v3_2_29.clik",
-            "/Users/users/achatterjee/Data/GW_with_CosmoReionMC/COM_Likelihood_Data-baseline_R3.00/baseline/plc_3.0/low_l/simall/simall_100x143_offlike5_EE_Aplanck_B.clik",
-            "/Users/users/achatterjee/Data/GW_with_CosmoReionMC/COM_Likelihood_Data-baseline_R3.00/baseline/plc_3.0/hi_l/plik_lite/plik_lite_v22_TTTEEE.clik",
+            str(CLIK_COMMANDER_LOWL_TT),
+            str(CLIK_SIMALL_LOWL_EE),
+            str(CLIK_PLIK_LITE_TTTEEE),
         ]
 
         self.Core = CoreModule()

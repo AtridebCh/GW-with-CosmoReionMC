@@ -4,10 +4,11 @@ from utils import Params
 from Likelihood import Likelihood
 from CoredataGenerator import CoreModule
 
- 
-Lymanlimitdatafile = '/Users/users/achatterjee/Data/GW_with_CosmoReionMC/ReionizationWithF2Py/ObsData/Lyman_limit.dat'
-gammadatafile      = '/Users/users/achatterjee/Data/GW_with_CosmoReionMC/ReionizationWithF2Py/ObsData/gamma_data_all_combined.dat'
-T_b_Datafile       = '/Users/users/achatterjee/Data/GW_with_CosmoReionMC/global_21cm_signal/brightness_temp.txt'
+from project_paths import LYMAN_LIMIT_DATA_FILE, GAMMA_DATA_FILE, TB_DATA_FILE
+
+Lymanlimitdatafile = str(LYMAN_LIMIT_DATA_FILE)
+gammadatafile      = str(GAMMA_DATA_FILE)
+T_b_Datafile       = str(TB_DATA_FILE)
 
 '''
 

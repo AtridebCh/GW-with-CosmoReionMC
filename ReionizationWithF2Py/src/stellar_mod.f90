@@ -30,6 +30,7 @@ module stellar_mod
                                dfdnu_ST, generic_dndM, numdenm
   use adaptint_mod,            only: d01amf, d01arf
   use onedspline_mod,          only: spline, splevl
+  
   implicit none
   private
   public :: get_sfr, f_star, get_ionflux, lumfun_integral, sum_dnphotdz, QH

@@ -1,3 +1,13 @@
 mcmc/postprocess/run_with_merger_rate_Infclipped/Infclipped.txt
+ReionizationWithF2Py/reion
 *.log
 *chain*/
+.env
+*.o
+*.so
+*.mod
+*.a
+build/
+__pycache__/
+*.pyc
+*.pkl

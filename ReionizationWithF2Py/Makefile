@@ -16,6 +16,7 @@ PYDIR   = python_dir
 # ===========================================================================
 SRCS =  $(SRCDIR)/kinds_mod.f90                 \
         $(SRCDIR)/constants_mod.f90             \
+        $(SRCDIR)/file_paths.f90                \
         $(SRCDIR)/parameters_mod.f90            \
         $(SRCDIR)/state_mod.f90                 \
         $(SRCDIR)/variables_mod.f90             \
