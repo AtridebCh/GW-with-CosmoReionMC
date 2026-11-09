@@ -1,1 +1,3 @@
 mcmc/postprocess/run_with_merger_rate_Infclipped/Infclipped.txt
+*.log
+*chain*/
