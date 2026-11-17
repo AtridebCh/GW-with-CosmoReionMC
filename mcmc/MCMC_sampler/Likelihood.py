@@ -180,6 +180,7 @@ class Likelihood:
             # ---- GW hyperlikelihood ----
             if self.include_gw:
                 loglike_gw   = self.gw_like.ComputeLikelihood(ctx)
+                #ln_Li, zeta_model = self.gw_like.ComputeLikelihood(ctx, return_term=True)
                 loglike_tot += loglike_gw
                 getLogger().debug(f"ln_L_GW = {loglike_gw:.3f}")
             #----- 21cm liklihood
@@ -194,13 +195,15 @@ class Likelihood:
             if single_run:
                 print('loglike cmb, loglike_reion, loglike_GW, loglike_tot', loglike, loglike_tau+ loglike_lyman + loglike_gamma + loglike_ndot, loglike_gw, loglike_tot)
                 print('tau=', tau)
-                  
+                
+                '''
                 plt.scatter(self.redshift_gamma, self.gamma_log)
                 plt.plot(self.redshift_gamma, gamma_interpolated)
                 plt.xlabel('redshift (z)')
                 plt.ylabel(r'$\Gamma_{PI}$')
                 plt.savefig('Gamma_PI.pdf')
                 plt.show()
+                '''
                 
                 '''
                 plt.scatter(self.lyman_redshift, self.lyman_limit_data)

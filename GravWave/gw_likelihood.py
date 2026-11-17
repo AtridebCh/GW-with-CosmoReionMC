@@ -48,7 +48,7 @@ class GWLikelihood:
         #change path
         catalogue_path = CATALOGUE_DIR / "CE_mock_catalog_13274_events_without_snr_noisy_sigmaD_x0.25_seed65.pkl", #"/Users/users/achatterjee/Data/GW_with_CosmoReionMC/GravWave/CE_mock_catalog_6636_events_with_snr_8_test.pkl", #  "/Users/users/achatterjee/Data/GW_with_CosmoReionMC/GravWave/CE_mock_catalog_6591_events_without_snr.pkl",
         #catalogue_path = "/Users/users/achatterjee/Data/GW_with_CosmoReionMC/GravWave/CE_mock_catalog_100_events_with_snr_8.pkl",
-        pdet_path = CATALOGUE_DIR / "selection_function_p_det.pkl",
+        pdet_path = CATALOGUE_DIR / "selection_function_p_det.pkl"
     ):
         self.catalogue_path = catalogue_path
         self.p_det_path = pdet_path
@@ -112,7 +112,7 @@ class GWLikelihood:
     # Likelihood — reads model outputs from ctx
     # ------------------------------------------------------------------
 
-    def ComputeLikelihood(self, ctx):
+    def ComputeLikelihood(self, ctx, return_term = False):
         """
         Compute ln L_GW from ctx populated by GWModel in CoredataGenerator.
 
@@ -275,5 +275,5 @@ class GWLikelihood:
         #p = R_grid / simpson(R_grid, x=z_grid)
         #print(np.sum(np.log(np.interp(self.z_true, z_grid, p))))
         #return -zeta_model + np.sum(np.log(np.maximum(R_i, 1e-300)) - np.log(dDLdz))
-        return -zeta_model + np.sum(ln_Li) #+np.log(self.T_obs) -self.DL_obs.shape[0]*np.log(zeta) #+ ln_DL
+        return -zeta_model + np.sum(ln_Li)
         #return ln_count + np.sum(ln_Li)

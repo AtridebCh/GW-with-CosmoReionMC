@@ -71,11 +71,7 @@ params = Params(("hubble", [6.7380389E+01, 65, 80, 0.01*(80-65.0)]), #6.726630e+
                 ("lambda0", [5.5645855E+00, 1.0, 12.0, 0.01*(6.0-1.0)]), #4.98 GW does not depend
                 ("log_f_X", [np.log10(0.2), -4.0, 0.0, 0.1]),
                 ("log_f_alpha", [0.0, -1.0, 1.0, 0.01]))
-#5       490.02998       66.954859     0.022302521      0.12140578   2.1155203e-09      0.96220522      0.63408256       -2.077428       7.0204522      0.91200322     0.057762674       -21.77744        -21.77744       1023.6148                              1023.6148                
-#('f_X', [2.00e-01, 0.01, 1.0, 0.001]),#2.00e-1
-#('f_alpha', [1.0e+00, 0.01, 1.0, 0.001]))#1.0
 
-print('params_value', params[:,0])
 
 
 like = Likelihood(CoreModule, min_param = params[:,1], max_param= params[:,2])
@@ -84,3 +80,35 @@ like.setup(gammadatafile, Lymanlimitdatafile, T_b_Datafile)
 
 likelihood, blobs=like(params[:,0], single_run=True)
 print('likelihood=%s, tau=%s, QHII_5point8=%s' %(likelihood, blobs[0], blobs[1]))
+
+
+'''
+param_list = [
+    ("hubble",      [6.7380389E+01, 65, 80, 0.01*(80-65.0)]),
+    ("ombh2",       [2.2358184E-02, 0.01, 0.03, 0.01*(0.03-0.01)]),
+    ("omch2",       [1.1992849E-01, 0.09, 0.2, 0.01*(0.2-0.09)]),
+    ("As",          [2.1208786E-09, 1.8e-9, 2.35e-9, 0.01*(2.35e-09-1.8e-09)]),
+    ("ns",          [9.6480108E-01, 0.8, 1.2, 0.01*(1.2-0.8)]),
+    ("log_f_zero",  [-4.3567402E-01, -4.0, 0.0, 0.1]),
+    ("alpha_lo",    [0.0, 0.0, 1.0, 0.1]),
+    ("alpha_hi",    [0.0, 0.0, 1.0, 0.1]),
+    ("alpha_z",     [0.0, -1.0, 1.0, 0.01]),
+    ("log_esc_II",  [-1.7893972E+00, -4.0, 0.0, 0.1]),
+    ("lambda0",     [5.5645855E+00, 1.0, 12.0, 0.01*(6.0-1.0)]),
+    ("log_f_X",     [np.log10(0.2), -4.0, 0.0, 0.1]),
+    ("log_f_alpha", [0.0, -1.0, 1.0, 0.01]),
+]
+
+h = 0.02 * 4.28e-3 
+
+
+
+param_list_neg = [(n, [e[0] - (h if n == "ns" else 0.0)] + e[1:]) for n, e in param_list]
+params_neg     = Params(*param_list_neg)
+
+print('params_value', params_neg[:,0])
+
+likelihood_neg, blobs = like(params_neg[:, 0], single_run=True)
+
+print('likelihood=%s, tau=%s, QHII_5point8=%s' %(likelihood_neg, blobs[0], blobs[1]))
+'''

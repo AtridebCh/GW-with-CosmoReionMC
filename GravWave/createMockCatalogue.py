@@ -116,7 +116,7 @@ snr_threshold = 8.0
 t_delay = 0.1   # Gyr
 
 
-z_grid = np.linspace(z_min, z_max, 280)
+z_grid = np.linspace(z_min, z_max, 280) #it should have been five hundred as used at the time of running the mcmc (Coredatagenerator.py)
 t_merger_grid = z_to_t_interp(z_grid) 
 t_form_grid   = t_merger_grid - t_delay
 valid_grid    = t_form_grid > 0

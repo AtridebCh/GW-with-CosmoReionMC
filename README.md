@@ -265,6 +265,7 @@ To regenerate or modify run the following code from ReionizationF2py directory:
 | 21cm signal | `global_21cm_signal/` | `createMockSignal.py`  |
 
 Update the file paths inside each script before running.
+we found a bug in this  approch. So the correct way for creating the GW catalogue
 
 ---
 
